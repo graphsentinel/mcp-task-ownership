@@ -117,6 +117,7 @@ Measured with config `v2.1`, 5 runs per placement; every run gave the same outco
 | Part | Stack | Evidence |
 |---|---|---|
 | Table rows P0-OFF … P2-NP, items 1–4 and 7 | reproduced from zero on 2026-10-11 from this repository's committed tree in a fresh Ubuntu 26.04 VM with the pinned versions (k3s v1.37.1, Keycloak 26.8.0, Docker 29.1.3): 5 runs, 405 measurements, all checks passed, also after `scripts/lab.sh reinstall` | [evidence/e2e-multipass/20261011T095813Z-ubuntu26.04](evidence/e2e-multipass/20261011T095813Z-ubuntu26.04) |
+| The quickstart exactly as written | `git clone` of github.com/graphsentinel/mcp-task-ownership (commit `0f8d50f`) in a fresh Ubuntu 26.04 VM, then `platform.sh install`, `platform.sh cluster-up`, `lab.sh all`, nothing copied from another machine: 5 runs, 405 measurements, all checks passed, the same table | [evidence/e2e-clone/20261011T105621Z-ubuntu26.04](evidence/e2e-clone/20261011T105621Z-ubuntu26.04) |
 | Rows P-AGW2995, P-AGW2995-SEAL, item 5 | 5 runs on 2026-10-10 on the earlier stack (k3s v1.31.5, Keycloak 26.7.0; summary and logs included, per-run raw data not); the same outcomes in 1 run on the current stack on 2026-10-11 (`WITH_PR2995=1`) | [evidence/agw-pr2995](evidence/agw-pr2995/README.md), [evidence/e2e-multipass/20261011T053826Z-ubuntu26.04](evidence/e2e-multipass/20261011T053826Z-ubuntu26.04) |
 | Item 6 (T2a, T2b, R-8) | 1 run on the current stack on 2026-10-11 (`FULL=1`); an earlier 5-run measurement on k3s v1.31.5 gave the same outcomes (not included) | [evidence/e2e-multipass/20261011T053826Z-ubuntu26.04](evidence/e2e-multipass/20261011T053826Z-ubuntu26.04) |
 
@@ -312,6 +313,9 @@ When you change one of the `localhost/ai1-*` images, also bump its tag in `scrip
 
 ### Test in a throwaway VM
 
+*For maintainers: checks a commit in a fresh VM before publishing. You do not need this to run the lab; the
+[quickstart](#quickstart) is all a user runs, on their own machine.*
+
 On an Ubuntu host with [multipass](https://canonical.com/multipass) (it uses the standard Ubuntu server cloud image):
 
 ```bash
@@ -378,6 +382,7 @@ lab/k8s/                  Helm chart ai1-lab: namespaces, Keycloak, servers, gat
 lab/k8s/extra/            NetworkPolicy for P2-NP (applied per run)
 lab/run-*.sh              per-placement, drain, key-rotation runners
 evidence/e2e-multipass/   from-zero verification runs in fresh VMs (logs, summaries, raw evidence archives)
+evidence/e2e-clone/       the quickstart as written, from a GitHub clone in a fresh VM
 evidence/agw-pr2995/      agentgateway PR #2995 build and runs
 evidence/i4-repro-*/      released agentgateway v1.6.0: mcp_error repro
 results/, evidence/<run>/ written by your own runs (git-ignored)
