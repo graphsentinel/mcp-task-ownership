@@ -4,6 +4,8 @@ A Kubernetes lab that measures what happens when one authenticated agent uses **
 and where an owner check can be enforced: in the server, in front of an unchanged server, or in a gateway.
 Everything runs on a local k3d cluster and can be reproduced from zero with a few commands ([Quickstart](#quickstart)).
 
+Project page: https://graphsentinel.github.io/mcp-task-ownership/
+
 - [The problem](#the-problem)
 - [The approach: an owner-sealed task handle](#the-approach-an-owner-sealed-task-handle)
 - [What is measured](#what-is-measured)

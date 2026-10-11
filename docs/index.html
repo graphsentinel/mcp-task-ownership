@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCP Task Ownership</title>
+<meta name="description" content="Who owns an MCP task? A Kubernetes lab measuring owner-sealed task handles in the server, a proxy and a gateway.">
+<style>
+:root {
+  --bg: #fbfaf7; --surface: #ffffff; --text: #1d2125; --muted: #5b636b; --line: #e3e0d9;
+  --accent: #0f6b5c; --accent-soft: #e2f1ee; --bad: #a33b2a; --bad-soft: #f8e6e2; --good: #1d6b3a; --good-soft: #e3f2e8;
+  --code-bg: #f1efe9;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171a; --surface: #1b1f23; --text: #e6e3dd; --muted: #a2a9b0; --line: #2d3238;
+    --accent: #5cc4ae; --accent-soft: #17312c; --bad: #f08a76; --bad-soft: #3a211c; --good: #7fd39b; --good-soft: #1a3324;
+    --code-bg: #22272c;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171a; --surface: #1b1f23; --text: #e6e3dd; --muted: #a2a9b0; --line: #2d3238;
+  --accent: #5cc4ae; --accent-soft: #17312c; --bad: #f08a76; --bad-soft: #3a211c; --good: #7fd39b; --good-soft: #1a3324;
+  --code-bg: #22272c;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--accent); }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+pre { background: var(--code-bg); padding: 14px 16px; border-radius: 8px; overflow-x: auto; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+header { border-bottom: 1px solid var(--line); background: var(--surface); }
+header .wrap { padding-top: 56px; padding-bottom: 44px; }
+.kicker { color: var(--accent); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.8rem; margin: 0 0 10px; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.01em; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 46em; margin: 0 0 26px; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-block; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: var(--bg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+section { padding: 48px 0 8px; }
+h2 { font-size: 1.5rem; margin: 0 0 14px; letter-spacing: -0.005em; }
+h3 { font-size: 1.05rem; margin: 22px 0 6px; }
+p { margin: 0 0 14px; }
+.muted { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 18px 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+.card .op { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 600; }
+.card .what { color: var(--muted); font-size: 0.95rem; margin: 4px 0 0; }
+blockquote { margin: 14px 0; padding: 10px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; }
+blockquote p { margin: 0; }
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0; }
+.flow span { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font-size: 0.95rem; }
+.flow .arrow { border: none; background: none; padding: 0 2px; color: var(--muted); }
+.table-scroll { overflow-x: auto; margin: 16px 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 0.95rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+tbody tr:last-child td { border-bottom: none; }
+td.access { color: var(--bad); background: var(--bad-soft); font-weight: 600; }
+td.refused { color: var(--good); background: var(--good-soft); font-weight: 600; }
+td.place { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 600; white-space: nowrap; }
+ol.findings { padding-left: 1.3em; }
+ol.findings li { margin: 0 0 12px; }
+.note { font-size: 0.92rem; color: var(--muted); }
+.evidence li { margin: 0 0 8px; }
+footer { border-top: 1px solid var(--line); margin-top: 56px; padding: 24px 0 40px; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">MCP Tasks · Kubernetes lab</p>
+    <h1>Possession is not permission: who owns an MCP task?</h1>
+    <p class="lede">When one authenticated agent holds another agent's MCP task ID, what can it do, and where can an owner
+      check stop it? This lab measures it on a local Kubernetes cluster, in the server, in front of an unchanged
+      server, and in a gateway.</p>
+    <div class="buttons">
+      <a class="btn primary" href="https://github.com/graphsentinel/mcp-task-ownership">Repository</a>
+      <a class="btn" href="#run">Run it yourself</a>
+      <a class="btn" href="#results">Results</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="problem">
+  <h2>The problem</h2>
+  <p>The MCP Tasks extension (specification <code>2026-07-28</code>) lets a server answer a long <code>tools/call</code>
+    with a task ID. The client then polls it, can cancel it, and can answer a question the task asks along the way.</p>
+  <div class="cards">
+    <div class="card"><div class="op">tasks/get</div><p class="what">read the result: confidentiality</p></div>
+    <div class="card"><div class="op">tasks/cancel</div><p class="what">stop long-running work: availability</p></div>
+    <div class="card"><div class="op">tasks/update</div><p class="what">answer an approval prompt: integrity</p></div>
+  </div>
+  <p>The specification asks for both of these:</p>
+  <blockquote><p>Servers <strong>MUST</strong> perform authentication and authorization checks on each task-related
+    request to ensure that the client has permission to access a task.</p></blockquote>
+  <blockquote><p>A server <strong>MAY</strong> use task IDs as bearer tokens for a server's stored state.</p></blockquote>
+  <p>It defines no way to bind a task to the principal that created it, and sessions, the scope originally planned
+    for this, have been removed from MCP. On a shared MCP server, where several teams' agents run on one cluster, a
+    task ID that leaks through a log, a persisted client store or an agent's context is enough for another team's
+    agent to act on the task.</p>
+  <p class="note">This is not a vulnerability report: bearer task IDs are permitted. Per-owner isolation is a stricter
+    policy that shared deployments may need; the lab measures how and where it can be enforced.</p>
+</section>
+
+<section id="approach">
+  <h2>The approach: a task handle sealed to its owner</h2>
+  <p>MCP already has a rule for an opaque value that a server issues and the client sends back,
+    <code>requestState</code>: if it influences authorization, protect its integrity and bind it to the caller and a
+    short expiry. The lab applies the same rule to task IDs.</p>
+<pre><code>client sees:  v1.&lt;base64url(nonce || AEAD(payload))&gt;
+payload:      {target, upstream task id, owner: {iss, sub, azp}, exp}</code></pre>
+  <ul>
+    <li>The upstream task ID never reaches the client, only the sealed handle does.</li>
+    <li>On every task request the handle is opened and its owner compared with the caller's token. Another owner, a
+      tampered or expired handle and an unknown ID all get the same <code>unknown task</code> error.</li>
+    <li>Any replica holding the key can open a handle; no ownership table is shared between replicas.</li>
+  </ul>
+  <h3>Three places to enforce it</h3>
+  <div class="flow">
+    <span>agent</span><span class="arrow">→</span>
+    <span>gateway <small class="muted">(P-AGW2995-SEAL)</small></span><span class="arrow">→</span>
+    <span>proxy <small class="muted">(P2)</small></span><span class="arrow">→</span>
+    <span>MCP server <small class="muted">(P1)</small></span>
+  </div>
+  <p class="muted">P1: inside the server, around the SDK's task manager. P2: a sealing proxy in front of an unchanged
+    server. P-AGW2995-SEAL: agentgateway built from the open PR #2995 with an ExtMcp processor that seals and opens
+    handles. P0 and P0-OFF (rmcp's own example) and P-AGW (agentgateway v1.6.0) are the baselines without an owner
+    binding.</p>
+</section>
+
+<section id="results">
+  <h2>Results</h2>
+  <p>Agent B uses agent A's task ID. Five runs per placement, every run with the same outcome.</p>
+  <div class="table-scroll">
+  <table>
+    <thead><tr><th>Placement</th><th>B reads</th><th>B cancels</th><th>B answers</th><th>B replays an ID from a log</th><th>Refusal looks like "no such task"</th></tr></thead>
+    <tbody>
+      <tr><td class="place">P0-OFF</td><td class="access">access</td><td class="access">access</td><td>n/a</td><td class="access">access</td><td>no</td></tr>
+      <tr><td class="place">P0</td><td class="access">access</td><td class="access">access</td><td class="access">access</td><td class="access">access</td><td>no</td></tr>
+      <tr><td class="place">P-AGW</td><td class="access">access</td><td class="access">access</td><td class="access">access</td><td class="access">access</td><td>no</td></tr>
+      <tr><td class="place">P-AGW2995</td><td class="access">access</td><td class="access">access</td><td class="access">access</td><td class="access">access</td><td>no</td></tr>
+      <tr><td class="place">P1</td><td class="refused">refused</td><td class="refused">refused</td><td class="refused">refused</td><td class="refused">refused</td><td>yes</td></tr>
+      <tr><td class="place">P2</td><td class="refused">refused</td><td class="refused">refused</td><td class="refused">refused</td><td class="refused">refused</td><td>yes</td></tr>
+      <tr><td class="place">P2-NP</td><td class="refused">refused</td><td>—</td><td>—</td><td class="refused">refused</td><td>—</td></tr>
+      <tr><td class="place">P-AGW2995-SEAL</td><td class="refused">refused</td><td class="refused">refused</td><td class="refused">refused</td><td class="refused">refused</td><td>yes</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <ol class="findings">
+    <li><strong>Without an owner binding, the ID is enough.</strong> With rmcp's own Tasks example (P0-OFF) another
+      caller reads and cancels the task; with an example-style server (P0) it also answers the task's question.</li>
+    <li><strong>A gateway that authorizes methods does not authorize tasks.</strong> agentgateway v1.6.0 refuses
+      anonymous callers and agents outside its policy, but an allowed agent still reaches another agent's task.</li>
+    <li><strong>The sealed handle refuses every cross-tenant operation measured</strong>, in the server, in a proxy and
+      in a gateway, and the refusal is indistinguishable from a task that does not exist.</li>
+    <li><strong>A proxy needs a NetworkPolicy.</strong> Without one, B calls the server directly and bypasses the
+      proxy; with one, the bypass is blocked.</li>
+    <li><strong>The check can live in the gateway</strong> once the gateway runs a processor on <code>tasks/*</code>
+      requests: PR #2995 adds that hook (not merged). Released agentgateway v1.6.0 does not run one there.</li>
+    <li><strong>Token lifetime is a separate matter.</strong> A revoked token keeps working where JWTs are validated
+      locally, until shortly after it expires; introspection sees the revocation at once.</li>
+  </ol>
+  <h3>Kubernetes drain demo</h3>
+  <p>Agent A starts draining a node that runs a <code>payments</code> workload protected by a PodDisruptionBudget, as a
+    task. Agent B obtains the ID. Without a binding (P0, P-AGW), B forces the drain and the PodDisruptionBudget breaks.
+    With P1, B is refused; with P2, B may watch a read-only handle but cannot force the drain.</p>
+  <p class="note">Scope: this lab, with rmcp 3.5.1, agentgateway v1.6.0 and PR #2995 at <code>2bc5d041</code>, Keycloak,
+    and the configurations in the repository. The results say nothing about other SDKs or gateways.</p>
+</section>
+
+<section id="run">
+  <h2>Run it yourself</h2>
+  <p>On Ubuntu 24.04 or 26.04 (4+ CPUs, 12 GB RAM, 40 GB disk). Tools that are already installed are left as they
+    are; Docker and Python come from Ubuntu's own packages.</p>
+<pre><code>git clone https://github.com/graphsentinel/mcp-task-ownership.git &amp;&amp; cd mcp-task-ownership
+scripts/platform.sh install      # Docker, python3; kubectl, k3d, helm only if missing
+scripts/platform.sh cluster-up   # k3d cluster: 1 server, 1 agent, 1 drain-demo node
+scripts/lab.sh all               # build, helm install, run all tests, print the summary</code></pre>
+  <p>On a fresh 8-CPU VM this took about 27 minutes and ended with <code>ALL CHECKS PASSED</code>. The lab can be
+    removed and reinstalled without touching the cluster (<code>scripts/lab.sh reinstall</code>), and installed on an
+    existing cluster with <code>KUBE_CONTEXT</code> and <code>REGISTRY</code>. Details are in the
+    <a href="https://github.com/graphsentinel/mcp-task-ownership#how-to">README</a>.</p>
+</section>
+
+<section id="evidence">
+  <h2>Evidence</h2>
+  <ul class="evidence">
+    <li><a href="https://github.com/graphsentinel/mcp-task-ownership/tree/main/evidence/e2e-clone">The quickstart exactly as written</a>:
+      a GitHub clone in a fresh Ubuntu VM, 5 runs, 405 measurements, all checks passed.</li>
+    <li><a href="https://github.com/graphsentinel/mcp-task-ownership/tree/main/evidence/e2e-multipass">From-zero verification runs</a>:
+      step logs, summaries and raw requests and responses, on Ubuntu 26.04 and 24.04, with and without the
+      agentgateway PR build and the token-lifetime tests.</li>
+    <li><a href="https://github.com/graphsentinel/mcp-task-ownership/tree/main/evidence/agw-pr2995">agentgateway PR #2995</a>:
+      build log and runs of the branch with and without the sealing processor.</li>
+    <li><a href="https://github.com/graphsentinel/mcp-task-ownership/tree/main/lab">Source</a>:
+      task server, rmcp example over HTTP, sealing proxy, ExtMcp processor, test driver and Helm chart.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Apache License 2.0 · <a href="https://github.com/graphsentinel/mcp-task-ownership">github.com/graphsentinel/mcp-task-ownership</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
