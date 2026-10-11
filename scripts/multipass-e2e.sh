@@ -13,6 +13,8 @@ set -euo pipefail
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
 UBUNTU=${UBUNTU:-26.04}; VM=${VM:-ai1-e2e}; CPUS=${CPUS:-8}; MEM=${MEM:-16G}; DISK=${DISK:-60G}
 RUNS=${RUNS:-5}; WITH_PR2995=${WITH_PR2995:-0}; FULL=${FULL:-0}; KEEP=${KEEP:-0}; REINSTALL_CHECK=${REINSTALL_CHECK:-1}
+# the source state is read before this run writes anything into the tree (its own output directory)
+CLEAN=0; [ -z "$(cd "$ROOT" && git status --porcelain 2>/dev/null)" ] && CLEAN=1
 OUT="$ROOT/evidence/e2e-multipass/$(date -u +%Y%m%dT%H%M%SZ)-ubuntu$UBUNTU"; mkdir -p "$OUT"
 log() { printf '\n==> %s\n' "$*" | tee -a "$OUT/host.log"; }
 
@@ -28,7 +30,7 @@ trap cleanup EXIT
 # Source: the committed tree (git archive HEAD) when the working tree is clean, which is exactly what a clone gets.
 # With uncommitted changes the working tree is copied instead (tracked + untracked, not ignored) and recorded as such.
 # evidence/ and presentation/ are not needed to run. Streamed over stdin: the multipass snap cannot read the host's /tmp.
-if [ -z "$(cd "$ROOT" && git status --porcelain)" ]; then
+if [ "$CLEAN" = 1 ]; then
   SRC="committed tree $(cd "$ROOT" && git rev-parse HEAD)"
   pack() { (cd "$ROOT" && git archive --format=tar.gz HEAD -- . ':(exclude)evidence' ':(exclude)presentation'); }
 else
@@ -37,7 +39,7 @@ else
 fi
 log "copy source: $SRC"
 echo "$SRC" > "$OUT/source.txt"
-(cd "$ROOT" && git status --short) >> "$OUT/source.txt"
+[ "$CLEAN" = 1 ] || (cd "$ROOT" && git status --short) >> "$OUT/source.txt"
 pack | multipass exec "$VM" -- bash -c 'mkdir -p ~/ai1 && tar -xzf - -C ~/ai1 && find ~/ai1 -type f | wc -l'
 
 run() { # <log name> <command>: runs in a fresh login shell, so group changes from bootstrap apply
