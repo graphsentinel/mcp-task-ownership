@@ -1,0 +1,96 @@
+
+==> pull docker.io/library/rust:1.99.0-trixie@sha256:6ff07edce8775d0f64be7aba9197229407301bddf2054d62c27b541a6238a181 and docker.io/library/debian:trixie-20261005-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+
+==> task server (P0 / P1)
+    Finished `release` profile [optimized] target(s) in 0.20s
+
+==> sealing proxy (P2)
+warning: method `associated_data` is never used
+  --> src/../../server/src/owner.rs:23:12
+   |
+20 | impl Owner {
+   | ---------- method in this implementation
+...
+23 |     pub fn associated_data(&self) -> Vec<u8> {
+   |            ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `task-seal-proxy` (bin "task-seal-proxy") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 0.23s
+
+==> rmcp example over HTTP (P0-OFF)
+    Finished `release` profile [optimized] target(s) in 0.12s
+
+==> ExtMcp sealing processor
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+    Finished `release` profile [optimized] target(s) in 0.16s
+
+==> built images
+localhost/ai1-ext-seal:0.1.0
+localhost/ai1-official-p0:0.1.0
+localhost/ai1-seal-proxy:0.3.0
+localhost/ai1-task-server:0.3.1
+
+==> helm uninstall ai1-lab (removes only what the release created: its namespaces, Secrets, RBAC, workloads)
+release "ai1-lab" uninstalled
+namespace "ai1-lab" deleted
+removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)
+
+==> images: pull third-party, import all into k3d
+[36mINFO[0m[0000] Importing image(s) into cluster 'ai1-tasks'  
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0000] Saving 1 tarball(s) to shared image volume... 
+[36mINFO[0m[0000] Importing images into nodes...               
+[36mINFO[0m[0000] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011132607-file-images.tar' into node 'k3d-ai1-tasks-server-0'... 
+[36mINFO[0m[0000] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011132607-file-images.tar' into node 'k3d-drain-0-0'... 
+[36mINFO[0m[0000] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011132607-file-images.tar' into node 'k3d-ai1-tasks-agent-0'... 
+[36mINFO[0m[0012] Removing the tarball(s) from image volume... 
+[36mINFO[0m[0013] Removing k3d-tools node...                   
+[36mINFO[0m[0014] Successfully imported image(s)               
+[36mINFO[0m[0014] Successfully imported 1 image(s) into 1 cluster(s) 
+all 7 images present on every node
+
+==> helm upgrade --install ai1-lab (context k3d-ai1-tasks, drainDemo=true, pr2995=false)
+Release "ai1-lab" does not exist. Installing it now.
+NAME: ai1-lab
+LAST DEPLOYED: Sun Oct 11 13:26:22 2026
+NAMESPACE: ai1-lab
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+
+==> Keycloak realm ai1 answers
+ready
+NAME: ai1-lab
+LAST DEPLOYED: Sun Oct 11 13:26:22 2026
+NAMESPACE: ai1-lab
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+keycloak  keycloak-66f457d6b9-79j76   1/1   Running   0     94s
+mcp-shared  official-p0-f5fd9cc-kq5zl              1/1   Running   0     94s
+mcp-shared  official-p0-literal-5b5f59dd85-hkjw9   1/1   Running   0     94s
+mcp-shared  task-server-p0-9576cbbf5-gghsk         1/1   Running   0     94s
+mcp-shared  task-server-p1-775fc6487c-dzk4f        1/1   Running   0     94s
+mcp-shared  task-server-p2-6cf59f9d95-zf84w        1/1   Running   0     94s
+gateway  agentgateway-5ffd46d64-dp498   1/1   Running   4 (53s ago)   94s
+gateway  agentgateway-5ffd46d64-kqjt5   1/1   Running   3 (78s ago)   94s
+gateway  agentgateway-5ffd46d64-thhtl   1/1   Running   4 (57s ago)   94s
+gateway  seal-proxy-7758855775-grclk    1/1   Running   0             94s
+gateway  seal-proxy-7758855775-km6h2    1/1   Running   0             94s
+gateway  seal-proxy-7758855775-tlhth    1/1   Running   0             94s
+team-a  driver                     1/1   Running   0     94s
+team-a  payments-8584f8c75-5lx9c   1/1   Running   0     94s
+team-a  payments-8584f8c75-kb58p   1/1   Running   0     94s
+team-b  driver   1/1   Running   0     94s

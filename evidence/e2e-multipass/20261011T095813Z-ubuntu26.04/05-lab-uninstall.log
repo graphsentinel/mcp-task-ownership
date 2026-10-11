@@ -1,0 +1,5 @@
+
+==> helm uninstall ai1-lab (removes only what the release created: its namespaces, Secrets, RBAC, workloads)
+release "ai1-lab" uninstalled
+namespace "ai1-lab" deleted
+removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)

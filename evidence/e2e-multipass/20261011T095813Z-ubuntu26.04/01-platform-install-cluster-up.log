@@ -1,0 +1,189 @@
+
+==> apt packages: git, openssl, python3, curl, ca-certificates already installed, left unchanged
+
+==> Docker from Ubuntu's docker.io and docker-buildx packages, service enabled, ubuntu added to group docker
+Hit:1 http://security.ubuntu.com/ubuntu resolute-security InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu resolute InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu resolute-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu resolute-backports InRelease
+Reading package lists...
+sudo: preserving the entire environment is not supported, '-E' is ignored
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Solving dependencies...
+The following additional packages will be installed:
+  bridge-utils containerd dns-root-data dnsmasq-base pigz runc ubuntu-fan
+Suggested packages:
+  ifupdown aufs-tools cgroupfs-mount | cgroup-lite debootstrap
+  docker-compose-v2 docker-doc rinse rootlesskit zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils containerd dns-root-data dnsmasq-base docker-buildx docker.io
+  pigz runc ubuntu-fan
+0 upgraded, 9 newly installed, 0 to remove and 26 not upgraded.
+Need to get 90.7 MB of archives.
+After this operation, 352 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu resolute/universe amd64 pigz amd64 2.8-1build1 [66.8 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute/main amd64 bridge-utils amd64 1.7.1-4ubuntu3 [34.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute/main amd64 runc amd64 1.4.0-0ubuntu1 [9828 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 containerd amd64 2.2.2-0ubuntu1.1 [28.1 MB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute/main amd64 dns-root-data all 2025080400build1 [6022 B]
+Get:6 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 dnsmasq-base amd64 2.92-1ubuntu0.5 [439 kB]
+Get:7 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 docker.io amd64 29.1.3-0ubuntu4.1 [35.5 MB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute/universe amd64 docker-buildx amd64 0.30.1-0ubuntu1 [16.8 MB]
+Get:9 http://archive.ubuntu.com/ubuntu resolute/universe amd64 ubuntu-fan all 0.12.17 [34.3 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+Preconfiguring packages ...
+Fetched 90.7 MB in 8s (11.3 MB/s)
+Selecting previously unselected package pigz.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 91496 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.8-1build1_amd64.deb ...
+Unpacking pigz (2.8-1build1) ...
+Selecting previously unselected package bridge-utils.
+Preparing to unpack .../1-bridge-utils_1.7.1-4ubuntu3_amd64.deb ...
+Unpacking bridge-utils (1.7.1-4ubuntu3) ...
+Selecting previously unselected package runc.
+Preparing to unpack .../2-runc_1.4.0-0ubuntu1_amd64.deb ...
+Unpacking runc (1.4.0-0ubuntu1) ...
+Selecting previously unselected package containerd.
+Preparing to unpack .../3-containerd_2.2.2-0ubuntu1.1_amd64.deb ...
+Unpacking containerd (2.2.2-0ubuntu1.1) ...
+Selecting previously unselected package dns-root-data.
+Preparing to unpack .../4-dns-root-data_2025080400build1_all.deb ...
+Unpacking dns-root-data (2025080400build1) ...
+Selecting previously unselected package dnsmasq-base.
+Preparing to unpack .../5-dnsmasq-base_2.92-1ubuntu0.5_amd64.deb ...
+Unpacking dnsmasq-base (2.92-1ubuntu0.5) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../6-docker.io_29.1.3-0ubuntu4.1_amd64.deb ...
+Unpacking docker.io (29.1.3-0ubuntu4.1) ...
+Selecting previously unselected package docker-buildx.
+Preparing to unpack .../7-docker-buildx_0.30.1-0ubuntu1_amd64.deb ...
+Unpacking docker-buildx (0.30.1-0ubuntu1) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../8-ubuntu-fan_0.12.17_all.deb ...
+Unpacking ubuntu-fan (0.12.17) ...
+Setting up dnsmasq-base (2.92-1ubuntu0.5) ...
+Setting up runc (1.4.0-0ubuntu1) ...
+Setting up dns-root-data (2025080400build1) ...
+Setting up bridge-utils (1.7.1-4ubuntu3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+Setting up pigz (2.8-1build1) ...
+Setting up containerd (2.2.2-0ubuntu1.1) ...
+Created symlink '/etc/systemd/system/multi-user.target.wants/containerd.service' → '/usr/lib/systemd/system/containerd.service'.
+Setting up ubuntu-fan (0.12.17) ...
+Created symlink '/etc/systemd/system/multi-user.target.wants/ubuntu-fan.service' → '/usr/lib/systemd/system/ubuntu-fan.service'.
+Setting up docker.io (29.1.3-0ubuntu4.1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+Created symlink '/etc/systemd/system/multi-user.target.wants/docker.service' → '/usr/lib/systemd/system/docker.service'.
+Created symlink '/etc/systemd/system/sockets.target.wants/docker.socket' → '/usr/lib/systemd/system/docker.socket'.
+Setting up docker-buildx (0.30.1-0ubuntu1) ...
+Processing triggers for dbus (1.16.2-2ubuntu4) ...
+Processing triggers for man-db (2.13.1-1build1) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+==> kubectl v1.37.1 (dl.k8s.io)
+/tmp/tmp.qT8b0gqQG5/kubectl: OK
+
+==> k3d v5.9.0 (github.com/k3d-io/k3d)
+/tmp/tmp.qT8b0gqQG5/k3d: OK
+
+==> helm v4.3.0 (get.helm.sh)
+helm-v4.3.0-linux-amd64.tar.gz: OK
+
+==> inotify limits for k3s-in-docker
+  fs.inotify.max_user_instances 128 -> 1024
+  fs.inotify.max_user_watches 128663 -> 1048576
+
+==> tools
+  docker   
+Docker version 29.1.3, build 29.1.3-0ubuntu4.1
+  python3  3.14.4
+  kubectl  v1.37.1
+  k3d      v5.9.0
+  helm     v4.3.0
+
+You were added to the docker group; the next commands pick it up by themselves (sg docker). Next:
+  scripts/platform.sh cluster-up   # or use an existing cluster: export KUBE_CONTEXT=<context>
+  scripts/lab.sh all
+
+==> k3d cluster ai1-tasks (docker.io/rancher/k3s:v1.37.1-k3s1): 1 server, 1 agent
+[36mINFO[0m[0000] Prep: Network                                
+[36mINFO[0m[0000] Created network 'k3d-ai1-tasks'              
+[36mINFO[0m[0000] Created image volume k3d-ai1-tasks-images    
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0001] Creating node 'k3d-ai1-tasks-server-0'       
+[36mINFO[0m[0001] Pulling image 'ghcr.io/k3d-io/k3d-tools:5.9.0' 
+[36mINFO[0m[0002] Pulling image 'docker.io/rancher/k3s:v1.37.1-k3s1' 
+[36mINFO[0m[0007] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0019] Creating node 'k3d-ai1-tasks-agent-0'        
+[36mINFO[0m[0020] Creating LoadBalancer 'k3d-ai1-tasks-serverlb' 
+[36mINFO[0m[0021] Pulling image 'ghcr.io/k3d-io/k3d-proxy:5.9.0' 
+[36mINFO[0m[0030] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0031] HostIP: using network gateway 172.18.0.1 address 
+[36mINFO[0m[0031] Starting cluster 'ai1-tasks'                 
+[36mINFO[0m[0031] Starting servers...                          
+[36mINFO[0m[0031] Starting node 'k3d-ai1-tasks-server-0'       
+[36mINFO[0m[0038] Starting agents...                           
+[36mINFO[0m[0039] Starting node 'k3d-ai1-tasks-agent-0'        
+[36mINFO[0m[0043] Starting helpers...                          
+[36mINFO[0m[0043] Starting node 'k3d-ai1-tasks-serverlb'       
+[36mINFO[0m[0050] Injecting records for hostAliases (incl. host.k3d.internal) and for 3 network members into CoreDNS configmap... 
+[36mINFO[0m[0052] Cluster 'ai1-tasks' created successfully!    
+[36mINFO[0m[0052] You can now use it like this:                
+kubectl cluster-info
+
+==> drain-demo node k3d-drain-0-0
+[36mINFO[0m[0000] Adding 1 node(s) to the runtime local cluster 'ai1-tasks'... 
+[36mINFO[0m[0000] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0002] HostIP: using network gateway 172.18.0.1 address 
+[36mINFO[0m[0003] Starting node 'k3d-drain-0-0'                
+[36mINFO[0m[0009] Successfully created 1 node(s)!              
+node/k3d-ai1-tasks-agent-0 condition met
+node/k3d-ai1-tasks-server-0 condition met
+node/k3d-drain-0-0 condition met
+kube context: k3d-ai1-tasks

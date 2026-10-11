@@ -1,0 +1,27 @@
+
+==> launch mto-e2e: Ubuntu 26.04, 8 CPU, 16G, 60G
+
+==> copy source: committed tree 50b117078df529faa892b80147873f0bc4de9900
+
+==> scripts/platform.sh install && scripts/platform.sh cluster-up
+01-platform-install-cluster-up: exit 0, 98 s
+
+==> RUNS=5 WITH_PR2995=0 FULL=0 scripts/lab.sh all
+02-lab-all: exit 0, 1455 s
+raw evidence: raw-evidence-main.tar.gz
+
+==> WITH_PR2995=0 scripts/lab.sh reinstall && scripts/lab.sh status
+03-lab-reinstall: exit 0, 193 s
+
+==> RUNS=1 scripts/lab.sh test
+04-lab-test-after-reinstall: exit 0, 201 s
+raw evidence: raw-evidence-after-reinstall.tar.gz
+
+==> scripts/lab.sh uninstall
+05-lab-uninstall: exit 0, 50 s
+
+==> scripts/platform.sh status && kubectl --context k3d-ai1-tasks wait --for=condition=Ready node --all --timeout=60s
+06-platform-after-uninstall: exit 0, 2 s
+
+==> fetch results
+result: exit 0
