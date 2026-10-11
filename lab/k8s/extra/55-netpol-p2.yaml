@@ -1,0 +1,11 @@
+# P2+NP: only pods in namespace `gateway` may reach task-server-p2. Applied and removed by
+# run-placement.sh for the P2+NP run only.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: {name: p2-only-from-gateway, namespace: mcp-shared}
+spec:
+  podSelector: {matchLabels: {app: task-server-p2}}
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - namespaceSelector: {matchLabels: {kubernetes.io/metadata.name: gateway}}

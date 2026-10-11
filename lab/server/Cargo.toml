@@ -1,0 +1,25 @@
+[package]
+name = "task-lab-server"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "MCP Tasks (2026-07-28) test server on rmcp, with an optional owner-sealing wrapper (P1)"
+publish = false
+
+[dependencies]
+rmcp = { version = "=3.5.1", features = [
+    "server",
+    "macros",
+    "transport-streamable-http-server",
+    "request-state",
+] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "signal", "time"] }
+axum = "0.8"
+http = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+jsonwebtoken = "9"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

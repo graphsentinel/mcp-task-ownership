@@ -1,0 +1,7 @@
+# Runtime image for the I-4 repro processor. The binary is built beforehand inside the RUST_IMAGE of
+# scripts/versions.env by lab/repro-i4/run.sh and copied to dist/.
+ARG BASE=docker.io/library/debian:trixie-slim
+FROM ${BASE}
+COPY dist/deny-processor /usr/local/bin/deny-processor
+EXPOSE 9000
+ENTRYPOINT ["/usr/local/bin/deny-processor"]

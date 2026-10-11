@@ -1,0 +1,164 @@
+{
+  "realm": "ai1",
+  "enabled": true,
+  "accessTokenLifespan": 900,
+  "groups": [
+    {
+      "name": "team-a"
+    },
+    {
+      "name": "team-b"
+    }
+  ],
+  "users": [
+    {
+      "username": "alice",
+      "enabled": true,
+      "email": "alice@team-a.lab",
+      "emailVerified": true,
+      "firstName": "Alice",
+      "lastName": "TeamA",
+      "groups": [
+        "team-a"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "alice-lab-pw",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "bob",
+      "enabled": true,
+      "email": "bob@team-b.lab",
+      "emailVerified": true,
+      "firstName": "Bob",
+      "lastName": "TeamB",
+      "groups": [
+        "team-b"
+      ],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "bob-lab-pw",
+          "temporary": false
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "agent-a",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "agent-a-lab-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "protocolMappers": [
+        {
+          "name": "aud-task-server",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "task-server",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "agent-b",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "agent-b-lab-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "protocolMappers": [
+        {
+          "name": "aud-task-server",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "task-server",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "agent-c",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "agent-c-lab-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "description": "Policy control: an authenticated agent that the gateway policy does not allow",
+      "protocolMappers": [
+        {
+          "name": "aud-task-server",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "task-server",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "task-server",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "task-server-lab-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "description": "Used only to call the token introspection endpoint (T2a)"
+    },
+    {
+      "clientId": "agent-noaud",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "agent-noaud-lab-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "description": "Audience control: tokens WITHOUT aud=task-server (config v2)"
+    },
+    {
+      "clientId": "agent-s",
+      "enabled": true,
+      "publicClient": false,
+      "secret": "agent-s-lab-secret",
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "attributes": {
+        "access.token.lifespan": "60"
+      },
+      "protocolMappers": [
+        {
+          "name": "aud-task-server",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "task-server",
+            "access.token.claim": "true",
+            "id.token.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        }
+      ],
+      "description": "Expiry test T2a-exp: 60 s access tokens, aud=task-server"
+    }
+  ]
+}

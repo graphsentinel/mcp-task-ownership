@@ -1,0 +1,37 @@
+# Keycloak (version: images.keycloak), dev mode, realm ai1 imported at start.
+# The issuer is pinned to the in-cluster service name, so every token carries
+# iss=http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1 no matter how it was fetched.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: keycloak, namespace: keycloak}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: keycloak}}
+  template:
+    metadata: {labels: {app: keycloak}}
+    spec:
+      containers:
+        - name: keycloak
+          image: {{ .Values.images.keycloak }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args: ["start-dev", "--import-realm"]
+          env:
+            - {name: KC_HOSTNAME, value: "http://keycloak.keycloak.svc.cluster.local:8080"}
+            - {name: KC_HTTP_ENABLED, value: "true"}
+            - {name: KC_HEALTH_ENABLED, value: "true"}
+            - {name: KC_BOOTSTRAP_ADMIN_USERNAME, value: admin}
+            - {name: KC_BOOTSTRAP_ADMIN_PASSWORD, value: admin-lab-pw}
+          ports: [{containerPort: 8080, name: http}, {containerPort: 9000, name: mgmt}]
+          readinessProbe:
+            httpGet: {path: /health/ready, port: 9000}
+            periodSeconds: 5
+            failureThreshold: 60
+          volumeMounts: [{name: realm, mountPath: /opt/keycloak/data/import}]
+      volumes: [{name: realm, configMap: {name: realm-ai1}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: keycloak, namespace: keycloak}
+spec:
+  selector: {app: keycloak}
+  ports: [{name: http, port: 8080, targetPort: 8080}]

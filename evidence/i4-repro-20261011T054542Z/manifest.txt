@@ -1,0 +1,6 @@
+agentgateway image: ghcr.io/agentgateway/agentgateway:v1.6.0
+agentgateway image id: sha256:be169f9fd4f6f11716662a35a43380e37628b0008e1769dc3dbca788c1356793
+processor: lab/repro-i4/deny-processor (AuthorizationError{INVALID, "denied by repro processor", mcp_error {"code":-32602,"message":"custom error from processor"}})
+upstream: task-server-p0 (unchanged); config: lab/repro-i4/k8s.yaml
+kubernetes: v1.31.5+k3s1
+time: 2026-10-11T05:45:43Z

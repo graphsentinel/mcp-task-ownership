@@ -1,0 +1,13 @@
+
+==> helm uninstall ai1-lab
+release "ai1-lab" uninstalled
+
+==> lab namespaces and cluster-scoped objects
+No resources found
+namespace "ai1-lab" deleted
+removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)
+NAME              STATUS   AGE
+default           Active   31m
+kube-node-lease   Active   31m
+kube-public       Active   31m
+kube-system       Active   31m

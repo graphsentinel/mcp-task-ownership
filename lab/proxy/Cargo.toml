@@ -1,0 +1,23 @@
+[package]
+name = "task-seal-proxy"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Thin owner-sealing proxy for MCP Tasks (2026-07-28) in front of an unchanged server (P2)"
+publish = false
+
+[dependencies]
+# Only for the error type used by the shared owner module (../server/src/owner.rs)
+rmcp = { version = "=3.5.1", features = ["server"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+axum = "0.8"
+http = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+jsonwebtoken = "9"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+chacha20poly1305 = "0.10"
+base64 = "0.22"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

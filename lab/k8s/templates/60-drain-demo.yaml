@@ -1,0 +1,50 @@
+# Drain demo: a dedicated node (k3d-drain-0-0 on k3d), labelled and tainted ai1/drain-demo=true:NoSchedule so no
+# lab component lands on it. team-a's `payments` runs only there, with a PodDisruptionBudget that forbids any
+# voluntary disruption (minAvailable = replicas).
+# The task servers' ServiceAccount always exists (the Deployments reference it) but gets permissions only with
+# drainDemo.enabled: cordon only the named drain node; list, evict and delete pods (lab only; the drain tool lists
+# the pods of that node across namespaces). With the demo off, the drain tool gets 403 from the API server.
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: task-server, namespace: mcp-shared}
+{{- if .Values.drainDemo.enabled }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata: {name: ai1-node-drain}
+rules:
+  - {apiGroups: [""], resources: [nodes], resourceNames: [{{ .Values.drainDemo.node | quote }}], verbs: [get, patch]}
+  - {apiGroups: [""], resources: [pods], verbs: [get, list, delete]}
+  - {apiGroups: [""], resources: [pods/eviction], verbs: [create]}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata: {name: ai1-node-drain}
+roleRef: {apiGroup: rbac.authorization.k8s.io, kind: ClusterRole, name: ai1-node-drain}
+subjects: [{kind: ServiceAccount, name: task-server, namespace: mcp-shared}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: payments, namespace: team-a}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: payments}}
+  template:
+    metadata: {labels: {app: payments}}
+    spec:
+      nodeSelector: {ai1/drain-demo: "true"}
+      tolerations: [{key: ai1/drain-demo, operator: Equal, value: "true", effect: NoSchedule}]
+      terminationGracePeriodSeconds: 0
+      containers:
+        - name: app
+          image: {{ .Values.images.python }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          command: ["sleep", "infinity"]
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: {name: payments, namespace: team-a}
+spec:
+  minAvailable: 2
+  selector: {matchLabels: {app: payments}}
+{{- end }}

@@ -1,0 +1,15 @@
+# Build output
+target/
+dist/
+__pycache__/
+
+# Produced by running the lab (scripts/lab.sh test): keep them local
+results/
+evidence/2026*/
+lab/.runtime/
+
+# Never commit credentials
+.env
+*.key
+*.kubeconfig
+*.tar

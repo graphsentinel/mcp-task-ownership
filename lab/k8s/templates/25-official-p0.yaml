@@ -1,0 +1,54 @@
+# P0-official: rmcp 3.5.1's official Tasks example handler, byte-identical, served over HTTP
+# (lab/official-p0). official-p0 = one shared handler (FACTORY=shared); official-p0-literal = a new
+# handler per request, as rmcp's counter_streamhttp.rs does (FACTORY=per-request).
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: official-p0, namespace: mcp-shared}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: official-p0}}
+  template:
+    metadata: {labels: {app: official-p0, ai1/placement: p0-official}}
+    spec:
+      containers:
+        - name: server
+          image: {{ .Values.images.officialP0 }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - {name: FACTORY, value: shared}
+            - {name: ALLOWED_HOSTS, value: "official-p0,official-p0.mcp-shared,official-p0.mcp-shared.svc,official-p0.mcp-shared.svc.cluster.local"}
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 3}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: official-p0, namespace: mcp-shared}
+spec:
+  selector: {app: official-p0}
+  ports: [{port: 8080, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: official-p0-literal, namespace: mcp-shared}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: official-p0-literal}}
+  template:
+    metadata: {labels: {app: official-p0-literal, ai1/placement: p0-official}}
+    spec:
+      containers:
+        - name: server
+          image: {{ .Values.images.officialP0 }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - {name: FACTORY, value: per-request}
+            - {name: ALLOWED_HOSTS, value: "official-p0-literal,official-p0-literal.mcp-shared,official-p0-literal.mcp-shared.svc,official-p0-literal.mcp-shared.svc.cluster.local"}
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 3}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: official-p0-literal, namespace: mcp-shared}
+spec:
+  selector: {app: official-p0-literal}
+  ports: [{port: 8080, targetPort: 8080}]

@@ -1,0 +1,25 @@
+# Values for the ai1-lab chart. scripts/lab.sh passes the image references from scripts/versions.env,
+# so these defaults matter only when the chart is installed by hand.
+
+# Never: images are imported into the k3d nodes. IfNotPresent: images come from a registry (REGISTRY=... scripts/lab.sh).
+imagePullPolicy: Never
+
+images:
+  keycloak: quay.io/keycloak/keycloak:26.8.0
+  python: docker.io/library/python:3.14.8-slim-trixie
+  agentgateway: ghcr.io/agentgateway/agentgateway:v1.6.0
+  agentgatewayPr2995: localhost/agentgateway:pr2995-2bc5d041
+  taskServer: localhost/ai1-task-server:0.3.1
+  sealProxy: localhost/ai1-seal-proxy:0.3.0
+  officialP0: localhost/ai1-official-p0:0.1.0
+  extSeal: localhost/ai1-ext-seal:0.1.0
+
+# agentgateway built from PR #2995 + ExtMcp sealing processor (needs the agentgatewayPr2995 and extSeal images)
+pr2995:
+  enabled: false
+
+# payments workload with a PodDisruptionBudget on a dedicated node labelled and tainted ai1/drain-demo=true
+# (scripts/platform.sh cluster-up creates it on k3d). Leave off on a cluster without such a node.
+drainDemo:
+  enabled: true
+  node: k3d-drain-0-0   # the node labelled ai1/drain-demo=true; the RBAC lets the drain tool cordon only this node

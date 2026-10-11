@@ -1,0 +1,62 @@
+# P2: our thin sealing proxy (3 replicas, namespace gateway) in front of an UNCHANGED server.
+# task-server-p2 is the same image as P0 (OWNERSHIP_MODE=p0), deployed separately so the
+# NetworkPolicy of P2+NP (55-netpol-p2.yaml) never affects the P0 / P1 / P-agw runs.
+# Keys: Secret task-seal-key-p2 (active, previous), 32 bytes each, base64.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: task-server-p2, namespace: mcp-shared}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: task-server-p2}}
+  template:
+    metadata: {labels: {app: task-server-p2, ai1/placement: p2}}
+    spec:
+      serviceAccountName: task-server   # node_drain demo (60-drain-demo.yaml)
+      containers:
+        - name: server
+          image: {{ .Values.images.taskServer }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - {name: OWNERSHIP_MODE, value: p0}
+            - {name: ALLOWED_HOSTS, value: "task-server-p2,task-server-p2.mcp-shared,task-server-p2.mcp-shared.svc,task-server-p2.mcp-shared.svc.cluster.local,localhost,127.0.0.1"}
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 3}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: task-server-p2, namespace: mcp-shared}
+spec:
+  selector: {app: task-server-p2}
+  ports: [{port: 8080, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: seal-proxy, namespace: gateway}
+spec:
+  replicas: 3
+  selector: {matchLabels: {app: seal-proxy}}
+  template:
+    metadata: {labels: {app: seal-proxy, ai1/placement: p2}}
+    spec:
+      containers:
+        - name: proxy
+          image: {{ .Values.images.sealProxy }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - {name: UPSTREAM_URL, value: "http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp"}
+            - {name: TARGET_NAME, value: shared}
+            - {name: OIDC_ISSUER, value: "http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1"}
+            - {name: OIDC_AUDIENCE, value: task-server}   # config v2
+            - name: SEAL_KEY_ACTIVE
+              valueFrom: {secretKeyRef: {name: task-seal-key-p2, key: active}}
+            - name: SEAL_KEY_PREVIOUS
+              valueFrom: {secretKeyRef: {name: task-seal-key-p2, key: previous, optional: true}}
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 2}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: seal-proxy, namespace: gateway}
+spec:
+  selector: {app: seal-proxy}
+  ports: [{port: 8080, targetPort: 8080}]

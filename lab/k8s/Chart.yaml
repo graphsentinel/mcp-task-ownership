@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ai1-lab
+description: MCP task ownership lab (task servers, sealing proxy, agentgateway, Keycloak, test drivers)
+type: application
+version: 0.4.0
+appVersion: "v2.1"

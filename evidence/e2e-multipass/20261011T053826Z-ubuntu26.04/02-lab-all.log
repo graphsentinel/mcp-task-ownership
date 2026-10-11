@@ -1,0 +1,1052 @@
+
+==> pull docker.io/library/rust:1.99.0-trixie@sha256:6ff07edce8775d0f64be7aba9197229407301bddf2054d62c27b541a6238a181 and docker.io/library/debian:trixie-20261005-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+
+==> task server (P0 / P1)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded atomic-waker v1.1.2
+  Downloaded futures-sink v0.3.34
+  Downloaded dyn-clone v1.0.20
+  Downloaded form_urlencoded v1.2.2
+  Downloaded futures-core v0.3.34
+  Downloaded ref-cast v1.0.27
+  Downloaded futures-io v0.3.34
+  Downloaded cfg-if v1.0.5
+  Downloaded darling_macro v0.24.1
+  Downloaded futures-macro v0.3.34
+  Downloaded equivalent v1.0.2
+  Downloaded block-buffer v0.12.1
+  Downloaded cfg_aliases v0.2.2
+  Downloaded errno v0.3.14
+  Downloaded autocfg v1.5.1
+  Downloaded rmcp-macros v3.5.1
+  Downloaded mime v0.3.17
+  Downloaded sync_wrapper v1.0.2
+  Downloaded idna_adapter v1.2.2
+  Downloaded futures-task v0.3.34
+  Downloaded itoa v1.0.18
+  Downloaded powerfmt v0.2.1
+  Downloaded num-conv v0.2.2
+  Downloaded lru-slab v0.1.3
+  Downloaded ident_case v1.0.1
+  Downloaded rustc-hash v2.1.3
+  Downloaded httpdate v1.0.3
+  Downloaded rand_pcg v0.10.2
+  Downloaded potential_utf v0.1.6
+  Downloaded lazy_static v1.5.1
+  Downloaded matchers v0.2.0
+  Downloaded percent-encoding v2.3.2
+  Downloaded http-body v1.1.0
+  Downloaded serde_urlencoded v0.7.1
+  Downloaded crypto-common v0.2.2
+  Downloaded deranged v0.5.8
+  Downloaded displaydoc v0.2.7
+  Downloaded find-msvc-tools v0.1.14
+  Downloaded rand_core v0.10.1
+  Downloaded ref-cast-impl v1.0.27
+  Downloaded async-trait v0.1.92
+  Downloaded cmov v0.5.4
+  Downloaded axum-core v0.5.6
+  Downloaded cpufeatures v0.3.1
+  Downloaded ctutils v0.4.3
+  Downloaded digest v0.11.3
+  Downloaded num-integer v0.1.47
+  Downloaded pin-project-lite v0.2.17
+  Downloaded hyper-rustls v0.27.10
+  Downloaded nu-ansi-term v0.50.3
+  Downloaded stable_deref_trait v1.2.1
+  Downloaded subtle v2.6.1
+  Downloaded tower-service v0.3.3
+  Downloaded try-lock v0.2.5
+  Downloaded utf8_iter v1.0.4
+  Downloaded want v0.3.2
+  Downloaded time-core v0.1.9
+  Downloaded untrusted v0.9.0
+  Downloaded zerofrom v0.1.8
+  Downloaded http-body-util v0.1.5
+  Downloaded ipnet v2.12.2
+  Downloaded pastey v0.2.3
+  Downloaded pem v3.0.6
+  Downloaded quote v1.0.47
+  Downloaded chacha20 v0.10.2
+  Downloaded futures-channel v0.3.34
+  Downloaded getrandom v0.2.17
+  Downloaded litemap v0.8.3
+  Downloaded tower-layer v0.3.3
+  Downloaded zerofrom-derive v0.1.8
+  Downloaded httparse v1.10.1
+  Downloaded iana-time-zone v0.1.65
+  Downloaded jsonwebtoken v9.3.1
+  Downloaded matchit v0.8.4
+  Downloaded num-traits v0.2.19
+  Downloaded once_cell v1.21.4
+  Downloaded quinn-udp v0.5.16
+  Downloaded anyhow v1.0.104
+  Downloaded bitflags v2.13.2
+  Downloaded const-oid v0.10.2
+  Downloaded darling v0.24.1
+  Downloaded futures v0.3.34
+  Downloaded futures-executor v0.3.34
+  Downloaded getrandom v0.4.3
+  Downloaded hmac v0.13.0
+  Downloaded icu_normalizer_data v2.3.0
+  Downloaded base64 v0.22.1
+  Downloaded bytes v1.12.1
+  Downloaded icu_provider v2.3.1
+  Downloaded hybrid-array v0.4.15
+  Downloaded proc-macro2 v1.0.107
+  Downloaded log v0.4.34
+  Downloaded darling_core v0.24.1
+  Downloaded tokio-macros v2.7.2
+  Downloaded quinn v0.11.12
+  Downloaded icu_collections v2.3.0
+  Downloaded base64 v0.23.1
+  Downloaded strsim v0.11.1
+  Downloaded icu_locale_core v2.3.0
+  Downloaded indexmap v2.14.2
+  Downloaded memchr v2.8.3
+  Downloaded rand v0.10.3
+  Downloaded http v1.5.0
+  Downloaded icu_properties v2.3.0
+  Downloaded mio v1.2.4
+  Downloaded num-bigint v0.4.8
+  Downloaded cc v1.6.0
+  Downloaded hyper-util v0.1.21
+  Downloaded idna v1.1.0
+  Downloaded aho-corasick v1.1.5
+  Downloaded axum v0.8.9
+  Downloaded futures-util v0.3.34
+  Downloaded hashbrown v0.17.1
+  Downloaded hyper v1.11.1
+  Downloaded icu_properties_data v2.3.0
+  Downloaded chrono v0.4.45
+  Downloaded quinn-proto v0.11.19
+  Downloaded icu_normalizer v2.3.0
+  Downloaded shlex v2.0.1
+  Downloaded signal-hook-registry v1.4.8
+  Downloaded libc v0.2.190
+  Downloaded schemars_derive v1.2.2
+  Downloaded yoke-derive v0.8.4
+  Downloaded serde_path_to_error v0.1.20
+  Downloaded thiserror v2.0.21
+  Downloaded thiserror-impl v2.0.21
+  Downloaded thread_local v1.1.10
+  Downloaded tinystr v0.8.4
+  Downloaded tokio-rustls v0.26.6
+  Downloaded tracing-log v0.2.0
+  Downloaded zerovec-derive v0.11.6
+  Downloaded zmij v1.0.23
+  Downloaded serde_derive_internals v0.30.0
+  Downloaded slab v0.4.12
+  Downloaded sse-stream v0.2.6
+  Downloaded simple_asn1 v0.6.4
+  Downloaded zeroize v1.9.0
+  Downloaded synstructure v0.14.0
+  Downloaded rustls-pki-types v1.15.1
+  Downloaded yoke v0.8.3
+  Downloaded sha2 v0.11.0
+  Downloaded tracing-attributes v0.1.31
+  Downloaded time-macros v0.2.32
+  Downloaded smallvec v1.16.2
+  Downloaded writeable v0.6.4
+  Downloaded socket2 v0.6.5
+  Downloaded tokio-stream v0.1.19
+  Downloaded serde_derive v1.0.229
+  Downloaded serde_core v1.0.229
+  Downloaded ryu v1.0.23
+  Downloaded tinyvec v1.13.3
+  Downloaded unicode-ident v1.0.26
+  Downloaded uuid v1.27.0
+  Downloaded sharded-slab v0.1.7
+  Downloaded schemars v1.2.2
+  Downloaded tracing-core v0.1.36
+  Downloaded url v2.5.8
+  Downloaded rustls-webpki v0.103.15
+  Downloaded zerotrie v0.2.5
+  Downloaded tower v0.5.3
+  Downloaded serde v1.0.229
+  Downloaded zerovec v0.11.8
+  Downloaded tokio-util v0.7.19
+  Downloaded serde_json v1.0.151
+  Downloaded typenum v1.20.1
+  Downloaded reqwest v0.12.28
+  Downloaded tower-http v0.6.11
+  Downloaded tracing-subscriber v0.3.23
+  Downloaded webpki-roots v1.0.9
+  Downloaded time v0.3.55
+  Downloaded syn v2.0.119
+  Downloaded syn v3.0.6
+  Downloaded regex-syntax v0.8.11
+  Downloaded rustls v0.23.45
+  Downloaded tracing v0.1.44
+  Downloaded rmcp v3.5.1
+  Downloaded regex-automata v0.4.18
+  Downloaded tokio v1.53.2
+  Downloaded ring v0.17.14
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling libc v0.2.190
+   Compiling pin-project-lite v0.2.17
+   Compiling futures-core v0.3.34
+   Compiling bytes v1.12.1
+   Compiling itoa v1.0.18
+   Compiling cfg-if v1.0.5
+   Compiling stable_deref_trait v1.2.1
+   Compiling futures-sink v0.3.34
+   Compiling once_cell v1.21.4
+   Compiling memchr v2.8.3
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling slab v0.4.12
+   Compiling futures-channel v0.3.34
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling tracing-core v0.1.36
+   Compiling log v0.4.34
+   Compiling futures-io v0.3.34
+   Compiling smallvec v1.16.2
+   Compiling futures-task v0.3.34
+   Compiling cc v1.6.0
+   Compiling autocfg v1.5.1
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling serde v1.0.229
+   Compiling zeroize v1.9.0
+   Compiling http v1.5.0
+   Compiling icu_normalizer_data v2.3.0
+   Compiling utf8_iter v1.0.4
+   Compiling num-traits v0.2.19
+   Compiling percent-encoding v2.3.2
+   Compiling tower-service v0.3.3
+   Compiling icu_properties_data v2.3.0
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling typenum v1.20.1
+   Compiling untrusted v0.9.0
+   Compiling httparse v1.10.1
+   Compiling serde_json v1.0.151
+   Compiling errno v0.3.14
+   Compiling socket2 v0.6.5
+   Compiling signal-hook-registry v1.4.8
+   Compiling mio v1.2.4
+   Compiling getrandom v0.2.17
+   Compiling http-body v1.1.0
+   Compiling rustls-pki-types v1.15.1
+   Compiling try-lock v0.2.5
+   Compiling want v0.3.2
+   Compiling http-body-util v0.1.5
+   Compiling hybrid-array v0.4.15
+   Compiling form_urlencoded v1.2.2
+   Compiling sync_wrapper v1.0.2
+   Compiling strsim v0.11.1
+   Compiling thiserror v2.0.21
+   Compiling getrandom v0.4.3
+   Compiling ring v0.17.14
+   Compiling base64 v0.23.1
+   Compiling atomic-waker v1.1.2
+   Compiling ident_case v1.0.1
+   Compiling rand_core v0.10.1
+   Compiling tower-layer v0.3.3
+   Compiling httpdate v1.0.3
+   Compiling cmov v0.5.4
+   Compiling rustls v0.23.45
+   Compiling block-buffer v0.12.1
+   Compiling crypto-common v0.2.2
+   Compiling ref-cast v1.0.27
+   Compiling ctutils v0.4.3
+   Compiling num-conv v0.2.2
+   Compiling subtle v2.6.1
+   Compiling const-oid v0.10.2
+   Compiling time-core v0.1.9
+   Compiling ipnet v2.12.2
+   Compiling cpufeatures v0.3.1
+   Compiling time-macros v0.2.32
+   Compiling num-integer v0.1.47
+   Compiling base64 v0.22.1
+   Compiling regex-syntax v0.8.11
+   Compiling digest v0.11.3
+   Compiling powerfmt v0.2.1
+   Compiling ryu v1.0.23
+   Compiling deranged v0.5.8
+   Compiling num-bigint v0.4.8
+   Compiling chacha20 v0.10.2
+   Compiling webpki-roots v1.0.9
+   Compiling mime v0.3.17
+   Compiling dyn-clone v1.0.20
+   Compiling rmcp v3.5.1
+   Compiling bitflags v2.13.2
+   Compiling lazy_static v1.5.1
+   Compiling anyhow v1.0.104
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.17.1
+   Compiling synstructure v0.14.0
+   Compiling darling_core v0.24.1
+   Compiling serde_derive_internals v0.30.0
+   Compiling regex-automata v0.4.18
+   Compiling indexmap v2.14.2
+   Compiling time v0.3.55
+   Compiling tracing-attributes v0.1.31
+   Compiling sharded-slab v0.1.7
+   Compiling rand v0.10.3
+   Compiling hmac v0.13.0
+   Compiling sha2 v0.11.0
+   Compiling pem v3.0.6
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+   Compiling tokio-macros v2.7.2
+   Compiling displaydoc v0.2.7
+   Compiling tokio v1.53.2
+   Compiling zerofrom v0.1.8
+   Compiling futures-macro v0.3.34
+   Compiling yoke v0.8.3
+   Compiling tracing v0.1.44
+   Compiling serde_derive v1.0.229
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling thiserror-impl v2.0.21
+   Compiling futures-util v0.3.34
+   Compiling darling_macro v0.24.1
+   Compiling ref-cast-impl v1.0.27
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling darling v0.24.1
+   Compiling icu_locale_core v2.3.0
+   Compiling schemars_derive v1.2.2
+   Compiling simple_asn1 v0.6.4
+   Compiling rmcp-macros v3.5.1
+   Compiling axum-core v0.5.6
+   Compiling matchers v0.2.0
+   Compiling async-trait v0.1.92
+   Compiling icu_provider v2.3.1
+   Compiling serde_path_to_error v0.1.20
+   Compiling icu_properties v2.3.0
+   Compiling icu_normalizer v2.3.0
+   Compiling uuid v1.27.0
+   Compiling chrono v0.4.45
+   Compiling serde_urlencoded v0.7.1
+   Compiling futures-executor v0.3.34
+   Compiling futures v0.3.34
+   Compiling sse-stream v0.2.6
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.10
+   Compiling nu-ansi-term v0.50.3
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling matchit v0.8.4
+   Compiling pastey v0.2.3
+   Compiling tracing-subscriber v0.3.23
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling url v2.5.8
+   Compiling tokio-stream v0.1.19
+   Compiling tokio-util v0.7.19
+   Compiling schemars v1.2.2
+   Compiling rustls-webpki v0.103.15
+   Compiling jsonwebtoken v9.3.1
+   Compiling hyper-util v0.1.21
+   Compiling tower-http v0.6.11
+   Compiling axum v0.8.9
+   Compiling tokio-rustls v0.26.6
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.12.28
+   Compiling task-lab-server v0.1.0 (/src)
+    Finished `release` profile [optimized] target(s) in 1m 32s
+
+==> sealing proxy (P2)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded aead v0.5.2
+  Downloaded version_check v0.9.5
+  Downloaded crypto-common v0.1.7
+  Downloaded generic-array v0.14.7
+  Downloaded cipher v0.4.4
+  Downloaded cpufeatures v0.2.17
+  Downloaded opaque-debug v0.3.1
+  Downloaded inout v0.1.4
+  Downloaded rand_core v0.6.4
+  Downloaded universal-hash v0.5.1
+  Downloaded chacha20 v0.9.1
+  Downloaded poly1305 v0.8.0
+  Downloaded chacha20poly1305 v0.10.1
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling libc v0.2.190
+   Compiling cfg-if v1.0.5
+   Compiling pin-project-lite v0.2.17
+   Compiling itoa v1.0.18
+   Compiling futures-core v0.3.34
+   Compiling bytes v1.12.1
+   Compiling stable_deref_trait v1.2.1
+   Compiling once_cell v1.21.4
+   Compiling serde_core v1.0.229
+   Compiling futures-sink v0.3.34
+   Compiling memchr v2.8.3
+   Compiling zmij v1.0.23
+   Compiling log v0.4.34
+   Compiling futures-channel v0.3.34
+   Compiling version_check v0.9.5
+   Compiling tracing-core v0.1.36
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling smallvec v1.16.2
+   Compiling zeroize v1.9.0
+   Compiling cc v1.6.0
+   Compiling futures-io v0.3.34
+   Compiling generic-array v0.14.7
+   Compiling autocfg v1.5.1
+   Compiling futures-task v0.3.34
+   Compiling slab v0.4.12
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling typenum v1.20.1
+   Compiling serde v1.0.229
+   Compiling num-traits v0.2.19
+   Compiling percent-encoding v2.3.2
+   Compiling http v1.5.0
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling icu_properties_data v2.3.0
+   Compiling icu_normalizer_data v2.3.0
+   Compiling utf8_iter v1.0.4
+   Compiling getrandom v0.2.17
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+   Compiling rand_core v0.6.4
+   Compiling serde_json v1.0.151
+   Compiling subtle v2.6.1
+   Compiling tower-service v0.3.3
+   Compiling hashbrown v0.17.1
+   Compiling untrusted v0.9.0
+   Compiling http-body v1.1.0
+   Compiling httparse v1.10.1
+   Compiling equivalent v1.0.2
+   Compiling rustls-pki-types v1.15.1
+   Compiling try-lock v0.2.5
+   Compiling want v0.3.2
+   Compiling crypto-common v0.1.7
+   Compiling ring v0.17.14
+   Compiling form_urlencoded v1.2.2
+   Compiling sync_wrapper v1.0.2
+   Compiling rustls v0.23.45
+   Compiling tower-layer v0.3.3
+   Compiling thiserror v2.0.21
+   Compiling atomic-waker v1.1.2
+   Compiling ident_case v1.0.1
+   Compiling indexmap v2.14.2
+   Compiling httpdate v1.0.3
+   Compiling strsim v0.11.1
+   Compiling base64 v0.23.1
+   Compiling ipnet v2.12.2
+   Compiling ref-cast v1.0.27
+   Compiling time-core v0.1.9
+   Compiling num-conv v0.2.2
+   Compiling getrandom v0.4.3
+   Compiling time-macros v0.2.32
+   Compiling inout v0.1.4
+   Compiling num-integer v0.1.47
+   Compiling http-body-util v0.1.5
+   Compiling regex-syntax v0.8.11
+   Compiling cpufeatures v0.2.17
+   Compiling base64 v0.22.1
+   Compiling powerfmt v0.2.1
+   Compiling ryu v1.0.23
+   Compiling deranged v0.5.8
+   Compiling num-bigint v0.4.8
+   Compiling cipher v0.4.4
+   Compiling webpki-roots v1.0.9
+   Compiling universal-hash v0.5.1
+   Compiling dyn-clone v1.0.20
+   Compiling lazy_static v1.5.1
+   Compiling mime v0.3.17
+   Compiling opaque-debug v0.3.1
+   Compiling bitflags v2.13.2
+   Compiling rmcp v3.5.1
+   Compiling anyhow v1.0.104
+   Compiling poly1305 v0.8.0
+   Compiling sharded-slab v0.1.7
+   Compiling regex-automata v0.4.18
+   Compiling synstructure v0.14.0
+   Compiling darling_core v0.24.1
+   Compiling serde_derive_internals v0.30.0
+   Compiling time v0.3.55
+   Compiling uuid v1.27.0
+   Compiling tracing-attributes v0.1.31
+   Compiling chacha20 v0.9.1
+   Compiling pem v3.0.6
+   Compiling serde_path_to_error v0.1.20
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling tokio-macros v2.7.2
+   Compiling futures-macro v0.3.34
+   Compiling zerofrom v0.1.8
+   Compiling tracing v0.1.44
+   Compiling yoke v0.8.3
+   Compiling serde_derive v1.0.229
+   Compiling tokio v1.53.2
+   Compiling thiserror-impl v2.0.21
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling futures-util v0.3.34
+   Compiling darling_macro v0.24.1
+   Compiling ref-cast-impl v1.0.27
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling icu_locale_core v2.3.0
+   Compiling darling v0.24.1
+   Compiling schemars_derive v1.2.2
+   Compiling simple_asn1 v0.6.4
+   Compiling rmcp-macros v3.5.1
+   Compiling axum-core v0.5.6
+   Compiling matchers v0.2.0
+   Compiling aead v0.5.2
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.10
+   Compiling icu_provider v2.3.1
+   Compiling pastey v0.2.3
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling nu-ansi-term v0.50.3
+   Compiling futures-executor v0.3.34
+   Compiling matchit v0.8.4
+   Compiling chrono v0.4.45
+   Compiling serde_urlencoded v0.7.1
+   Compiling futures v0.3.34
+   Compiling tracing-subscriber v0.3.23
+   Compiling chacha20poly1305 v0.10.1
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling schemars v1.2.2
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling tokio-util v0.7.19
+   Compiling rustls-webpki v0.103.15
+   Compiling tower-http v0.6.11
+   Compiling hyper-util v0.1.21
+   Compiling jsonwebtoken v9.3.1
+   Compiling axum v0.8.9
+   Compiling tokio-rustls v0.26.6
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.12.28
+   Compiling task-seal-proxy v0.1.0 (/src/proxy)
+warning: method `associated_data` is never used
+  --> src/../../server/src/owner.rs:23:12
+   |
+20 | impl Owner {
+   | ---------- method in this implementation
+...
+23 |     pub fn associated_data(&self) -> Vec<u8> {
+   |            ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `task-seal-proxy` (bin "task-seal-proxy") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 1m 30s
+
+==> rmcp example over HTTP (P0-OFF)
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling pin-project-lite v0.2.17
+   Compiling libc v0.2.190
+   Compiling futures-core v0.3.34
+   Compiling bytes v1.12.1
+   Compiling itoa v1.0.18
+   Compiling serde_core v1.0.229
+   Compiling futures-sink v0.3.34
+   Compiling zmij v1.0.23
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling slab v0.4.12
+   Compiling futures-channel v0.3.34
+   Compiling futures-io v0.3.34
+   Compiling cfg-if v1.0.5
+   Compiling log v0.4.34
+   Compiling futures-task v0.3.34
+   Compiling tracing-core v0.1.36
+   Compiling serde v1.0.229
+   Compiling autocfg v1.5.1
+   Compiling httparse v1.10.1
+   Compiling tower-service v0.3.3
+   Compiling ident_case v1.0.1
+   Compiling rand_core v0.10.1
+   Compiling strsim v0.11.1
+   Compiling getrandom v0.4.3
+   Compiling serde_json v1.0.151
+   Compiling smallvec v1.16.2
+   Compiling ref-cast v1.0.27
+   Compiling http v1.5.0
+   Compiling num-traits v0.2.19
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling sync_wrapper v1.0.2
+   Compiling thiserror v2.0.21
+   Compiling cpufeatures v0.3.1
+   Compiling httpdate v1.0.3
+   Compiling tower-layer v0.3.3
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.4
+   Compiling percent-encoding v2.3.2
+   Compiling http-body v1.1.0
+   Compiling regex-syntax v0.8.11
+   Compiling http-body-util v0.1.5
+   Compiling atomic-waker v1.1.2
+   Compiling form_urlencoded v1.2.2
+   Compiling chacha20 v0.10.2
+   Compiling hashbrown v0.17.1
+   Compiling rmcp v3.5.1
+   Compiling equivalent v1.0.2
+   Compiling lazy_static v1.5.1
+   Compiling ryu v1.0.23
+   Compiling mime v0.3.17
+   Compiling dyn-clone v1.0.20
+   Compiling anyhow v1.0.104
+   Compiling sharded-slab v0.1.7
+   Compiling rand v0.10.3
+   Compiling uuid v1.27.0
+   Compiling indexmap v2.14.2
+   Compiling serde_path_to_error v0.1.20
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.10
+   Compiling nu-ansi-term v0.50.3
+   Compiling matchit v0.8.4
+   Compiling base64 v0.23.1
+   Compiling regex-automata v0.4.18
+   Compiling pastey v0.2.3
+   Compiling darling_core v0.24.1
+   Compiling serde_derive_internals v0.30.0
+   Compiling tokio-macros v2.7.2
+   Compiling futures-macro v0.3.34
+   Compiling serde_derive v1.0.229
+   Compiling ref-cast-impl v1.0.27
+   Compiling thiserror-impl v2.0.21
+   Compiling async-trait v0.1.92
+   Compiling tracing-attributes v0.1.31
+   Compiling schemars_derive v1.2.2
+   Compiling futures-util v0.3.34
+   Compiling matchers v0.2.0
+   Compiling tokio v1.53.2
+   Compiling tracing v0.1.44
+   Compiling axum-core v0.5.6
+   Compiling tracing-subscriber v0.3.23
+   Compiling darling_macro v0.24.1
+   Compiling darling v0.24.1
+   Compiling rmcp-macros v3.5.1
+   Compiling chrono v0.4.45
+   Compiling serde_urlencoded v0.7.1
+   Compiling futures-executor v0.3.34
+   Compiling sse-stream v0.2.6
+   Compiling futures v0.3.34
+   Compiling schemars v1.2.2
+   Compiling hyper v1.11.1
+   Compiling tokio-util v0.7.19
+   Compiling tokio-stream v0.1.19
+   Compiling tower v0.5.3
+   Compiling hyper-util v0.1.21
+   Compiling axum v0.8.9
+   Compiling official-task-demo-http v0.1.0 (/src)
+    Finished `release` profile [optimized] target(s) in 1m 06s
+
+==> ExtMcp sealing processor
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded async-stream-impl v0.3.6
+  Downloaded async-stream v0.3.6
+  Downloaded axum-core v0.4.5
+  Downloaded either v1.19.0
+  Downloaded rand_chacha v0.3.1
+  Downloaded multimap v0.10.1
+  Downloaded zeroize v1.9.1
+  Downloaded fnv v1.0.7
+  Downloaded heck v0.5.0
+  Downloaded pin-project-internal v1.1.13
+  Downloaded prost v0.13.5
+  Downloaded fixedbitset v0.5.7
+  Downloaded rustversion v1.0.23
+  Downloaded hyper-timeout v0.5.2
+  Downloaded matchit v0.7.3
+  Downloaded fastrand v2.5.0
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded tonic-build v0.12.3
+  Downloaded tempfile v3.27.0
+  Downloaded prost-derive v0.13.5
+  Downloaded smallvec v1.16.3
+  Downloaded prost-types v0.13.5
+  Downloaded pin-project v1.1.13
+  Downloaded prost-build v0.13.5
+  Downloaded socket2 v0.5.10
+  Downloaded indexmap v1.9.3
+  Downloaded rand v0.8.8
+  Downloaded axum v0.7.9
+  Downloaded prettyplease v0.2.37
+  Downloaded tonic v0.12.3
+  Downloaded hashbrown v0.12.3
+  Downloaded tower v0.4.13
+  Downloaded regex v1.13.1
+  Downloaded tokio-util v0.7.20
+  Downloaded hyper v1.12.0
+  Downloaded h2 v0.4.20
+  Downloaded itertools v0.14.0
+  Downloaded serde_json v1.0.152
+  Downloaded syn v3.0.7
+  Downloaded zerocopy v0.8.62
+  Downloaded rustix v1.1.5
+  Downloaded petgraph v0.7.1
+  Downloaded linux-raw-sys v0.12.1
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling libc v0.2.190
+   Compiling pin-project-lite v0.2.17
+   Compiling bytes v1.12.1
+   Compiling cfg-if v1.0.5
+   Compiling futures-core v0.3.34
+   Compiling anyhow v1.0.104
+   Compiling either v1.19.0
+   Compiling itoa v1.0.18
+   Compiling version_check v0.9.5
+   Compiling once_cell v1.21.4
+   Compiling slab v0.4.12
+   Compiling typenum v1.20.1
+   Compiling futures-task v0.3.34
+   Compiling itertools v0.14.0
+   Compiling tracing-core v0.1.36
+   Compiling rustix v1.1.5
+   Compiling generic-array v0.14.7
+   Compiling futures-util v0.3.34
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+   Compiling tower-service v0.3.3
+   Compiling getrandom v0.4.3
+   Compiling futures-sink v0.3.34
+   Compiling zerocopy v0.8.62
+   Compiling linux-raw-sys v0.12.1
+   Compiling http v1.5.0
+   Compiling syn v2.0.119
+   Compiling syn v3.0.7
+   Compiling bitflags v2.13.2
+   Compiling indexmap v2.14.2
+   Compiling prettyplease v0.2.37
+   Compiling serde_core v1.0.229
+   Compiling httparse v1.10.1
+   Compiling regex-syntax v0.8.11
+   Compiling getrandom v0.2.17
+   Compiling rand_core v0.6.4
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+   Compiling http-body v1.1.0
+   Compiling crypto-common v0.1.7
+   Compiling smallvec v1.16.3
+   Compiling fnv v1.0.7
+   Compiling autocfg v1.5.1
+   Compiling tower-layer v0.3.3
+   Compiling try-lock v0.2.5
+   Compiling rustversion v1.0.23
+   Compiling fastrand v2.5.0
+   Compiling atomic-waker v1.1.2
+   Compiling fixedbitset v0.5.7
+   Compiling indexmap v1.9.3
+   Compiling want v0.3.2
+   Compiling futures-channel v0.3.34
+   Compiling httpdate v1.0.3
+   Compiling petgraph v0.7.1
+   Compiling regex-automata v0.4.18
+   Compiling serde v1.0.229
+   Compiling heck v0.5.0
+   Compiling multimap v0.10.1
+   Compiling sync_wrapper v1.0.2
+   Compiling log v0.4.34
+   Compiling tempfile v3.27.0
+   Compiling http-body-util v0.1.5
+   Compiling inout v0.1.4
+   Compiling memchr v2.8.3
+   Compiling cpufeatures v0.2.17
+   Compiling zeroize v1.9.1
+   Compiling zmij v1.0.23
+   Compiling hashbrown v0.12.3
+   Compiling subtle v2.6.1
+   Compiling mime v0.3.17
+   Compiling cipher v0.4.4
+   Compiling universal-hash v0.5.1
+   Compiling tower v0.5.3
+   Compiling matchit v0.7.3
+   Compiling regex v1.13.1
+   Compiling serde_json v1.0.152
+   Compiling percent-encoding v2.3.2
+   Compiling lazy_static v1.5.1
+   Compiling opaque-debug v0.3.1
+   Compiling poly1305 v0.8.0
+   Compiling sharded-slab v0.1.7
+   Compiling tracing-log v0.2.0
+   Compiling chacha20 v0.9.1
+   Compiling aead v0.5.2
+   Compiling socket2 v0.5.10
+   Compiling thread_local v1.1.10
+   Compiling base64 v0.22.1
+   Compiling nu-ansi-term v0.50.3
+   Compiling chacha20poly1305 v0.10.1
+   Compiling tokio-macros v2.7.2
+   Compiling ppv-lite86 v0.2.21
+   Compiling async-trait v0.1.92
+   Compiling serde_derive v1.0.229
+   Compiling rand_chacha v0.3.1
+   Compiling prost-derive v0.13.5
+   Compiling tokio v1.53.2
+   Compiling tracing-attributes v0.1.31
+   Compiling pin-project-internal v1.1.13
+   Compiling axum-core v0.4.5
+   Compiling rand v0.8.8
+   Compiling async-stream-impl v0.3.6
+   Compiling async-stream v0.3.6
+   Compiling pin-project v1.1.13
+   Compiling tracing v0.1.44
+   Compiling prost v0.13.5
+   Compiling matchers v0.2.0
+   Compiling tracing-subscriber v0.3.23
+   Compiling prost-types v0.13.5
+   Compiling prost-build v0.13.5
+   Compiling axum v0.7.9
+   Compiling tonic-build v0.12.3
+   Compiling ext-seal v0.1.0 (/src)
+   Compiling tokio-util v0.7.20
+   Compiling tokio-stream v0.1.19
+   Compiling h2 v0.4.20
+   Compiling tower v0.4.13
+   Compiling hyper v1.12.0
+   Compiling hyper-util v0.1.21
+   Compiling hyper-timeout v0.5.2
+   Compiling tonic v0.12.3
+    Finished `release` profile [optimized] target(s) in 38.25s
+
+==> agentgateway from PR #2995 at 2bc5d041b090 (slow)
+
+==> built images
+localhost/agentgateway:pr2995-2bc5d041
+localhost/ai1-ext-seal:0.1.0
+localhost/ai1-official-p0:0.1.0
+localhost/ai1-seal-proxy:0.3.0
+localhost/ai1-task-server:0.3.1
+
+==> images: pull third-party, import all into k3d
+[36mINFO[0m[0000] Importing image(s) into cluster 'ai1-tasks'  
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0001] Saving 1 tarball(s) to shared image volume... 
+[36mINFO[0m[0001] Importing images into nodes...               
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011090926-file-images.tar' into node 'k3d-ai1-tasks-server-0'... 
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011090926-file-images.tar' into node 'k3d-drain-0-0'... 
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011090926-file-images.tar' into node 'k3d-ai1-tasks-agent-0'... 
+[36mINFO[0m[0019] Removing the tarball(s) from image volume... 
+[36mINFO[0m[0020] Removing k3d-tools node...                   
+[36mINFO[0m[0022] Successfully imported image(s)               
+[36mINFO[0m[0022] Successfully imported 1 image(s) into 1 cluster(s) 
+all 8 images present on every node
+
+==> helm upgrade --install ai1-lab (context k3d-ai1-tasks, drainDemo=true, pr2995=true)
+Release "ai1-lab" does not exist. Installing it now.
+I1011 09:09:54.544117   41913 request.go:754] "Waited before sending request" delay="1.035869366s" reason="client-side throttling, not priority and fairness" verb="GET" URL="https://0.0.0.0:37099/apis/apps/v1/namespaces/gateway/replicasets?labelSelector=app%3Dagentgateway"
+NAME: ai1-lab
+LAST DEPLOYED: Sun Oct 11 09:09:48 2026
+NAMESPACE: ai1-lab
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+
+==> Keycloak realm ai1 answers
+ready
+
+==> placements: P0-OFF P0-OFF-LIT P0 P1 P-AGW P2 P2-NP P-AGW2995 P-AGW2995-SEAL x 1 runs
+--- run 1/1 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-82r7jybu
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-82r7jybu
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-qjvflmmc
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261011T061117Z-P0-OFF-v2.1
+--- run 1/1 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261011T061136Z-P0-OFF-LIT-v2.1
+--- run 1/1 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-yo781i3h
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-yo781i3h
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-px517o5u
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-y7ivv1cg answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261011T061217Z-P0-v2.1
+--- run 1/1 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSnOZeo2MGZlNDQ1YS00YzMxLTQ1NWMtOWMwYy1lZGZhMDkwOWYzMzY.eiOCF41Z9q_xdCGYMDHbObDcIqclfHll7OLtiEsQNwc'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSnOahVkYTkyNTlkNC1lMWJhLTQyZjgtODFkOS1lNWI3Mjc0ZDQ2NzU.L9vCBT53oJbYKp3pRybgvsjUE3nbT8hrzABYiNoWSao'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSnObhxiZDdjZGEyMy04NzkxLTQyYjItYmI2MC1jMDBjODQ3NjAxYjg.ZbtVPZhIVY252ECnJPmmloF0G2BynljE6OhF92VWAHE'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSnOhg1lZWM1MTJiMy0zOTk3LTRjODItOWEzNy03ZDI1OWI5MzE1Njc.G3zMHigN44232xtMQ-lJxyLMlPfMkuRDDfhdugIonaY'; A then sees status=input_required; after A answers: status=completed result='backup label=A-cp00hqkn answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSnOkYJiNzJjZGUzYy1iMzc4LTRiZjUtYjE2ZC0wNzc0NzBkNzliYTg.ZU3zuyUgIU2zCUHJL6whd2FcF3jPH0ZRSexHfCPheD0'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: b72cde3c-b378-4bf5-b16d-077470d79ba8'
+evidence: /home/ubuntu/ai1/evidence/20261011T061231Z-P1-v2.1
+--- run 1/1 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 65f33f83-77ae-478a-82cf-6157871893db'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-efegkkvr
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-pe5m12dw answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261011T061249Z-P-AGW-v2.1
+--- run 1/1 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.hUUjQ24NQBhGQX6UNLNVUoJx8ndQjZXu6ReVEjoyMfQxPMfjcEn5XiQp6F-QbEwR-M4cnFWB0Z3u_7AP4O4fqhko7Bh84qIYPDiby02Fiwvua8Qw-V37iUa9E-GmNUUIc-9-zqlNU26aT3g9zeCg-IUXqK9JO2za5OfvY2LWqVSWHIXL9s4eLlRymZgR5S2o0vgVJnSLPFemJro98B60COS_IvQ4Y6WlnS36XSSVoE741Q6-0YC1K4cvay0d9eH3iK_KbyNaISdwLZnZLd1v88JN8R9-C7AxcWiknbu-SSthtb62u0-aCgNO3HbEwr2ERIBe-9I_ToPhncAnEF7h0vsT5iqPZA6ziQGDI7Fq'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.IyEaT1kFyUAWS8jvL0ML9JXMuzAi1hgNI5Sexh-2hTa2u2s_GJBAlDBZCaft9IDC-cLuYxTVBd0q7ehsKodA3ARNcb3g4A99eeolCdLydVMZXpGO0KhMfaZImsSW05d21RBYr03y2YuqJDRcCRWPd4rTxwBlYqdbbksewVAc6AGoBVImiO_NHX0kYcZBKCTgeBL1mblrlIZsQcdW6D5kv5CaSuUEmAk0gOZ3FfRJtK1CzGqIpF1KPoRqYIeWkIHn93CY3uuaht1Lw51BOp_JwKBkm5OYADNoPRS3YYsorPMJW123gzTPHUMbytXT0RlG5oKR77kSFsV6gtQajVYIb-sP1G2BH0-TFPTxh1Ew'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.DBpX52NCRtM9oPpyxk0sYOjJDdeanEHH5v8k6XfwOuul5ILyavAas4yIxAQbW9LO9OeDleXPkpePGqAdQokmdi1yyH0LBzmAVZN-Bnvt26XEN6azx7ic3xvfFgfkkCxBHB9iUicDFmczuz6fgu9zH0J_nnEKbV6A3GjsptOtsr0wLY53j1usSAlgSwiIZtYsaxv5ua9EtRsfBlRPMCRaSDMV-svqiarXIjh-H1pEnu6hk4sW96czbEOfzwYudefCKHvgZWa33IPA6U6pfreX61TJpokcZGgo-5ZFotlHvepepJL8fVLvcg-fBRJqRRJg330VgAI91MvvPIKfA8TRFDX5Eos2mGPAv1MpSvid'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.ci_6JD__QRjqKm66x06qQ2z4jqckV-OI18gWVoId-FDDmgYQN2CdOe_oPYUdJ5xmcD96P0jfA-bMCG_3tIZzKg7p_aXf3iCsp831KhlOPX_6Zu7xzUV48SY7BTEbzd0CYlYKR-vjlqN8PNRww7t74CWMmbmvxrR5FdSMDNe0GbFJmy_WoYaCJyU8ifnnNk9FY6fgJasO3WrdOx5TErHXpWnMb0Qqf1Dog36WZ0lWJGrcG0PQNtBr1WP-mWzoun8JsNgrMLW8SlT6zldPkyQ9Y9uKrw1OicLI7CfnR7Hao1_oURqDm4XfQiSE5Z5Hg0aF_JEbeiir2TYiXMleb9VO4_a058yWbZL046nARRaY'; A then sees status=input_required; after A answers: status=completed result='backup label=A-jkz3f5h7 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.zUsuph9YYjkCBz91qe7JPkUEhUKUJsec2HMOYMXBANCI1LPqP_WEBITEs_hXDpM_k5LgJHkbl9s7zl9uDXtq4FF2ACQLfu5FY0wsILQ3OmzkAWJqWiq9-zSRl-jiqKbosAi24TNa3ZGYg1G8T3lJAJ7U7pZb0x3y56Hc8NZeaDHjn1gR5b6lsOlu1XtqdDBGGkHbEPkQcqDOuQqlbTm68FAyp0Y2apxcJo7jWjc9r84ymeCHVvSASsMALfV2669qLZwwxZEN6Dfxhe2yKSBwYd0ragXGv8q9SMfR2hlHmPMPDfOZg4MTqrB6cipYTrhIcSUbIsnQ6cvEMmWfnu_6JuqXnehw293rxew71i4W'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 7bc96978-74df-488b-b5d5-45baa05ddefd'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-226nx', 'seal-proxy-7758855775-8rrjn', 'seal-proxy-7758855775-qr55h', 'seal-proxy-7758855775-rkf6x', 'seal-proxy-7758855775-sgpn8', 'seal-proxy-7758855775-xgtrz']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (14 IDs, 133 responses)
+evidence: /home/ubuntu/ai1/evidence/20261011T061303Z-P2-v2.1
+--- run 1/1 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.hTtR3kvkhE_dKS9dFfWQhUcYyiaikuCJOGQ0AtLDbXeuKg2KzyTiFTL4hjxHZUuXBZCTa0xpl2z433aODPVaQdSBr-8Si57mzeFG_oNxCEOTgI1kQ7ZKa-iWzPiP3WeYsZtqQoExIWSSyRYOqmMtMLed8-cPzaq5bdW5vWRxg9zFICn1pTClpmn_RQcka3IrhRaw82tbX04OpnExnQMjr9AzvnmfKMJK21T072UJn-PlVxJptdxebFZdqqDrD5MaXz8ESzgAEFUbCjvdAa78B0saiO4MuCGyekmtfeIdLGAKfsRJIzB_fAbJWwgGo1UVCrD4bQT857gdHDBWf2YaOwEDC2n3iJh_4__CuGDs'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.-U7AX0FGnskipq4QF2l-TGd1_QqAK_NXECeuNCd912lZOmFa5_m2YYz02xblNVf5E6z9UQrLU8ydQvD0V_curO-lCikZ1Nu4DvcDvv_j2Wpzl1yFM1Vj5cYjSXZmWwVRJaJwVTvlHtDC_DjM6RCPPpw5UdqVVJLDXycy8FL2I-IF5Apow8lTy5EYQt361_12jxYpa-FQ5Xz4WkgH_z0iNNU3fEBqX6ONrR_L_OnRXkXy6yU2Q6FDWBFRHdXuKxitr6J9hgdWGHJgazVPUDvVzlLmY361zkgLpE4SuVIbJDdVPyayrNSLxM0pdWo_r4MqMjKSoVEawayi0Kr_e0aAFm78dxNs9STLDZ5QWbn3'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 5503d180-cbe3-4cb9-828b-7657c7aa7b95'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (20 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261011T061350Z-P2-NP-v2.1
+--- run 1/1 P-AGW2995
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 8857e6f5-6c95-45c0-8c48-4e52fc788622'
+[P-AGW2995] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-139ltc14
+[P-AGW2995] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW2995] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-kb74vdj7 answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW2995] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261011T061403Z-P-AGW2995-v2.1
+--- run 1/1 P-AGW2995-SEAL
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995-SEAL] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995-SEAL] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995-SEAL] T1           MATCH     expected=refused observed=refused error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] T3a          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=working
+[P-AGW2995-SEAL] T3b          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=input_required; after A answers: status=completed result='backup label=A-jlpharsj answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P-AGW2995-SEAL] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['data_raw']; codes={'own-of-A': -32600, 'random': -32600, 'tampered': -32600, 'malformed': -32600}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task', 'random': 'unknown task', 'tampered': 'unknown task', 'malformed': 'unknown task'}
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] TL           MATCH     expected=refused observed=refused source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995-seal, whose default access log has no task ID; error code=-32600 message='unknown task'
+evidence: /home/ubuntu/ai1/evidence/20261011T061417Z-P-AGW2995-SEAL-v2.1
+
+==> drain demo (P0, P1, P-AGW, P2) x 1 runs
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-l5cb6y4f) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6k9fh,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-l5cb6y4f by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-uxy8dc4u) would break a PodDisruptionBudget for team-a/payments-8584f8c75-gtlsc, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-m969supn) would break a PodDisruptionBudget for team-a/payments-8584f8c75-gtl
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-m969supn by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-0wc57taq) would break a PodDisruptionBudget for team-a/payments-8584f8c75-l
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+
+==> token lifetime (T2a, T2b, T2a-exp) on P0-OFF, P1, P-AGW, P2; key rotation R-8 on P2
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T2a          OBSERVED  expected=none (baseline) observed=accepted revoke HTTP 200; the revoked token still has 897s to exp; status=completed
+[P0-OFF] T2a-introspection MATCH     expected=active before, inactive after observed=before=True after=False Keycloak introspection as client task-server (separate control, DEC-17)
+[P0-OFF] T2b          OBSERVED  expected=none (baseline) observed=accepted new token: same iss/sub/azp=True, jti differs=True
+[P0-OFF] T2a-exp      OBSERVED  expected=none (baseline) observed=accepted throughout (last at exp+138s) 60 s token revoked at once (HTTP 200); last accepted at exp+138s; polled every 5 s
+evidence: /home/ubuntu/ai1/evidence/20261011T061502Z-P0-OFF-v2.1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T2a          MATCH     expected=accepted (local JWT, until exp) observed=accepted revoke HTTP 200; the revoked token still has 898s to exp; status=completed
+[P1] T2a-introspection MATCH     expected=active before, inactive after observed=before=True after=False Keycloak introspection as client task-server (separate control, DEC-17)
+[P1] T2b          MATCH     expected=accepted (owner = iss, sub, azp) observed=accepted new token: same iss/sub/azp=True, jti differs=True
+[P1] T2a-exp      MATCH     expected=refused after exp (+ leeway) observed=refused at exp+61s 60 s token revoked at once (HTTP 200); last accepted at exp+56s; polled every 5 s
+evidence: /home/ubuntu/ai1/evidence/20261011T061832Z-P1-v2.1
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T2a          OBSERVED  expected=none (baseline) observed=accepted revoke HTTP 200; the revoked token still has 898s to exp; status=completed
+[P-AGW] T2a-introspection MATCH     expected=active before, inactive after observed=before=True after=False Keycloak introspection as client task-server (separate control, DEC-17)
+[P-AGW] T2b          OBSERVED  expected=none (baseline) observed=accepted new token: same iss/sub/azp=True, jti differs=True
+[P-AGW] T2a-exp      OBSERVED  expected=none (baseline) observed=refused at exp+62s 60 s token revoked at once (HTTP 200); last accepted at exp+57s; polled every 5 s
+evidence: /home/ubuntu/ai1/evidence/20261011T062038Z-P-AGW-v2.1
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T2a          MATCH     expected=accepted (local JWT, until exp) observed=accepted revoke HTTP 200; the revoked token still has 898s to exp; status=completed
+[P2] T2a-introspection MATCH     expected=active before, inactive after observed=before=True after=False Keycloak introspection as client task-server (separate control, DEC-17)
+[P2] T2b          MATCH     expected=accepted (owner = iss, sub, azp) observed=accepted new token: same iss/sub/azp=True, jti differs=True
+[P2] T2a-exp      MATCH     expected=refused after exp (+ leeway) observed=refused at exp+62s 60 s token revoked at once (HTTP 200); last accepted at exp+57s; polled every 5 s
+evidence: /home/ubuntu/ai1/evidence/20261011T062245Z-P2-v2.1
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] R-8:rotated  MATCH     expected=opens observed=opens handle sealed with K1; active=K2, previous=K1
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] R-8:removed  MATCH     expected=refused observed=refused handle sealed with K1; active=K2, previous removed; error={'code': -32602, 'message': 'unknown task: v1.tpVFsYiXmGyJZzfW2DbYNLHZOxnzw-ItxV-nesZkYfaV9phL8fBTRc7ll5flry8rRRS2u6V48uLeZE9vnn6mV_k2kqxrBnl3KOUIZfcy2mNKmhJiBIcgsui9l__ESUeGojFovPE6NHr35V4TJym-O0OowH4voRL0l7WW10cdiDfpBGTRZbaBx_dtUQ0ZHdCgmOlREqqr8DtwNpDE2fc2JdVCMifIJneXirBz7Imoi8CAqnm51bzDb3W1lG45Zu-p5fuJO_n-pvpKmGABlv9_S0s5RlBNkNTWPC2AyU-OtrlrtsUs-7VlYdED6VTf4d7FHertL1SeXZbX9ItWnG3W8v6N7PtS2VeiseXJWSqg'}
+evidence: /home/ubuntu/ai1/evidence/20261011T062452Z-P2-R8-v2
+
+Measurements since 2026-10-11T06:11:17: 127 rows, placements: P0-OFF, P0-OFF-LIT, P0, P-AGW, P-AGW2995, P1, P2, P2-NP, P-AGW2995-SEAL
+
+| placement | runs | T0 | T0-B | PC-anon | PC-agent-c | AUD | T1 | T3a | T3b | T4 | TL | TB | TR | R-8:rotated | R-8:removed | T2a-exp | DRAIN-watch | DRAIN-force |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| P0-OFF | 2 | pass 3/3 | pass 1/1 | access 1/1 | access 1/1 | accepted 1/1 | access 1/1 | access 1/1 | not-applicable 1/1 | distinguishable 1/1 | access 1/1 |  |  |  |  | accepted throughout 1/1 |  |  |
+| P0-OFF-LIT | 1 | fail 1/1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| P0 | 2 | pass 3/3 | pass 1/1 | access 1/1 | access 1/1 | accepted 1/1 | access 1/1 | access 1/1 | access 1/1 | distinguishable 1/1 | access 1/1 |  |  |  |  |  | read 1/1 | forced-by-B 1/1 |
+| P-AGW | 3 | pass 4/4 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | access 1/1 | access 1/1 | access 1/1 | distinguishable 1/1 | access 1/1 |  |  |  |  | refused 1/1 | read 1/1 | forced-by-B 1/1 |
+| P-AGW2995 | 1 | pass 2/2 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | access 1/1 | access 1/1 | access 1/1 | distinguishable 1/1 | access 1/1 |  |  |  |  |  |  |  |
+| P1 | 3 | pass 4/4 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | indistinguishable 1/1 | refused 1/1 |  |  |  |  | refused 1/1 | refused 1/1 | refused 1/1 |
+| P2 | 4 | pass 7/7 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | indistinguishable 1/1 | refused 1/1 | reached 1/1 | opens-everywhere 1/1 | opens 1/1 | refused 1/1 | refused 1/1 | read 1/1 | refused 1/1 |
+| P2-NP | 1 | pass 2/2 |  |  |  |  | refused 1/1 |  |  |  | refused 1/1 | blocked 1/1 |  |  |  |  |  |  |
+| P-AGW2995-SEAL | 1 | pass 2/2 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | indistinguishable 1/1 | refused 1/1 |  |  |  |  |  |  |  |
+
+Owner-binding placements (expect 'refused' for T1/T3a/T3b/TL): P1, P2, P2-NP, P-AGW2995-SEAL
+Baseline placements      (expect 'access'  for T1/T3a/T3b/TL): P0-OFF, P0, P-AGW, P-AGW2995
+
+ALL CHECKS PASSED

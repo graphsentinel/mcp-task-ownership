@@ -1,0 +1,4 @@
+# Binaries copied out of the build container (see lab/README.md)
+server/dist/
+proxy/dist/
+target/

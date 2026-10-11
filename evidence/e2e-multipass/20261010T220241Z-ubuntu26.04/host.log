@@ -1,0 +1,5 @@
+==> launch ai1-e2e: Ubuntu 26.04, 8 CPU, 16G, 60G
+==> scripts/bootstrap-ubuntu.sh
+01-bootstrap: exit 0, 37 s
+==> RUNS=5 WITH_PR2995=0 FULL=0 scripts/lab.sh all
+02-lab-all: exit 0, 1561 s

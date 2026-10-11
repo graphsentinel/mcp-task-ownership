@@ -1,0 +1,7 @@
+# Keycloak realm ai1 (identities and lab-only secrets), imported by Keycloak at start.
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: realm-ai1, namespace: keycloak}
+data:
+  ai1.json: |-
+{{ .Files.Get "realm-ai1.json" | indent 4 }}

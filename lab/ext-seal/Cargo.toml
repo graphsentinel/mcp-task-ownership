@@ -1,0 +1,23 @@
+[package]
+name = "ext-seal"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "P-agw-2995: owner-sealing for MCP Tasks as an agentgateway mcpGuardrails (ExtMcp) processor"
+publish = false
+
+[dependencies]
+tonic = "0.12"
+prost = "0.13"
+prost-types = "0.13"
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+chacha20poly1305 = "0.10"
+base64 = "0.22"
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[build-dependencies]
+tonic-build = "0.12"

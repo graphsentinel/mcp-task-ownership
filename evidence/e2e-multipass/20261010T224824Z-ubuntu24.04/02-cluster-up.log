@@ -1,0 +1,39 @@
+
+==> k3d cluster ai1-tasks (docker.io/rancher/k3s:v1.37.1-k3s1): 1 server, 1 agent
+[36mINFO[0m[0000] Prep: Network                                
+[36mINFO[0m[0000] Created network 'k3d-ai1-tasks'              
+[36mINFO[0m[0000] Created image volume k3d-ai1-tasks-images    
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0001] Creating node 'k3d-ai1-tasks-server-0'       
+[36mINFO[0m[0001] Pulling image 'ghcr.io/k3d-io/k3d-tools:5.9.0' 
+[36mINFO[0m[0002] Pulling image 'docker.io/rancher/k3s:v1.37.1-k3s1' 
+[36mINFO[0m[0005] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0015] Creating node 'k3d-ai1-tasks-agent-0'        
+[36mINFO[0m[0015] Creating LoadBalancer 'k3d-ai1-tasks-serverlb' 
+[36mINFO[0m[0016] Pulling image 'ghcr.io/k3d-io/k3d-proxy:5.9.0' 
+[36mINFO[0m[0025] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0025] HostIP: using network gateway 172.18.0.1 address 
+[36mINFO[0m[0025] Starting cluster 'ai1-tasks'                 
+[36mINFO[0m[0025] Starting servers...                          
+[36mINFO[0m[0025] Starting node 'k3d-ai1-tasks-server-0'       
+[36mINFO[0m[0031] Starting agents...                           
+[36mINFO[0m[0031] Starting node 'k3d-ai1-tasks-agent-0'        
+[36mINFO[0m[0034] Starting helpers...                          
+[36mINFO[0m[0035] Starting node 'k3d-ai1-tasks-serverlb'       
+[36mINFO[0m[0041] Injecting records for hostAliases (incl. host.k3d.internal) and for 3 network members into CoreDNS configmap... 
+[36mINFO[0m[0043] Cluster 'ai1-tasks' created successfully!    
+[36mINFO[0m[0043] You can now use it like this:                
+kubectl cluster-info
+
+==> drain-demo node k3d-drain-0-0
+[36mINFO[0m[0000] Adding 1 node(s) to the runtime local cluster 'ai1-tasks'... 
+[36mINFO[0m[0000] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0001] HostIP: using network gateway 172.18.0.1 address 
+[36mINFO[0m[0001] Starting node 'k3d-drain-0-0'                
+[36mINFO[0m[0006] Successfully created 1 node(s)!              
+node/k3d-ai1-tasks-agent-0 condition met
+node/k3d-ai1-tasks-server-0 condition met
+node/k3d-drain-0-0 condition met
+kube context: k3d-ai1-tasks

@@ -1,0 +1,59 @@
+# One image, two placements. P0 = rmcp's official Tasks example as written; P1 = owner-sealed
+# handles. One replica each: rmcp's TaskManager is in-memory.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: task-server-p0, namespace: mcp-shared}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: task-server-p0}}
+  template:
+    metadata: {labels: {app: task-server-p0, ai1/placement: p0}}
+    spec:
+      serviceAccountName: task-server   # node_drain demo (60-drain-demo.yaml)
+      containers:
+        - name: server
+          image: {{ .Values.images.taskServer }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - {name: OWNERSHIP_MODE, value: p0}
+            - {name: ALLOWED_HOSTS, value: "task-server-p0,task-server-p0.mcp-shared,task-server-p0.mcp-shared.svc,task-server-p0.mcp-shared.svc.cluster.local,localhost,127.0.0.1"}
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 3}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: task-server-p0, namespace: mcp-shared}
+spec:
+  selector: {app: task-server-p0}
+  ports: [{port: 8080, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: task-server-p1, namespace: mcp-shared}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: task-server-p1}}
+  template:
+    metadata: {labels: {app: task-server-p1, ai1/placement: p1}}
+    spec:
+      serviceAccountName: task-server   # node_drain demo (60-drain-demo.yaml)
+      containers:
+        - name: server
+          image: {{ .Values.images.taskServer }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          env:
+            - {name: OWNERSHIP_MODE, value: p1}
+            - {name: ALLOWED_HOSTS, value: "task-server-p1,task-server-p1.mcp-shared,task-server-p1.mcp-shared.svc,task-server-p1.mcp-shared.svc.cluster.local,localhost,127.0.0.1"}
+            - {name: OIDC_ISSUER, value: "http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1"}
+            - {name: OIDC_AUDIENCE, value: task-server}   # config v2
+            - name: SEAL_KEY
+              valueFrom: {secretKeyRef: {name: task-seal-key, key: active}}
+          ports: [{containerPort: 8080}]
+          readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 3}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: task-server-p1, namespace: mcp-shared}
+spec:
+  selector: {app: task-server-p1}
+  ports: [{port: 8080, targetPort: 8080}]

@@ -1,0 +1,1632 @@
+[1/5] STEP 1/7: FROM docker.io/library/node:24.17.0-bookworm AS node
+Trying to pull docker.io/library/node:24.17.0-bookworm...
+Getting image source signatures
+Copying blob sha256:a053fc218ca373407392599d3c3529622d604ba0d59d800c1ff998d800452308
+Copying blob sha256:f4fd7bf6f6036613e20f62549df75ed694b99118002358bea5a81baf3929d1ff
+Copying blob sha256:9eb598f63f1e9867f81313f86224109c84b2af9646d8fca29113217b94315956
+Copying blob sha256:db60238133071edf4c72b26f44c9788cdab6cf732cb6dbd00bf7c72676414ec4
+Copying blob sha256:425befdf76e52426879d2abe42093a00dca59a893e7b4fa2a7679b0180b71d4b
+Copying blob sha256:791c68bc2063683c3d15907b8ed1b777cf14ca153c6f8e5b12db0868dfa7e38a
+Copying blob sha256:0132dbaad1c58a3a1e01ca6b534acef7a4483eb1b6fe993838b930f079be9eed
+Copying blob sha256:0ad5d018170cea156ec6a38ad2de7105457e6ddafbd0ca8e985d44f5f5d1883e
+Copying config sha256:968931aba662134d64048095448f91ccd511d69293740259e515f57f108a4573
+Writing manifest to image destination
+[1/5] STEP 2/7: WORKDIR /app
+--> 7d744051b279
+[1/5] STEP 3/7: COPY ui .
+--> 20f5a2490384
+[1/5] STEP 4/7: COPY schema /schema
+--> 7c1b1842eb5f
+[1/5] STEP 5/7: RUN corepack enable
+--> f2ba2f63caa7
+[1/5] STEP 6/7: RUN --mount=type=cache,id=agentgateway-ui-pnpm,target=/pnpm/store     pnpm install --frozen-lockfile --store-dir=/pnpm/store
+! Corepack is about to download https://registry.npmjs.org/pnpm/-/pnpm-11.20.0.tgz
+? Verifying lockfile against supply-chain policies (176 entries)...
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +125
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Packages are copied from the content-addressable store to the virtual store.
+  Content-addressable store is at: /pnpm/store/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 125, reused 0, downloaded 1, added 1
+Progress: resolved 125, reused 0, downloaded 22, added 22
+[WARN] Tarball download average speed 1 KiB/s (size 2 KiB) is below 50 KiB/s: https://registry.npmjs.org/monaco-types/-/monaco-types-0.1.2.tgz (GET)
+
+   ╭───────────────────────────────────────────────╮
+   │                                               │
+   │     Update available! 11.20.0 → 12.11.2.      │
+   │     Changelog: https://pnpm.io/v/12.11.2      │
+   │   To update, run: corepack use pnpm@12.11.2   │
+   │                                               │
+   ╰───────────────────────────────────────────────╯
+
+Progress: resolved 125, reused 0, downloaded 51, added 50
+Progress: resolved 125, reused 0, downloaded 70, added 68
+Progress: resolved 125, reused 0, downloaded 90, added 90
+Progress: resolved 125, reused 0, downloaded 102, added 102
+[WARN] Tarball download average speed 25 KiB/s (size 63 KiB) is below 50 KiB/s: https://registry.npmjs.org/redux/-/redux-5.0.1.tgz (GET)
+[WARN] Tarball download average speed 49 KiB/s (size 201 KiB) is below 50 KiB/s: https://registry.npmjs.org/seroval/-/seroval-1.5.4.tgz (GET)
+[WARN] Tarball download average speed 7 KiB/s (size 17 KiB) is below 50 KiB/s: https://registry.npmjs.org/d3-interpolate/-/d3-interpolate-3.0.1.tgz (GET)
+[WARN] Tarball download average speed 44 KiB/s (size 164 KiB) is below 50 KiB/s: https://registry.npmjs.org/monaco-yaml/-/monaco-yaml-5.5.1.tgz (GET)
+[WARN] Tarball download average speed 3 KiB/s (size 9 KiB) is below 50 KiB/s: https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz (GET)
+Progress: resolved 125, reused 0, downloaded 109, added 109
+[WARN] Tarball download average speed 11 KiB/s (size 77 KiB) is below 50 KiB/s: https://registry.npmjs.org/vscode-languageserver-types/-/vscode-languageserver-types-3.18.0.tgz (GET)
+Progress: resolved 125, reused 0, downloaded 111, added 111
+Progress: resolved 125, reused 0, downloaded 114, added 114
+Progress: resolved 125, reused 0, downloaded 115, added 115
+Progress: resolved 125, reused 0, downloaded 116, added 115
+Progress: resolved 125, reused 0, downloaded 116, added 116
+Progress: resolved 125, reused 0, downloaded 117, added 116
+Progress: resolved 125, reused 0, downloaded 118, added 118
+[WARN] Request took 11913ms: https://registry.npmjs.org/react-dom
+[WARN] Request took 10830ms: https://registry.npmjs.org/typescript
+Progress: resolved 125, reused 0, downloaded 119, added 119
+[WARN] Request took 17421ms: https://registry.npmjs.org/@playwright%2Ftest
+Progress: resolved 125, reused 0, downloaded 120, added 119
+Progress: resolved 125, reused 0, downloaded 120, added 120
+Progress: resolved 125, reused 0, downloaded 121, added 121
+[WARN] Request took 16373ms: https://registry.npmjs.org/use-sync-external-store
+[WARN] Request took 18170ms: https://registry.npmjs.org/playwright-core
+[WARN] Request took 18081ms: https://registry.npmjs.org/react
+Progress: resolved 125, reused 0, downloaded 122, added 121
+Progress: resolved 125, reused 0, downloaded 122, added 122
+[WARN] Request took 10422ms: https://registry.npmjs.org/typescript
+[WARN] Request took 22388ms: https://registry.npmjs.org/react-is
+[WARN] Request took 26633ms: https://registry.npmjs.org/playwright
+✓ Lockfile passes supply-chain policies (176 entries in 30s)
+Progress: resolved 125, reused 0, downloaded 123, added 122
+Progress: resolved 125, reused 0, downloaded 123, added 123
+Progress: resolved 125, reused 0, downloaded 124, added 123
+Progress: resolved 125, reused 0, downloaded 124, added 124
+Progress: resolved 125, reused 0, downloaded 125, added 125, done
+
+dependencies:
++ @fontsource/geist-sans 5.3.0
++ @monaco-editor/react 4.7.0
++ @tanstack/react-query 5.101.4
++ @tanstack/react-router 1.170.18
++ js-yaml 5.2.3
++ lucide-react 1.28.0
++ monaco-editor 0.56.0
++ monaco-yaml 5.5.1
++ react 19.2.8
++ react-dom 19.2.8
++ recharts 3.10.1
+
+devDependencies:
++ @biomejs/biome 2.5.6
++ @playwright/test 1.62.1
++ @types/node 24.13.3
++ @types/react 19.2.18
++ @types/react-dom 19.2.4
++ @vitejs/plugin-react 6.0.5
++ ajv 8.20.0
++ json-schema-to-typescript 15.0.4
++ typescript 7.0.2
++ vite 8.2.0
+
+Done in 44.6s using pnpm v11.20.0
+--> 223b88b3ce37
+[1/5] STEP 7/7: RUN pnpm build
+$ pnpm generate-schema && tsc -b && vite build
+$ node scripts/generate-schema.mjs
+vite v8.2.0 building client environment for production...
+[2Ktransforming...✓ 3600 modules transformed.
+rendering chunks...
+dist/index.html                                             0.45 kB
+dist/assets/goose-BgjvHLi-.svg                              5.01 kB
+dist/assets/ollama-DKkSUGOX.svg                             6.81 kB
+dist/assets/agw-light-DJTtfO6q.svg                         11.96 kB
+dist/assets/agw-dark-C2QmfDfk.svg                          11.97 kB
+dist/assets/deepinfra-CfoWjF4W.svg                         14.88 kB
+dist/assets/geist-sans-latin-400-normal-gapTbOY8.woff2     33.40 kB
+dist/assets/geist-sans-latin-500-normal-uokXdC-Q.woff2     34.71 kB
+dist/assets/geist-sans-latin-600-normal-DFOURf8L.woff2     35.29 kB
+dist/assets/geist-sans-latin-700-normal-BmN9tIp5.woff2     35.48 kB
+dist/assets/geist-sans-latin-400-normal-BOaIZNA2.woff      38.91 kB
+dist/assets/geist-sans-latin-500-normal-CN2lyvyL.woff      40.52 kB
+dist/assets/geist-sans-latin-600-normal-CA1yjETN.woff      41.20 kB
+dist/assets/geist-sans-latin-700-normal-CjScfYeH.woff      41.39 kB
+dist/assets/codicon-Brq4_Ui5.ttf                          140.95 kB
+dist/assets/editor.worker-BgeVITW_.js                     300.36 kB
+dist/assets/yaml.worker-EeeXKoaa.js                     1,018.74 kB
+dist/assets/index-ayDp9qkq.css                            223.33 kB
+dist/assets/RawConfigEditor-UDqZWMFA.js                     2.41 kB
+dist/assets/yaml-BbZ2TefP.js                                3.53 kB
+dist/assets/RawConfig-Ys18HgIE.js                           6.51 kB
+dist/assets/index-Di2EO8eF.js                           4,723.71 kB
+
+✓ built in 2.07s
+--> af353fe00f73
+[3/5] STEP 1/3: FROM docker.io/library/rust:1.97.0-trixie AS base-builder
+Trying to pull docker.io/library/rust:1.97.0-trixie...
+Getting image source signatures
+Copying blob sha256:d7a5739b402da4ef16c0d93c6a7a4df955bb76141f4c9408fcfe7735e3111c97
+Copying blob sha256:9e002cae30c445bfdf70841ba6a8d772e913914a00fa0e0f7bd0e4c089aaa838
+Copying blob sha256:65956eab0c1ca261c14a3e13055ec8ca4f6ec75198f6ef0704d5194884466582
+Copying blob sha256:b453535073b6238aba838c5d063a1468b4d6a9aa54f81de64a4de304dc456685
+Copying blob sha256:b890c9407285c31d25426ef154b55c72e225f19b478a59451b01a8a44f5ea4f7
+Copying config sha256:62ba2f7ce22ba9bc501110d3452c7ae814fba367c46f7eea3629a79286353884
+Writing manifest to image destination
+[3/5] STEP 2/3: ARG TARGETARCH
+--> 62ee571a3aaf
+[3/5] STEP 3/3: RUN <<EOF (mkdir /build...)
+Building x86_64-unknown-linux-gnu
+--> 39bbce2a0a08
+[4/5] STEP 1/15: FROM 39bbce2a0a08fad7f698c95f842fb2406ad0a3d57d0a6f21b934cf84f22feb50 AS builder
+[4/5] STEP 2/15: ARG TARGETARCH
+--> c6f8bc04f46e
+[4/5] STEP 3/15: ARG PROFILE=release
+--> 91a370bc0d30
+[4/5] STEP 4/15: ARG VERSION
+--> 566c5eb6bdd3
+[4/5] STEP 5/15: ARG GIT_REVISION
+--> f9f0efa55601
+[4/5] STEP 6/15: ARG CARGO_FEATURES=agentgateway/ui
+--> 815cd5e530c5
+[4/5] STEP 7/15: ARG CARGO_NO_DEFAULT_FEATURES=false
+--> 7871452bea92
+[4/5] STEP 8/15: WORKDIR /app
+--> 958101b1dd80
+[4/5] STEP 9/15: COPY Makefile Cargo.toml Cargo.lock ./
+--> eadc18e489da
+[4/5] STEP 10/15: COPY .cargo ./.cargo
+--> 8a7a449583e7
+[4/5] STEP 11/15: COPY crates ./crates
+--> 141daa008489
+[4/5] STEP 12/15: COPY tools ./tools
+--> 3750a80015e7
+[4/5] STEP 13/15: COPY --from=node /app/dist ./ui/dist
+--> 7fe5723312a6
+[4/5] STEP 14/15: RUN     --mount=type=cache,id=cargo,target=/usr/local/cargo/registry     --mount=type=cache,id=cargo-git,target=/usr/local/cargo/git     cargo fetch --locked
+    Updating git repository `https://github.com/howardjohn/async-openai`
+    Updating git repository `https://gitlab.com/howardjohn/http-serde`
+    Updating git repository `https://github.com/howardjohn/schemars`
+    Updating git repository `https://github.com/howardjohn/wiremock-rs`
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded deadpool-runtime v0.1.4
+  Downloaded sval_serde v2.20.0
+  Downloaded value-bag-sval2 v1.13.1
+  Downloaded sval_dynamic v2.20.0
+  Downloaded futures-macro v0.3.33
+  Downloaded num_cpus v1.17.0
+  Downloaded sval_json v2.20.0
+  Downloaded assert-json-diff v2.0.2
+  Downloaded tinyvec_macros v0.1.1
+  Downloaded sval_ref v2.20.0
+  Downloaded sval_fmt v2.20.0
+  Downloaded value-bag-serde1 v1.13.1
+  Downloaded mime v0.3.17
+  Downloaded windows-core v0.62.2
+  Downloaded serde_urlencoded v0.7.1
+  Downloaded atoi v2.0.0
+  Downloaded sval_nested v2.20.0
+  Downloaded serde_fmt v1.1.0
+  Downloaded tikv-jemallocator v0.7.0
+  Downloaded typespec_macros v1.0.0
+  Downloaded rustc-hash v2.1.3
+  Downloaded cpufeatures v0.2.17
+  Downloaded redox_syscall v0.5.18
+  Downloaded futures-core v0.3.33
+  Downloaded android_system_properties v0.1.5
+  Downloaded scopeguard v1.2.0
+  Downloaded cpufeatures v0.3.0
+  Downloaded crypto-common v0.1.6
+  Downloaded block-buffer v0.10.4
+  Downloaded windows-strings v0.5.1
+  Downloaded windows-targets v0.53.5
+  Downloaded include_dir_macros v0.7.4
+  Downloaded iana-time-zone-haiku v0.1.2
+  Downloaded parking v2.2.1
+  Downloaded crc v3.4.0
+  Downloaded futures-io v0.3.33
+  Downloaded sync_wrapper v1.0.2
+  Downloaded rustc_version v0.4.1
+  Downloaded include_dir v0.7.4
+  Downloaded wasm-bindgen-macro v0.2.126
+  Downloaded windows-result v0.4.1
+  Downloaded nonmax v0.5.5
+  Downloaded miette-derive v5.10.0
+  Downloaded tracing-serde v0.2.0
+  Downloaded murmur3 v0.4.1
+  Downloaded websocket-sans-io v0.1.0
+  Downloaded sval_buffer v2.20.0
+  Downloaded better_any v0.2.1
+  Downloaded time-core v0.1.9
+  Downloaded vector-map v1.1.0
+  Downloaded thousands v0.2.0
+  Downloaded rusticata-macros v4.1.0
+  Downloaded ref-cast-impl v1.0.26
+  Downloaded zeroize_derive v1.5.0
+  Downloaded errno v0.3.14
+  Downloaded version_check v0.9.5
+  Downloaded cfg-if v1.0.4
+  Downloaded which v8.0.5
+  Downloaded axum-core v0.5.6
+  Downloaded async-trait v0.1.91
+  Downloaded unicase v2.9.0
+  Downloaded serde_path_to_error v0.1.20
+  Downloaded whoami v2.1.2
+  Downloaded typespec v1.1.0
+  Downloaded hyper-timeout v0.5.2
+  Downloaded concurrent-queue v2.5.0
+  Downloaded tokio-macros v2.7.1
+  Downloaded windows-targets v0.52.6
+  Downloaded crossbeam-queue v0.3.13
+  Downloaded wasm-bindgen-shared v0.2.126
+  Downloaded windows-interface v0.59.3
+  Downloaded futures-task v0.3.33
+  Downloaded stacker v0.1.24
+  Downloaded psm v0.1.31
+  Downloaded windows-implement v0.60.2
+  Downloaded tokio_sse_codec v0.0.2
+  Downloaded sha2 v0.10.9
+  Downloaded pin-project-internal v1.1.13
+  Downloaded crc-catalog v2.5.0
+  Downloaded dyn-clone v1.0.20
+  Downloaded mime_guess v2.0.5
+  Downloaded zerofrom v0.1.8
+  Downloaded windows-link v0.2.1
+  Downloaded zerofrom-derive v0.1.7
+  Downloaded generic-array v0.14.9
+  Downloaded tokio-rustls v0.26.4
+  Downloaded axum-server v0.8.0
+  Downloaded toml_datetime v1.1.1+spec-1.1.0
+  Downloaded potential_utf v0.1.5
+  Downloaded tower-serve-static v0.1.2
+  Downloaded rand_chacha v0.3.1
+  Downloaded zeroize v1.9.0
+  Downloaded const-oid v0.9.6
+  Downloaded idna_adapter v1.2.2
+  Downloaded tower-layer v0.3.3
+  Downloaded want v0.3.1
+  Downloaded matchit v0.8.4
+  Downloaded sse-stream v0.2.5
+  Downloaded tonic-prost-build v0.14.6
+  Downloaded inventory v0.3.24
+  Downloaded symcrypt v0.5.1
+  Downloaded embedded-io v0.4.0
+  Downloaded futures-sink v0.3.33
+  Downloaded strum v0.27.2
+  Downloaded rand_xorshift v0.4.0
+  Downloaded rustc-demangle v0.1.28
+  Downloaded digest v0.10.7
+  Downloaded tracing-log v0.2.0
+  Downloaded tokio-stream v0.1.19
+  Downloaded autocfg v1.5.1
+  Downloaded spin v0.9.9
+  Downloaded jobserver v0.1.35
+  Downloaded event-listener v5.4.1
+  Downloaded axum-macros v0.5.1
+  Downloaded stringprep v0.1.5
+  Downloaded simd-adler32 v0.3.10
+  Downloaded critical-section v1.2.0
+  Downloaded signal-hook-registry v1.4.8
+  Downloaded slab v0.4.12
+  Downloaded rustversion v1.0.23
+  Downloaded pin-project-lite v0.2.17
+  Downloaded tinystr v0.8.3
+  Downloaded num-iter v0.1.46
+  Downloaded semver v1.0.28
+  Downloaded logos-derive v0.16.1
+  Downloaded adler2 v2.0.1
+  Downloaded tinyvec v1.12.0
+  Downloaded value-bag v1.13.1
+  Downloaded ryu v1.0.23
+  Downloaded oncemutex v0.1.1
+  Downloaded arc-swap v1.9.2
+  Downloaded fsevent-sys v4.1.0
+  Downloaded chacha20 v0.10.1
+  Downloaded oid-registry v0.8.1
+  Downloaded headers-core v0.3.0
+  Downloaded const-random-macro v0.1.16
+  Downloaded mappings v0.7.2
+  Downloaded flagset v0.4.7
+  Downloaded strip-ansi-escapes v0.2.1
+  Downloaded sha-1 v0.9.8
+  Downloaded arcstr v1.2.0
+  Downloaded block-buffer v0.9.0
+  Downloaded shlex v2.0.1
+  Downloaded md-5 v0.9.1
+  Downloaded find-msvc-tools v0.1.9
+  Downloaded event-listener-strategy v0.5.4
+  Downloaded condtype v1.3.0
+  Downloaded crossbeam v0.8.4
+  Downloaded symcrypt-sys v0.4.0
+  Downloaded hashlink v0.11.1
+  Downloaded tracking-allocator v0.4.0
+  Downloaded twox-hash v2.1.0
+  Downloaded ipnet v2.12.0
+  Downloaded windows-future v0.3.2
+  Downloaded pastey v0.2.3
+  Downloaded pin-project v1.1.13
+  Downloaded dirs-sys v0.5.0
+  Downloaded prost-derive v0.14.4
+  Downloaded logos v0.16.1
+  Downloaded lazy_static v1.5.0
+  Downloaded dashmap v6.2.1
+  Downloaded proc-macro-crate v3.5.0
+  Downloaded iana-time-zone v0.1.65
+  Downloaded rand_core v0.10.1
+  Downloaded compression-core v0.4.32
+  Downloaded alloc-stdlib v0.2.4
+  Downloaded core-foundation-sys v0.8.7
+  Downloaded smallvec v1.15.2
+  Downloaded async-stream v0.3.6
+  Downloaded macro_rules_attribute v0.2.2
+  Downloaded pingora-pool v0.8.1
+  Downloaded etcetera v0.11.0
+  Downloaded wasi v0.11.1+wasi-snapshot-preview1
+  Downloaded diff v0.1.13
+  Downloaded addr2line v0.25.1
+  Downloaded parking_lot_core v0.9.12
+  Downloaded pwhash v1.0.0
+  Downloaded lock_api v0.4.14
+  Downloaded valuable v0.1.1
+  Downloaded tracing-attributes v0.1.31
+  Downloaded futures-channel v0.3.33
+  Downloaded kqueue v1.2.0
+  Downloaded resolv-conf v0.7.6
+  Downloaded ff v0.13.1
+  Downloaded bytes-utils v0.1.4
+  Downloaded jni-sys-macros v0.4.1
+  Downloaded clap_lex v1.1.0
+  Downloaded equator-macro v0.4.2
+  Downloaded asn1-rs-impl v0.2.0
+  Downloaded which v4.4.2
+  Downloaded once_cell v1.21.4
+  Downloaded aws-credential-types v1.3.0
+  Downloaded aws-smithy-query v0.62.0
+  Downloaded toml v1.1.3+spec-1.1.0
+  Downloaded pulldown-cmark-to-cmark v22.0.0
+  Downloaded darling v0.21.3
+  Downloaded seize v0.3.3
+  Downloaded fixedbitset v0.5.7
+  Downloaded digest v0.11.3
+  Downloaded derive_builder_core v0.20.2
+  Downloaded winapi-util v0.1.11
+  Downloaded spki v0.7.3
+  Downloaded core-foundation v0.10.1
+  Downloaded num-rational v0.4.2
+  Downloaded is_terminal_polyfill v1.70.2
+  Downloaded percent-encoding v2.3.2
+  Downloaded heck v0.5.0
+  Downloaded ciborium-io v0.2.2
+  Downloaded system-configuration-sys v0.6.0
+  Downloaded fs-err v3.3.1
+  Downloaded protox v0.9.1
+  Downloaded quinn-udp v0.5.15
+  Downloaded colorchoice v1.0.5
+  Downloaded typed-arena v2.0.2
+  Downloaded powerfmt v0.2.0
+  Downloaded flume v0.12.0
+  Downloaded getrandom v0.2.17
+  Downloaded num-traits v0.2.19
+  Downloaded parking_lot v0.12.5
+  Downloaded getrandom v0.4.3
+  Downloaded rcgen v0.14.8
+  Downloaded bitflags v2.13.1
+  Downloaded hmac v0.12.1
+  Downloaded simple_asn1 v0.6.4
+  Downloaded http-body v1.1.0
+  Downloaded windows-collections v0.3.2
+  Downloaded logos-derive v0.15.1
+  Downloaded rmcp-macros v3.1.0
+  Downloaded mimalloc v0.1.48
+  Downloaded const-random v0.1.18
+  Downloaded regex-cache v0.2.1
+  Downloaded yoke-derive v0.8.2
+  Downloaded cobs v0.3.0
+  Downloaded file-id v0.2.3
+  Downloaded tonic-prost v0.14.6
+  Downloaded embedded-io v0.6.1
+  Downloaded fastrand v2.5.0
+  Downloaded futures v0.3.33
+  Downloaded async-lock v3.4.2
+  Downloaded oorandom v11.1.5
+  Downloaded dhat v0.3.3
+  Downloaded futures-intrusive v0.5.0
+  Downloaded miette v5.10.0
+  Downloaded ar_archive_writer v0.5.2
+  Downloaded log v0.4.33
+  Downloaded rmcp-macros v0.10.0
+  Downloaded sqlx-macros v0.9.0
+  Downloaded pprof-alloc v0.5.0
+  Downloaded sha2 v0.11.0
+  Downloaded protox-parse v0.9.0
+  Downloaded rcgen v0.13.2
+  Downloaded criterion-plot v0.5.0
+  Downloaded cmake v0.1.58
+  Downloaded md-5 v0.11.0
+  Downloaded rfc6979 v0.4.0
+  Downloaded digest v0.9.0
+  Downloaded inout v0.2.2
+  Downloaded typespec_client_core v1.1.0
+  Downloaded opaque-debug v0.3.1
+  Downloaded base16ct v0.2.0
+  Downloaded num-integer v0.1.46
+  Downloaded r-efi v6.0.0
+  Downloaded tracing-core v0.1.36
+  Downloaded aws-smithy-json v0.63.0
+  Downloaded pkcs1 v0.7.5
+  Downloaded arrayvec v0.7.8
+  Downloaded thiserror-impl v2.0.19
+  Downloaded darling_macro v0.20.11
+  Downloaded tempfile v3.27.0
+  Downloaded atomic_float v1.1.0
+  Downloaded alloc-no-stdlib v2.0.4
+  Downloaded windows-threading v0.2.1
+  Downloaded memmap2 v0.9.11
+  Downloaded num-complex v0.4.6
+  Downloaded http-body v0.4.6
+  Downloaded dtoa v1.0.11
+  Downloaded outref v0.5.2
+  Downloaded aws-smithy-observability v0.3.0
+  Downloaded async-stream-impl v0.3.6
+  Downloaded aws-smithy-schema v0.2.0
+  Downloaded option-ext v0.2.0
+  Downloaded url v2.5.8
+  Downloaded sqlx-sqlite v0.9.0
+  Downloaded serde_regex v1.2.0
+  Downloaded rustls-platform-verifier-android v0.1.1
+  Downloaded ref-cast v1.0.26
+  Downloaded serde_bytes v0.11.19
+  Downloaded tower v0.5.3
+  Downloaded jemalloc_pprof v0.9.0
+  Downloaded bit-vec v0.9.1
+  Downloaded hyper-rustls v0.27.9
+  Downloaded durationfmt v0.1.1
+  Downloaded miniz_oxide v0.8.9
+  Downloaded sval v2.20.0
+  Downloaded tonic v0.14.6
+  Downloaded socket2 v0.6.5
+  Downloaded wasm-bindgen v0.2.126
+  Downloaded typetag v0.2.23
+  Downloaded darling_macro v0.23.0
+  Downloaded indexmap v1.9.3
+  Downloaded darling v0.23.0
+  Downloaded pest_derive v2.8.8
+  Downloaded cipher v0.5.2
+  Downloaded strsim v0.11.1
+  Downloaded icu_normalizer v2.2.0
+  Downloaded rustls-webpki v0.103.13
+  Downloaded typeid v1.0.3
+  Downloaded serde_derive v1.0.229
+  Downloaded sharded-slab v0.1.7
+  Downloaded httparse v1.10.1
+  Downloaded clocksource v1.0.1
+  Downloaded prefix-trie v0.8.4
+  Downloaded backtrace v0.3.76
+  Downloaded aws-smithy-eventstream v0.61.1
+  Downloaded protobuf-codegen v3.7.2
+  Downloaded rand_chacha v0.10.0
+  Downloaded once_cell_polyfill v1.70.2
+  Downloaded is-terminal v0.4.17
+  Downloaded rand v0.10.2
+  Downloaded dotenvy v0.15.7
+  Downloaded strum_macros v0.27.2
+  Downloaded security-framework-sys v2.17.0
+  Downloaded prost v0.14.4
+  Downloaded shellexpand v3.1.2
+  Downloaded fancy-regex v0.17.0
+  Downloaded thiserror-impl v1.0.69
+  Downloaded tonic-build v0.14.6
+  Downloaded cmov v0.5.4
+  Downloaded beef v0.5.2
+  Downloaded untrusted v0.7.1
+  Downloaded signature v2.2.0
+  Downloaded blowfish v0.7.0
+  Downloaded heapless v0.7.17
+  Downloaded notify v8.2.0
+  Downloaded tonic-types v0.14.6
+  Downloaded ucd-trie v0.1.7
+  Downloaded sec1 v0.8.1
+  Downloaded either v1.17.0
+  Downloaded bytes v1.12.1
+  Downloaded half v2.7.1
+  Downloaded bitflags v1.3.2
+  Downloaded wasm-bindgen-macro-support v0.2.126
+  Downloaded untrusted v0.9.0
+  Downloaded tower-service v0.3.3
+  Downloaded cty v0.2.2
+  Downloaded hash32 v0.2.1
+  Downloaded prost-wkt v0.7.1
+  Downloaded typetag-impl v0.2.23
+  Downloaded google-cloud-gax v1.13.0
+  Downloaded serde_yaml v0.9.34+deprecated
+  Downloaded deadpool v0.12.3
+  Downloaded sha1 v0.10.7
+  Downloaded bumpalo v3.20.3
+  Downloaded cc v1.4.0
+  Downloaded aws-sdk-sso v1.105.0
+  Downloaded block-buffer v0.12.1
+  Downloaded serde_json_path_to_error v0.1.5
+  Downloaded form_urlencoded v1.2.2
+  Downloaded anes v0.1.6
+  Downloaded sha1 v0.11.0
+  Downloaded thread_local v1.1.10
+  Downloaded toml_writer v1.1.2+spec-1.1.0
+  Downloaded logos-codegen v0.16.1
+  Downloaded futures-executor v0.3.33
+  Downloaded rand_core v0.9.5
+  Downloaded foldhash v0.2.0
+  Downloaded deranged v0.5.8
+  Downloaded synstructure v0.13.2
+  Downloaded prettyplease v0.2.37
+  Downloaded zerovec-derive v0.11.3
+  Downloaded inotify v0.11.4
+  Downloaded pest_generator v2.8.8
+  Downloaded wasm-streams v0.5.0
+  Downloaded matchers v0.2.0
+  Downloaded windows-registry v0.6.1
+  Downloaded symbolic-common v12.18.3
+  Downloaded same-file v1.0.6
+  Downloaded anstyle-wincon v3.0.11
+  Downloaded pingora-timeout v0.8.1
+  Downloaded dunce v1.0.5
+  Downloaded num-bigint v0.4.8
+  Downloaded icu_normalizer_data v2.2.0
+  Downloaded schemars v0.9.0
+  Downloaded home v0.5.12
+  Downloaded terminal_size v0.4.4
+  Downloaded icu_locale_core v2.2.0
+  Downloaded ipconfig v0.3.4
+  Downloaded vsimd v0.8.0
+  Downloaded ciborium v0.2.2
+  Downloaded js-sys v0.3.103
+  Downloaded unicode-properties v0.1.4
+  Downloaded equator v0.4.2
+  Downloaded google-cloud-rpc v1.6.0
+  Downloaded num-conv v0.2.2
+  Downloaded const-oid v0.10.2
+  Downloaded rayon-core v1.13.0
+  Downloaded writeable v0.6.3
+  Downloaded rustls-native-certs v0.8.4
+  Downloaded bit-vec v0.8.0
+  Downloaded atomic-polyfill v1.0.3
+  Downloaded atomic-waker v1.1.2
+  Downloaded httpdate v1.0.3
+  Downloaded kqueue-sys v1.1.2
+  Downloaded crypto-mac v0.10.0
+  Downloaded serde-untagged v0.1.9
+  Downloaded proc-macro2 v1.0.107
+  Downloaded compression-codecs v0.4.38
+  Downloaded lru v0.16.4
+  Downloaded jni-macros v0.22.4
+  Downloaded base16ct v1.0.0
+  Downloaded prost-wkt-build v0.7.1
+  Downloaded group v0.13.0
+  Downloaded findshlibs v0.10.2
+  Downloaded hermit-abi v0.5.2
+  Downloaded const-hex v1.19.1
+  Downloaded erased-serde v0.4.10
+  Downloaded web-time v1.1.0
+  Downloaded crypto-common v0.2.2
+  Downloaded core_affinity v0.8.3
+  Downloaded libredox v0.1.18
+  Downloaded ndk-context v0.1.1
+  Downloaded pin-utils v0.1.0
+  Downloaded typenum v1.20.1
+  Downloaded hashbrown v0.12.3
+  Downloaded sqlx-core v0.9.0
+  Downloaded mio v1.2.2
+  Downloaded hashbrown v0.16.1
+  Downloaded go-parse-duration v0.1.1
+  Downloaded serde v1.0.229
+  Downloaded p256 v0.13.2
+  Downloaded clap_derive v4.6.4
+  Downloaded memchr v2.8.3
+  Downloaded wasm-bindgen-futures v0.4.76
+  Downloaded jni-sys v0.4.1
+  Downloaded pem v3.0.6
+  Downloaded rand_core v0.6.4
+  Downloaded foldhash v0.1.5
+  Downloaded async-compression v0.4.42
+  Downloaded axum-extra v0.12.6
+  Downloaded http-body-util v0.1.4
+  Downloaded darling_core v0.20.11
+  Downloaded schannel v0.1.29
+  Downloaded debugid v0.8.0
+  Downloaded ahash v0.8.12
+  Downloaded pprof_util v0.8.2
+  Downloaded cfg_aliases v0.2.2
+  Downloaded fnv v1.0.7
+  Downloaded darling_macro v0.21.3
+  Downloaded hyper-util v0.1.20
+  Downloaded crossbeam-channel v0.5.16
+  Downloaded serde_with_macros v3.21.0
+  Downloaded rustc-hash v1.1.0
+  Downloaded toml_edit v0.25.13+spec-1.1.0
+  Downloaded subtle v2.6.1
+  Downloaded encode_unicode v1.0.0
+  Downloaded serde_json v1.0.151
+  Downloaded sqlx-postgres v0.9.0
+  Downloaded byteorder v1.5.0
+  Downloaded sec1 v0.7.3
+  Downloaded rand v0.9.5
+  Downloaded axum v0.8.9
+  Downloaded toml_parser v1.1.2+spec-1.1.0
+  Downloaded litemap v0.8.2
+  Downloaded redox_users v0.5.2
+  Downloaded ctutils v0.4.2
+  Downloaded multimap v0.10.1
+  Downloaded zstd v0.13.3
+  Downloaded unarray v0.1.4
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded zstd-safe v7.2.4
+  Downloaded base64ct v1.8.3
+  Downloaded der v0.7.10
+  Downloaded base64 v0.22.1
+  Downloaded nu-ansi-term v0.50.3
+  Downloaded x509-parser v0.18.1
+  Downloaded reqwest v0.12.28
+  Downloaded insta v1.48.0
+  Downloaded regex-lite v0.1.9
+  Downloaded unicode-ident v1.0.24
+  Downloaded anstyle v1.0.14
+  Downloaded anstream v1.0.0
+  Downloaded aligned-vec v0.6.4
+  Downloaded glob v0.3.4
+  Downloaded core-foundation v0.9.4
+  Downloaded crossbeam-epoch v0.9.20
+  Downloaded aws-types v1.5.0
+  Downloaded base64-simd v0.8.0
+  Downloaded macro_rules_attribute-proc_macro v0.2.2
+  Downloaded aws-smithy-xml v0.62.0
+  Downloaded plotters-svg v0.3.7
+  Downloaded tower-http v0.7.0
+  Downloaded itoa v1.0.18
+  Downloaded linked-hash-map v0.5.6
+  Downloaded quote v1.0.47
+  Downloaded try-lock v0.2.5
+  Downloaded inotify-sys v0.1.8
+  Downloaded macrotest v1.2.1
+  Downloaded lru-slab v0.1.2
+  Downloaded crc32fast v1.5.0
+  Downloaded security-framework v3.7.0
+  Downloaded tikv-jemalloc-ctl v0.7.0
+  Downloaded aws-smithy-http-client v1.2.0
+  Downloaded wasip2 v1.0.4+wasi-0.2.12
+  Downloaded bcrypt v0.19.2
+  Downloaded openssl-probe v0.2.1
+  Downloaded split-iter v0.1.0
+  Downloaded serde-transcode v1.1.1
+  Downloaded dirs v6.0.0
+  Downloaded spin v0.10.1
+  Downloaded frozen-collections v0.9.1
+  Downloaded uuid v1.24.0
+  Downloaded rustls-symcrypt v0.2.3
+  Downloaded opentelemetry-http v0.32.0
+  Downloaded primeorder v0.13.6
+  Downloaded yasna v0.6.0
+  Downloaded mutants v0.0.4
+  Downloaded azure_identity v1.0.0
+  Downloaded paste v1.0.15
+  Downloaded plotters v0.3.7
+  Downloaded pkg-config v0.3.33
+  Downloaded mintex v0.1.4
+  Downloaded utf8_iter v1.0.4
+  Downloaded quick_cache v0.7.0
+  Downloaded allocator-api2 v0.2.21
+  Downloaded aws-smithy-http v0.64.0
+  Downloaded rand_pcg v0.10.2
+  Downloaded criterion v0.5.1
+  Downloaded tiny-keccak v2.0.2
+  Downloaded derive_builder v0.20.2
+  Downloaded hybrid-array v0.4.13
+  Downloaded opentelemetry-proto v0.32.0
+  Downloaded icu_properties v2.2.0
+  Downloaded derive_builder_macro v0.20.2
+  Downloaded aws-smithy-async v1.3.0
+  Downloaded bs58 v0.5.1
+  Downloaded divan-macros v0.1.21
+  Downloaded base64 v0.23.0
+  Downloaded crossbeam-utils v0.8.22
+  Downloaded zmij v1.0.23
+  Downloaded crossbeam-deque v0.8.7
+  Downloaded ident_case v1.0.1
+  Downloaded anstyle-parse v1.0.0
+  Downloaded webpki-roots v1.0.9
+  Downloaded aws-sigv4 v1.5.1
+  Downloaded yoke v0.8.3
+  Downloaded similar v2.7.0
+  Downloaded nom v7.1.3
+  Downloaded stable_deref_trait v1.2.1
+  Downloaded crunchy v0.2.4
+  Downloaded serde_spanned v1.1.1
+  Downloaded oauth2 v5.0.0
+  Downloaded rand v0.8.7
+  Downloaded prometheus-client-derive-encode v0.5.0
+  Downloaded lru-cache v0.1.2
+  Downloaded itertools v0.15.0
+  Downloaded der-parser v10.0.0
+  Downloaded pest_meta v2.8.8
+  Downloaded cpp_demangle v0.4.5
+  Downloaded displaydoc v0.2.6
+  Downloaded windows-numerics v0.3.1
+  Downloaded multer v3.1.0
+  Downloaded sha2 v0.9.9
+  Downloaded cipher v0.2.5
+  Downloaded console v0.16.4
+  Downloaded anstyle-query v1.1.5
+  Downloaded divan v0.1.21
+  Downloaded sqlx v0.9.0
+  Downloaded futures-util v0.3.33
+  Downloaded sqlx-mysql v0.9.0
+  Downloaded quinn v0.11.11
+  Downloaded opentelemetry-otlp v0.32.0
+  Downloaded serde_derive_internals v0.29.1
+  Downloaded getrandom v0.3.4
+  Downloaded time-macros v0.2.32
+  Downloaded icu_provider v2.2.0
+  Downloaded fs_extra v1.3.0
+  Downloaded hmac v0.10.1
+  Downloaded simdutf8 v0.1.5
+  Downloaded prost-types v0.14.4
+  Downloaded thiserror v1.0.69
+  Downloaded rustls-pki-types v1.15.1
+  Downloaded miette-derive v7.6.0
+  Downloaded rstest_macros v0.26.1
+  Downloaded cookie v0.18.1
+  Downloaded plotters-backend v0.3.7
+  Downloaded protobuf-support v3.7.2
+  Downloaded tagptr v0.2.0
+  Downloaded walkdir v2.5.0
+  Downloaded relative-path v1.9.3
+  Downloaded vcpkg v0.2.15
+  Downloaded azure_core_macros v1.0.0
+  Downloaded equivalent v1.0.2
+  Downloaded bit-set v0.8.0
+  Downloaded assert_matches v1.5.0
+  Downloaded ciborium-ll v0.2.2
+  Downloaded hyper v1.11.0
+  Downloaded wit-bindgen v0.57.1
+  Downloaded tinytemplate v1.2.1
+  Downloaded sqlx-macros-core v0.9.0
+  Downloaded notify-types v2.1.0
+  Downloaded ecdsa v0.16.9
+  Downloaded utf8parse v0.2.2
+  Downloaded aws-smithy-runtime-api-macros v1.1.0
+  Downloaded logos-codegen v0.15.1
+  Downloaded num v0.4.3
+  Downloaded asn1-rs-derive v0.6.0
+  Downloaded aws-config v1.10.1
+  Downloaded pkcs8 v0.10.2
+  Downloaded blowfish v0.10.0
+  Downloaded pem-rfc7468 v0.7.0
+  Downloaded notify-debouncer-full v0.7.0
+  Downloaded secrecy v0.10.3
+  Downloaded wasm-streams v0.4.2
+  Downloaded hex v0.4.3
+  Downloaded cast v0.3.0
+  Downloaded darling_core v0.23.0
+  Downloaded winnow v1.0.4
+  Downloaded data-encoding v2.11.0
+  Downloaded jni v0.22.4
+  Downloaded rustls-platform-verifier v0.7.0
+  Downloaded darling v0.20.11
+  Downloaded thiserror v2.0.19
+  Downloaded prost-wkt-types v0.7.1
+  Downloaded urlencoding v2.1.3
+  Downloaded protobuf-parse v3.7.2
+  Downloaded system-configuration v0.7.0
+  Downloaded r-efi v5.3.0
+  Downloaded tower-http v0.6.11
+  Downloaded prost-build v0.14.4
+  Downloaded zerotrie v0.2.4
+  Downloaded rand_chacha v0.9.0
+  Downloaded pulldown-cmark v0.13.4
+  Downloaded aws-sdk-ssooidc v1.107.0
+  Downloaded webpki-root-certs v1.0.9
+  Downloaded rstest v0.26.1
+  Downloaded quinn-proto v0.11.16
+  Downloaded futures-timer v3.0.4
+  Downloaded itertools v0.10.5
+  Downloaded postcard v1.1.3
+  Downloaded combine v4.6.7
+  Downloaded hickory-resolver v0.26.1
+  Downloaded aws-runtime v1.9.1
+  Downloaded frozen-collections-core v0.9.1
+  Downloaded clap v4.6.4
+  Downloaded anyhow v1.0.104
+  Downloaded unicode-bidi v0.3.18
+  Downloaded miette v7.6.0
+  Downloaded portable-atomic v1.14.0
+  Downloaded google-cloud-auth v1.15.0
+  Downloaded pprof v0.15.0
+  Downloaded xmlparser v0.13.6
+  Downloaded aho-corasick v1.1.4
+  Downloaded process-wrap v9.1.0
+  Downloaded asn1-rs v0.7.2
+  Downloaded symbolic-demangle v12.18.3
+  Downloaded ppp v2.3.0
+  Downloaded yasna v0.5.2
+  Downloaded hashbrown v0.15.5
+  Downloaded rayon v1.12.0
+  Downloaded headers v0.4.1
+  Downloaded hashbrown v0.17.1
+  Downloaded flurry v0.5.2
+  Downloaded unicode-width v0.1.14
+  Downloaded aws-smithy-runtime v1.12.1
+  Downloaded hmac v0.13.0
+  Downloaded serde_core v1.0.229
+  Downloaded jsonwebtoken v10.4.0
+  Downloaded aws-smithy-types v1.6.1
+  Downloaded tracing-subscriber v0.3.23
+  Downloaded widestring v1.2.1
+  Downloaded der v0.8.1
+  Downloaded opentelemetry v0.32.0
+  Downloaded google-cloud-wkt v1.7.0
+  Downloaded pest v2.8.8
+  Downloaded hickory-net v0.26.1
+  Downloaded zerocopy-derive v0.8.55
+  Downloaded idna v1.1.0
+  Downloaded elliptic-curve v0.13.8
+  Downloaded minimal-lexical v0.2.1
+  Downloaded http v0.2.12
+  Downloaded flate2 v1.1.9
+  Downloaded aws-smithy-runtime-api v1.14.0
+  Downloaded hashbrown v0.14.5
+  Downloaded icu_collections v2.2.0
+  Downloaded darling_core v0.21.3
+  Downloaded unsafe-libyaml v0.2.11
+  Downloaded prost-reflect v0.16.5
+  Downloaded vte v0.14.1
+  Downloaded chrono v0.4.45
+  Downloaded tokio-util v0.7.19
+  Downloaded antlr4rust v0.5.2
+  Downloaded bstr v1.13.0
+  Downloaded prometheus-client v0.25.0
+  Downloaded zerovec v0.11.6
+  Downloaded crypto-bigint v0.5.5
+  Downloaded indexmap v2.14.0
+  Downloaded http v1.4.2
+  Downloaded aws-sdk-sts v1.110.0
+  Downloaded nix v0.26.4
+  Downloaded aws-lc-rs v1.17.3
+  Downloaded clap_builder v4.6.2
+  Downloaded unicode-normalization v0.1.25
+  Downloaded brotli-decompressor v5.0.3
+  Downloaded h2 v0.4.15
+  Downloaded azure_core v1.1.0
+  Downloaded regex v1.13.1
+  Downloaded icu_properties_data v2.2.0
+  Downloaded rmcp v0.10.0
+  Downloaded rust_decimal v1.42.1
+  Downloaded reqwest v0.13.4
+  Downloaded itertools v0.14.0
+  Downloaded protobuf v3.7.2
+  Downloaded gimli v0.32.3
+  Downloaded openapiv3 v2.2.0
+  Downloaded rustls v0.23.42
+  Downloaded rustix v0.38.44
+  Downloaded hkdf v0.13.0
+  Downloaded simd_cesu8 v1.2.0
+  Downloaded proptest v1.11.0
+  Downloaded regex-syntax v0.8.11
+  Downloaded quick-xml v0.41.0
+  Downloaded object v0.37.3
+  Downloaded syn v2.0.119
+  Downloaded rmcp v3.1.0
+  Downloaded regex-syntax v0.6.29
+  Downloaded moka v0.12.15
+  Downloaded serde_with v3.21.0
+  Downloaded libmimalloc-sys v0.1.44
+  Downloaded hickory-proto v0.26.1
+  Downloaded zerocopy v0.8.55
+  Downloaded regex-automata v0.4.16
+  Downloaded opentelemetry_sdk v0.32.1
+  Downloaded time v0.3.54
+  Downloaded windows_x86_64_gnullvm v0.52.6
+  Downloaded windows_aarch64_gnullvm v0.52.6
+  Downloaded syn v3.0.3
+  Downloaded windows_i686_gnullvm v0.52.6
+  Downloaded tikv-jemalloc-sys v0.7.1+5.3.1-0-g81034ce1f1373e37dc865038e1bc8eeecf559ce8
+  Downloaded tracing v0.1.44
+  Downloaded nix v0.31.3
+  Downloaded rustix v1.1.4
+  Downloaded encoding_rs v0.8.35
+  Downloaded web-sys v0.3.103
+  Downloaded windows_x86_64_gnullvm v0.53.1
+  Downloaded windows_aarch64_gnullvm v0.53.1
+  Downloaded windows_x86_64_msvc v0.52.6
+  Downloaded windows_aarch64_msvc v0.52.6
+  Downloaded windows_i686_gnullvm v0.53.1
+  Downloaded libc v0.2.189
+  Downloaded windows_x86_64_gnu v0.52.6
+  Downloaded petgraph v0.8.3
+  Downloaded windows_aarch64_msvc v0.53.1
+  Downloaded windows_x86_64_msvc v0.53.1
+  Downloaded zstd-sys v2.0.16+zstd.1.5.7
+  Downloaded windows_i686_gnu v0.52.6
+  Downloaded tokio v1.53.1
+  Downloaded windows_i686_msvc v0.52.6
+  Downloaded windows_i686_msvc v0.53.1
+  Downloaded windows_x86_64_gnu v0.53.1
+  Downloaded brotli v8.0.4
+  Downloaded windows_i686_gnu v0.53.1
+  Downloaded logos v0.15.1
+  Downloaded ring v0.17.14
+  Downloaded winapi v0.3.9
+  Downloaded windows-sys v0.59.0
+  Downloaded linux-raw-sys v0.4.15
+  Downloaded windows-sys v0.60.2
+  Downloaded windows-sys v0.61.2
+  Downloaded windows-sys v0.52.0
+  Downloaded phonenumber v0.3.10+9.0.33
+  Downloaded winapi-i686-pc-windows-gnu v0.4.0
+  Downloaded winapi-x86_64-pc-windows-gnu v0.4.0
+  Downloaded linux-raw-sys v0.12.1
+  Downloaded tiktoken-rs v0.12.0
+  Downloaded aws-lc-sys v0.43.0
+  Downloaded libsqlite3-sys v0.37.0
+  Downloaded windows v0.62.2
+--> cafac4df2e73
+[4/5] STEP 15/15: RUN --mount=type=cache,target=/app/target     --mount=type=cache,id=cargo,target=/usr/local/cargo/registry      --mount=type=cache,id=cargo-git,target=/usr/local/cargo/git     <<EOF (export VERSION="${VERSION}"...)
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.4
+   Compiling serde v1.0.229
+   Compiling memchr v2.8.3
+   Compiling portable-atomic v1.14.0
+   Compiling pin-project-lite v0.2.17
+   Compiling smallvec v1.15.2
+   Compiling itoa v1.0.18
+   Compiling critical-section v1.2.0
+   Compiling scopeguard v1.2.0
+   Compiling log v0.4.33
+   Compiling parking_lot_core v0.9.12
+   Compiling futures-core v0.3.33
+   Compiling autocfg v1.5.1
+   Compiling adler2 v2.0.1
+   Compiling equivalent v1.0.2
+   Compiling simd-adler32 v0.3.10
+   Compiling object v0.37.3
+   Compiling allocator-api2 v0.2.21
+   Compiling lock_api v0.4.14
+   Compiling gimli v0.32.3
+   Compiling foldhash v0.2.0
+   Compiling rustc-demangle v0.1.28
+   Compiling futures-sink v0.3.33
+   Compiling miniz_oxide v0.8.9
+   Compiling find-msvc-tools v0.1.9
+   Compiling shlex v2.0.1
+   Compiling slab v0.4.12
+   Compiling futures-channel v0.3.33
+   Compiling futures-io v0.3.33
+   Compiling futures-task v0.3.33
+   Compiling typenum v1.20.1
+   Compiling percent-encoding v2.3.2
+   Compiling thiserror v2.0.19
+   Compiling zmij v1.0.23
+   Compiling version_check v0.9.5
+   Compiling num-traits v0.2.19
+   Compiling hashbrown v0.17.1
+   Compiling base64 v0.22.1
+   Compiling semver v1.0.28
+   Compiling num-conv v0.2.2
+   Compiling time-core v0.1.9
+   Compiling serde_json v1.0.151
+   Compiling fnv v1.0.7
+   Compiling rustc_version v0.4.1
+   Compiling either v1.17.0
+   Compiling time-macros v0.2.32
+   Compiling powerfmt v0.2.0
+   Compiling subtle v2.6.1
+   Compiling pkg-config v0.3.33
+   Compiling form_urlencoded v1.2.2
+   Compiling anyhow v1.0.104
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling stable_deref_trait v1.2.1
+   Compiling once_cell v1.21.4
+   Compiling generic-array v0.14.9
+   Compiling ryu v1.0.23
+   Compiling tower-service v0.3.3
+   Compiling rand_core v0.10.1
+   Compiling jobserver v0.1.35
+   Compiling tracing-core v0.1.36
+   Compiling getrandom v0.4.3
+   Compiling tower-layer v0.3.3
+   Compiling num-integer v0.1.46
+   Compiling httparse v1.10.1
+   Compiling fs_extra v1.3.0
+   Compiling dunce v1.0.5
+   Compiling itertools v0.14.0
+   Compiling cc v1.4.0
+   Compiling try-lock v0.2.5
+   Compiling httpdate v1.0.3
+   Compiling atomic-waker v1.1.2
+   Compiling crossbeam-utils v0.8.22
+   Compiling writeable v0.6.3
+   Compiling want v0.3.1
+   Compiling regex-syntax v0.8.11
+   Compiling litemap v0.8.2
+   Compiling aws-lc-rs v1.17.3
+   Compiling utf8_iter v1.0.4
+   Compiling icu_normalizer_data v2.2.0
+   Compiling icu_properties_data v2.2.0
+   Compiling sync_wrapper v1.0.2
+   Compiling untrusted v0.7.1
+   Compiling aho-corasick v1.1.4
+   Compiling errno v0.3.14
+   Compiling mio v1.2.2
+   Compiling socket2 v0.6.5
+   Compiling getrandom v0.2.17
+   Compiling signal-hook-registry v1.4.8
+   Compiling zerocopy v0.8.55
+   Compiling cpufeatures v0.3.0
+   Compiling const-oid v0.9.6
+   Compiling parking_lot v0.12.5
+   Compiling uuid v1.24.0
+   Compiling hybrid-array v0.4.13
+   Compiling untrusted v0.9.0
+   Compiling strsim v0.11.1
+   Compiling ident_case v1.0.1
+   Compiling cpufeatures v0.2.17
+   Compiling rustix v1.1.4
+   Compiling cmake v0.1.58
+   Compiling bitflags v2.13.1
+   Compiling rustls v0.23.42
+   Compiling iana-time-zone v0.1.65
+   Compiling outref v0.5.2
+   Compiling mime v0.3.17
+   Compiling vsimd v0.8.0
+   Compiling pin-utils v0.1.0
+   Compiling cmov v0.5.4
+   Compiling crypto-common v0.2.2
+   Compiling getrandom v0.3.4
+   Compiling indexmap v2.14.0
+   Compiling deranged v0.5.8
+   Compiling block-buffer v0.12.1
+   Compiling ctutils v0.4.2
+   Compiling unicase v2.9.0
+   Compiling linux-raw-sys v0.12.1
+   Compiling heck v0.5.0
+   Compiling thiserror v1.0.69
+   Compiling addr2line v0.25.1
+   Compiling base64-simd v0.8.0
+   Compiling const-oid v0.10.2
+   Compiling aws-lc-sys v0.43.0
+   Compiling ring v0.17.14
+   Compiling regex-automata v0.4.16
+   Compiling byteorder v1.5.0
+   Compiling typeid v1.0.3
+   Compiling fastrand v2.5.0
+   Compiling digest v0.11.3
+   Compiling erased-serde v0.4.10
+   Compiling bytes v1.12.1
+   Compiling lazy_static v1.5.0
+   Compiling serde_path_to_error v0.1.20
+   Compiling chacha20 v0.10.1
+   Compiling rand_core v0.6.4
+   Compiling paste v1.0.15
+   Compiling hex v0.4.3
+   Compiling dyn-clone v1.0.20
+   Compiling rand v0.10.2
+   Compiling num-bigint v0.4.8
+   Compiling logos-codegen v0.15.1
+   Compiling time v0.3.54
+   Compiling ref-cast v1.0.26
+   Compiling pulldown-cmark v0.13.4
+   Compiling rustversion v1.0.23
+   Compiling prettyplease v0.2.37
+   Compiling matchit v0.8.4
+   Compiling foldhash v0.1.5
+   Compiling beef v0.5.2
+   Compiling openssl-probe v0.2.1
+   Compiling hashbrown v0.15.5
+   Compiling fixedbitset v0.5.7
+   Compiling unicode-width v0.1.14
+   Compiling backtrace v0.3.76
+   Compiling tempfile v3.27.0
+   Compiling minimal-lexical v0.2.1
+   Compiling synstructure v0.13.2
+   Compiling darling_core v0.23.0
+   Compiling serde_derive_internals v0.29.1
+   Compiling crc32fast v1.5.0
+   Compiling crunchy v0.2.4
+   Compiling pulldown-cmark-to-cmark v22.0.0
+   Compiling nom v7.1.3
+   Compiling petgraph v0.8.3
+   Compiling arc-swap v1.9.2
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.19
+   Compiling async-trait v0.1.91
+   Compiling ref-cast-impl v1.0.26
+   Compiling sha2 v0.11.0
+   Compiling hmac v0.13.0
+   Compiling regex v1.13.1
+   Compiling logos-codegen v0.16.1
+   Compiling concurrent-queue v2.5.0
+   Compiling hashbrown v0.16.1
+   Compiling tiny-keccak v2.0.2
+   Compiling base64ct v1.8.3
+   Compiling multimap v0.10.1
+   Compiling parking v2.2.1
+   Compiling crossbeam-epoch v0.9.20
+   Compiling zeroize_derive v1.5.0
+   Compiling tracing-attributes v0.1.31
+   Compiling tokio-macros v2.7.1
+   Compiling futures-macro v0.3.33
+   Compiling displaydoc v0.2.6
+   Compiling zerofrom-derive v0.1.7
+   Compiling yoke-derive v0.8.2
+   Compiling zeroize v1.9.0
+   Compiling zerovec-derive v0.11.3
+   Compiling prost-derive v0.14.4
+   Compiling rustls-pki-types v1.15.1
+   Compiling zerocopy-derive v0.8.55
+   Compiling aws-smithy-runtime-api-macros v1.1.0
+   Compiling pin-project-internal v1.1.13
+   Compiling futures-util v0.3.33
+   Compiling thiserror-impl v1.0.69
+   Compiling axum-macros v0.5.1
+   Compiling darling_macro v0.23.0
+   Compiling tracing v0.1.44
+   Compiling rustls-native-certs v0.8.4
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.4
+   Compiling darling v0.23.0
+   Compiling schemars_derive v1.2.1 (https://github.com/howardjohn/schemars?rev=f3e45a59786debf49e67d6bd6d8dcffc004d39ff#f3e45a59)
+   Compiling miette-derive v7.6.0
+   Compiling logos-derive v0.15.1
+   Compiling logos-derive v0.16.1
+   Compiling serde_with_macros v3.21.0
+   Compiling digest v0.10.7
+   Compiling pem-rfc7468 v0.7.0
+   Compiling zerofrom v0.1.8
+   Compiling logos v0.16.1
+   Compiling logos v0.15.1
+   Compiling yoke v0.8.3
+   Compiling event-listener v5.4.1
+   Compiling zerovec v0.11.6
+   Compiling zerotrie v0.2.4
+   Compiling pin-project v1.1.13
+   Compiling rand_core v0.9.5
+   Compiling heapless v0.7.17
+   Compiling protobuf v3.7.2
+   Compiling tinyvec_macros v0.1.1
+   Compiling prost v0.14.4
+   Compiling tinyvec v1.12.0
+   Compiling der v0.7.10
+   Compiling opentelemetry v0.32.0
+   Compiling fs-err v3.3.1
+   Compiling base64 v0.23.0
+   Compiling prost-types v0.14.4
+   Compiling miette v7.6.0
+   Compiling rustix v0.38.44
+   Compiling const-random-macro v0.1.16
+   Compiling tinystr v0.8.3
+   Compiling ipnet v2.12.0
+   Compiling potential_utf v0.1.5
+   Compiling chrono v0.4.45
+   Compiling serde_urlencoded v0.7.1
+   Compiling icu_collections v2.2.0
+   Compiling icu_locale_core v2.2.0
+   Compiling darling_core v0.20.11
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling crossbeam-channel v0.5.16
+   Compiling crossbeam-queue v0.3.13
+   Compiling aws-types v1.5.0
+   Compiling itertools v0.15.0
+   Compiling spin v0.9.9
+   Compiling thread_local v1.1.10
+   Compiling prometheus-client v0.25.0
+   Compiling linux-raw-sys v0.4.15
+   Compiling tokio v1.53.1
+   Compiling http v1.4.2
+   Compiling http v0.2.12
+   Compiling bytes-utils v0.1.4
+   Compiling prost-build v0.14.4
+   Compiling protox-parse v0.9.0
+   Compiling prost-reflect v0.16.5
+   Compiling icu_provider v2.2.0
+   Compiling futures-executor v0.3.33
+   Compiling icu_properties v2.2.0
+   Compiling icu_normalizer v2.2.0
+   Compiling http-body v0.4.6
+   Compiling http-body v1.1.0
+   Compiling futures v0.3.33
+   Compiling schemars v1.2.1 (https://github.com/howardjohn/schemars?rev=f3e45a59786debf49e67d6bd6d8dcffc004d39ff#f3e45a59)
+   Compiling prost-wkt-build v0.7.1
+   Compiling http-body-util v0.1.4
+   Compiling spki v0.7.3
+   Compiling aws-smithy-types v1.6.1
+   Compiling axum-core v0.5.6
+   Compiling crossbeam-deque v0.8.7
+   Compiling idna_adapter v1.2.2
+   Compiling bit-vec v0.8.0
+   Compiling idna v1.1.0
+   Compiling pkcs8 v0.10.2
+   Compiling protobuf-support v3.7.2
+   Compiling bit-set v0.8.0
+   Compiling const-random v0.1.18
+   Compiling arcstr v1.2.0
+   Compiling url v2.5.8
+   Compiling flate2 v1.1.9
+   Compiling sha2 v0.10.9
+   Compiling digest v0.9.0
+   Compiling darling_macro v0.20.11
+   Compiling rusticata-macros v4.1.0
+   Compiling asn1-rs-derive v0.6.0
+   Compiling asn1-rs-impl v0.2.0
+   Compiling prometheus-client-derive-encode v0.5.0
+   Compiling ff v0.13.1
+   Compiling tikv-jemalloc-sys v0.7.1+5.3.1-0-g81034ce1f1373e37dc865038e1bc8eeecf559ce8
+   Compiling serde_with v3.21.0
+   Compiling serde_fmt v1.1.0
+   Compiling const-hex v1.19.1
+   Compiling protox v0.9.1
+   Compiling ppv-lite86 v0.2.21
+   Compiling utf8parse v0.2.2
+   Compiling dtoa v1.0.11
+   Compiling home v0.5.12
+   Compiling opaque-debug v0.3.1
+   Compiling typetag v0.2.23
+   Compiling data-encoding v2.11.0
+   Compiling base16ct v0.2.0
+   Compiling asn1-rs v0.7.2
+   Compiling sec1 v0.7.3
+   Compiling rand_chacha v0.9.0
+   Compiling anstyle-parse v1.0.0
+   Compiling hash32 v0.2.1
+   Compiling value-bag-serde1 v1.13.1
+   Compiling rand v0.9.5
+   Compiling which v4.4.2
+   Compiling group v0.13.0
+   Compiling darling v0.20.11
+   Compiling opentelemetry-http v0.32.0
+   Compiling tracing-serde v0.2.0
+   Compiling matchers v0.2.0
+   Compiling block-buffer v0.9.0
+   Compiling crypto-bigint v0.5.5
+   Compiling typetag-impl v0.2.23
+   Compiling num-rational v0.4.2
+   Compiling tonic-build v0.14.6
+   Compiling sharded-slab v0.1.7
+   Compiling num_cpus v1.17.0
+   Compiling tracing-log v0.2.0
+   Compiling num-iter v0.1.46
+   Compiling num-complex v0.4.6
+   Compiling agent-core v0.0.0 (/app/crates/core)
+   Compiling pem v3.0.6
+   Compiling ahash v0.8.12
+   Compiling inventory v0.3.24
+   Compiling oid-registry v0.8.1
+   Compiling inotify-sys v0.1.8
+   Compiling macro_rules_attribute-proc_macro v0.2.2
+   Compiling unsafe-libyaml v0.2.11
+   Compiling cfg_aliases v0.2.2
+   Compiling anstyle-query v1.1.5
+   Compiling rayon-core v1.13.0
+   Compiling zstd-safe v7.2.4
+   Compiling nu-ansi-term v0.50.3
+   Compiling alloc-no-stdlib v2.0.4
+   Compiling colorchoice v1.0.5
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling vcpkg v0.2.15
+   Compiling crc-catalog v2.5.0
+   Compiling same-file v1.0.6
+   Compiling tokio-util v0.7.19
+   Compiling aws-smithy-async v1.3.0
+   Compiling anstyle v1.0.14
+   Compiling tracing-subscriber v0.3.23
+   Compiling walkdir v2.5.0
+   Compiling anstream v1.0.0
+   Compiling crc v3.4.0
+   Compiling aws-smithy-runtime-api v1.14.0
+   Compiling serde_yaml v0.9.34+deprecated
+   Compiling alloc-stdlib v0.2.4
+   Compiling macro_rules_attribute v0.2.2
+   Compiling elliptic-curve v0.13.8
+   Compiling num v0.4.3
+   Compiling nix v0.31.3
+   Compiling h2 v0.4.15
+   Compiling tower v0.5.3
+   Compiling tokio-stream v0.1.19
+   Compiling libsqlite3-sys v0.37.0
+   Compiling prost-wkt-types v0.7.1
+   Compiling tonic-prost-build v0.14.6
+   Compiling derive_builder_core v0.20.2
+   Compiling opentelemetry_sdk v0.32.1
+   Compiling value-bag v1.13.1
+   Compiling half v2.7.1
+   Compiling typespec v1.1.0
+   Compiling secrecy v0.10.3
+   Compiling protobuf-parse v3.7.2
+   Compiling serde_json_path_to_error v0.1.5
+   Compiling aws-smithy-schema v0.2.0
+   Compiling aws-credential-types v1.3.0
+   Compiling aws-smithy-http v0.64.0
+   Compiling aws-smithy-observability v0.3.0
+   Compiling ar_archive_writer v0.5.2
+   Compiling serde-transcode v1.1.1
+   Compiling aws-sigv4 v1.5.1
+   Compiling aws-smithy-json v0.63.0
+   Compiling event-listener-strategy v0.5.4
+   Compiling sha1 v0.10.7
+   Compiling hmac v0.12.1
+   Compiling signature v2.2.0
+   Compiling cobs v0.3.0
+   Compiling webpki-roots v1.0.9
+   Compiling hashlink v0.11.1
+   Compiling typespec_macros v1.0.0
+   Compiling md-5 v0.11.0
+   Compiling murmur3 v0.4.1
+   Compiling libmimalloc-sys v0.1.44
+   Compiling mime_guess v2.0.5
+   Compiling inout v0.2.2
+   Compiling futures-intrusive v0.5.0
+   Compiling azure_core v1.1.0
+   Compiling regex-lite v0.1.9
+   Compiling better_any v0.2.1
+   Compiling go-parse-duration v0.1.1
+   Compiling cpp_demangle v0.4.5
+   Compiling ciborium-io v0.2.2
+   Compiling clap_lex v1.1.0
+   Compiling plotters-backend v0.3.7
+   Compiling typed-arena v2.0.2
+   Compiling xmlparser v0.13.6
+   Compiling durationfmt v0.1.1
+   Compiling clap_builder v4.6.2
+   Compiling antlr4rust v0.5.2
+   Compiling plotters-svg v0.3.7
+   Compiling ciborium-ll v0.2.2
+   Compiling typespec_client_core v1.1.0
+   Compiling aws-smithy-xml v0.62.0
+   Compiling cipher v0.5.2
+   Compiling psm v0.1.31
+   Compiling postcard v1.1.3
+   Compiling protobuf-codegen v3.7.2
+   Compiling rfc6979 v0.4.0
+   Compiling async-lock v3.4.2
+   Compiling derive_builder_macro v0.20.2
+   Compiling rand_chacha v0.10.0
+   Compiling protos v0.0.0 (/app/crates/protos)
+   Compiling prost-wkt v0.7.1
+   Compiling brotli-decompressor v5.0.3
+   Compiling azure_core_macros v1.0.0
+   Compiling google-cloud-wkt v1.7.0
+   Compiling der-parser v10.0.0
+   Compiling rand_chacha v0.3.1
+   Compiling hyper v1.11.0
+   Compiling headers-core v0.3.0
+   Compiling prefix-trie v0.8.4
+   Compiling vector-map v1.1.0
+   Compiling unicode-normalization v0.1.25
+   Compiling crypto-mac v0.10.0
+   Compiling cipher v0.2.5
+   Compiling miette-derive v5.10.0
+   Compiling cel-derive v0.1.0 (/app/crates/cel-fork/cel-derive)
+   Compiling equator-macro v0.4.2
+   Compiling clap_derive v4.6.4
+   Compiling findshlibs v0.10.2
+   Compiling debugid v0.8.0
+   Compiling memmap2 v0.9.11
+   Compiling quick-xml v0.41.0
+   Compiling atoi v2.0.0
+   Compiling itertools v0.10.5
+   Compiling encoding_rs v0.8.35
+   Compiling option-ext v0.2.0
+   Compiling symbolic-demangle v12.18.3
+   Compiling unicode-properties v0.1.4
+   Compiling urlencoding v2.1.3
+   Compiling unicode-bidi v0.3.18
+   Compiling cast v0.3.0
+   Compiling hyper-util v0.1.20
+   Compiling linked-hash-map v0.5.6
+   Compiling cty v0.2.2
+   Compiling lru-cache v0.1.2
+   Compiling stringprep v0.1.5
+   Compiling miette v5.10.0
+   Compiling phonenumber v0.3.10+9.0.33
+   Compiling aws-smithy-query v0.62.0
+   Compiling dirs-sys v0.5.0
+   Compiling clap v4.6.4
+   Compiling symbolic-common v12.18.3
+   Compiling google-cloud-rpc v1.6.0
+   Compiling equator v0.4.2
+   Compiling criterion-plot v0.5.0
+   Compiling cel v0.13.0 (/app/crates/cel-fork/cel)
+   Compiling pprof v0.15.0
+   Compiling hickory-proto v0.26.1
+   Compiling blowfish v0.7.0
+   Compiling hmac v0.10.1
+   Compiling headers v0.4.1
+   Compiling rand v0.8.7
+   Compiling brotli v8.0.4
+   Compiling frozen-collections v0.9.1
+   Compiling rayon v1.12.0
+   Compiling inotify v0.11.4
+   Compiling axum v0.8.9
+   Compiling hyper-timeout v0.5.2
+   Compiling derive_builder v0.20.2
+   Compiling ecdsa v0.16.9
+   Compiling blowfish v0.10.0
+   Compiling ciborium v0.2.2
+   Compiling plotters v0.3.7
+   Compiling tower-http v0.6.11
+   Compiling primeorder v0.13.6
+   Compiling pprof_util v0.8.2
+   Compiling pingora-timeout v0.8.1
+   Compiling sha-1 v0.9.8
+   Compiling md-5 v0.9.1
+   Compiling sha2 v0.9.9
+   Compiling fancy-regex v0.17.0
+   Compiling flume v0.12.0
+   Compiling serde_regex v1.2.0
+   Compiling tinytemplate v1.2.1
+   Compiling bstr v1.13.0
+   Compiling lru v0.16.4
+   Compiling simple_asn1 v0.6.4
+   Compiling yasna v0.5.2
+   Compiling strum_macros v0.27.2
+   Compiling async-stream-impl v0.3.6
+   Compiling hkdf v0.13.0
+   Compiling sha1 v0.11.0
+   Compiling notify-types v2.1.0
+   Compiling stacker v0.1.24
+   Compiling is-terminal v0.4.17
+   Compiling include_dir_macros v0.7.4
+   Compiling google-cloud-auth v1.15.0
+   Compiling cookie v0.18.1
+   Compiling multer v3.1.0
+   Compiling rustc-hash v2.1.3
+   Compiling compression-core v0.4.32
+   Compiling deadpool-runtime v0.1.4
+   Compiling seize v0.3.3
+   Compiling anes v0.1.6
+   Compiling bitflags v1.3.2
+   Compiling whoami v2.1.2
+   Compiling rust_decimal v1.42.1
+   Compiling dotenvy v0.15.7
+   Compiling hashbrown v0.14.5
+   Compiling oncemutex v0.1.1
+   Compiling regex-syntax v0.6.29
+   Compiling oorandom v11.1.5
+   Compiling tagptr v0.2.0
+   Compiling mutants v0.0.4
+   Compiling rmcp v3.1.0
+   Compiling criterion v0.5.1
+   Compiling tonic v0.14.6
+   Compiling frozen-collections-core v0.9.1
+   Compiling moka v0.12.15
+   Compiling agent-http v0.0.0 (/app/crates/http)
+   Compiling flurry v0.5.2
+   Compiling nix v0.26.4
+   Compiling dashmap v6.2.1
+   Compiling include_dir v0.7.4
+   Compiling deadpool v0.12.3
+   Compiling tiktoken-rs v0.12.0
+   Compiling strum v0.27.2
+   Compiling rcgen v0.13.2
+   Compiling notify v8.2.0
+   Compiling async-stream v0.3.6
+   Compiling hickory-net v0.26.1
+   Compiling pingora-pool v0.8.1
+   Compiling regex-cache v0.2.1
+   Compiling pwhash v1.0.0
+   Compiling process-wrap v9.1.0
+   Compiling mappings v0.7.2
+   Compiling tonic-prost v0.14.6
+   Compiling tonic-types v0.14.6
+   Compiling opentelemetry-proto v0.32.0
+   Compiling p256 v0.13.2
+   Compiling bcrypt v0.19.2
+   Compiling async-openai v0.41.1 (https://github.com/howardjohn/async-openai?rev=681e3c6e382fa8bf8abf511d45ada73c25c659b6#681e3c6e)
+   Compiling google-cloud-gax v1.13.0
+   Compiling rmcp-macros v3.1.0
+   Compiling aligned-vec v0.6.4
+   Compiling mimalloc v0.1.48
+   Compiling dirs v6.0.0
+   Compiling tokio_sse_codec v0.0.2
+   Compiling aws-smithy-eventstream v0.61.1
+   Compiling sse-stream v0.2.5
+   Compiling assert-json-diff v2.0.2
+   Compiling yasna v0.6.0
+   Compiling spin v0.10.1
+   Compiling pastey v0.2.3
+   Compiling arrayvec v0.7.8
+   Compiling split-iter v0.1.0
+   Compiling file-id v0.2.3
+   Compiling nonmax v0.5.5
+   Compiling resolv-conf v0.7.6
+   Compiling notify-debouncer-full v0.7.0
+   Compiling shellexpand v3.1.2
+   Compiling websocket-sans-io v0.1.0
+   Compiling hickory-resolver v0.26.1
+   Compiling htpasswd-verify-fork v0.4.0 (/app/crates/htpasswd-verify-fork)
+   Compiling tower-serve-static v0.1.2
+   Compiling opentelemetry-otlp v0.32.0
+   Compiling axum-extra v0.12.6
+   Compiling agent-celx v0.0.0 (/app/crates/celx)
+   Compiling azure_identity v1.0.0
+   Compiling agent-pool v0.0.0 (/app/crates/pool)
+   Compiling core_affinity v0.8.3
+   Compiling crossbeam v0.8.4
+   Compiling tower-http v0.7.0
+   Compiling agent-xds v0.0.0 (/app/crates/xds)
+   Compiling http-serde v2.1.1 (https://gitlab.com/howardjohn/http-serde?rev=c2e482be0ddf029895ba72ef8749b9f94b388fc7#c2e482be)
+   Compiling ppp v2.3.0
+   Compiling atomic_float v1.1.0
+   Compiling openapiv3 v2.2.0
+   Compiling clocksource v1.0.1
+   Compiling serde-untagged v0.1.9
+   Compiling quick_cache v0.7.0
+   Compiling flagset v0.4.7
+   Compiling twox-hash v2.1.0
+   Compiling zstd v0.13.3
+   Compiling compression-codecs v0.4.38
+   Compiling async-compression v0.4.42
+   Compiling rustls-webpki v0.103.13
+   Compiling x509-parser v0.18.1
+   Compiling jsonwebtoken v10.4.0
+   Compiling agent-llm v0.0.0 (/app/crates/llm)
+   Compiling rcgen v0.14.8
+   Compiling tikv-jemalloc-ctl v0.7.0
+   Compiling tikv-jemallocator v0.7.0
+   Compiling pprof-alloc v0.5.0
+   Compiling jemalloc_pprof v0.9.0
+   Compiling tokio-rustls v0.26.4
+   Compiling sqlx-core v0.9.0
+   Compiling rustls-platform-verifier v0.7.0
+   Compiling hyper-rustls v0.27.9
+   Compiling axum-server v0.8.0
+   Compiling agent-hbone v0.0.0 (/app/crates/hbone)
+   Compiling aws-smithy-http-client v1.2.0
+   Compiling reqwest v0.13.4
+   Compiling wiremock v0.6.5 (https://github.com/howardjohn/wiremock-rs?rev=79e5f488d8bc3bce2f7b397b5791b5caef5129e6#79e5f488)
+   Compiling aws-smithy-runtime v1.12.1
+   Compiling sqlx-postgres v0.9.0
+   Compiling aws-runtime v1.9.1
+   Compiling aws-sdk-sso v1.105.0
+   Compiling aws-sdk-ssooidc v1.107.0
+   Compiling aws-sdk-sts v1.110.0
+   Compiling aws-config v1.10.1
+   Compiling sqlx-sqlite v0.9.0
+   Compiling sqlx v0.9.0
+   Compiling agentgateway v0.0.0 (/app/crates/agentgateway)
+   Compiling agentgateway-app v0.0.0 (/app/crates/agentgateway-app)
+    Finished `release` profile [optimized] target(s) in 21m 05s
+{
+  "version": "pr2995-2bc5d041",
+  "git_revision": "2bc5d041b090",
+  "rust_version": "1.97.0",
+  "build_profile": "release",
+  "build_target": "x86_64-unknown-linux-gnu"
+}
+--> c15895c17efe
+[5/5] STEP 1/8: FROM cgr.dev/chainguard/glibc-dynamic AS runner
+Trying to pull cgr.dev/chainguard/glibc-dynamic:latest...
+Getting image source signatures
+Copying blob sha256:d3ff86664133d1bee26b2665169ecc0c196c4197c1d219771d6c7a17dd91e04e
+Copying blob sha256:bfd77f85335618ebb37198ab5bc555b0ef04959a6761d1ecaf20a4f88d46b365
+Copying blob sha256:abc8e79286e4e61b9284d9c7b1e5a884eb71656b315ff53d2968d24bee7e3d86
+Copying blob sha256:0e0d95cd11d9bc8775ae15b999b97b5a0d635976fda218a952d94954606fa728
+Copying blob sha256:213b151ad68a39eac64aece35434eb9ff9dab66ad7185ae1a3965d98f1fcff36
+Copying config sha256:f567204e7eb1dbe16db11623c39109967cf6787d11afc36a97de63608e62ab93
+Writing manifest to image destination
+[5/5] STEP 2/8: ARG TARGETARCH
+--> 28ade4c34f77
+[5/5] STEP 3/8: ENV AGENTGATEWAY_ENV=container
+--> bdf83ede30ac
+[5/5] STEP 4/8: WORKDIR /
+--> 881f3d00fb88
+[5/5] STEP 5/8: COPY --from=builder /out/agentgateway /app/agentgateway
+--> 754db8f39f22
+[5/5] STEP 6/8: LABEL org.opencontainers.image.source=https://github.com/agentgateway/agentgateway
+--> bc70374ca748
+[5/5] STEP 7/8: LABEL org.opencontainers.image.description="Agentgateway is an open source project that is built on AI-native protocols to connect, secure, and observe agent-to-agent and agent-to-tool communication across any agent framework and environment."
+--> 37d5919e9207
+[5/5] STEP 8/8: ENTRYPOINT ["/app/agentgateway"]
+[5/5] COMMIT localhost/agentgateway:pr2995-2bc5d041
+--> 732f7e5536b4
+Successfully tagged localhost/agentgateway:pr2995-2bc5d041
+732f7e5536b42bca2e4b5ffa4297ad3c3e8eb8bee1d9033088a7d0c3127853b4
+rc=0

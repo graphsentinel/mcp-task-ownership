@@ -1,0 +1,22 @@
+
+==> launch ai1-e2e-full: Ubuntu 26.04, 12 CPU, 24G, 60G
+
+==> copy source: working tree with uncommitted changes (base fb965a8); NOT what a clone gets
+
+==> scripts/platform.sh install && scripts/platform.sh cluster-up
+01-platform-install-cluster-up: exit 0, 87 s
+
+==> RUNS=1 WITH_PR2995=1 FULL=1 scripts/lab.sh all
+02-lab-all: exit 0, 2679 s
+
+==> WITH_PR2995=1 scripts/lab.sh reinstall && scripts/lab.sh status
+03-lab-reinstall: exit 0, 149 s
+
+==> RUNS=1 scripts/lab.sh test
+04-lab-test-after-reinstall: exit 0, 226 s
+
+==> scripts/lab.sh uninstall && kubectl --context k3d-ai1-tasks get ns,clusterrole,clusterrolebinding | grep -E 'ai1|^NAME|team|gateway|mcp|keycloak' || true
+05-lab-uninstall: exit 0, 51 s
+
+==> fetch results
+result: exit 0

@@ -1,0 +1,130 @@
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 853dd7d7-be4b-453a-9fb9-bd1a58ac55ed'
+[P-AGW2995] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-oxdg7wut
+[P-AGW2995] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW2995] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-hqxmx2hk answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW2995] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+TL-setup completed=True
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: <repo>/evidence/20261010T204141Z-P-AGW2995-v2.1
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995-SEAL] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995-SEAL] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995-SEAL] T1           MATCH     expected=refused observed=refused error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] T3a          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=working
+[P-AGW2995-SEAL] T3b          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=input_required; after A answers: status=completed result='backup label=A-xclvf6e7 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P-AGW2995-SEAL] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['data_raw']; codes={'own-of-A': -32600, 'random': -32600, 'tampered': -32600, 'malformed': -32600}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task', 'random': 'unknown task', 'tampered': 'unknown task', 'malformed': 'unknown task'}
+TL-setup completed=True
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] TL           MATCH     expected=refused observed=refused source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995-seal, whose default access log has no task ID; error code=-32600 message='unknown task'
+evidence: <repo>/evidence/20261010T204155Z-P-AGW2995-SEAL-v2.1
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 30a11d24-5837-4d52-86a7-20c3782f122a'
+[P-AGW2995] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-s0le8gcu
+[P-AGW2995] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW2995] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-69oph1o0 answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW2995] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+TL-setup completed=True
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: <repo>/evidence/20261010T204215Z-P-AGW2995-v2.1
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995-SEAL] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995-SEAL] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995-SEAL] T1           MATCH     expected=refused observed=refused error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] T3a          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=working
+[P-AGW2995-SEAL] T3b          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=input_required; after A answers: status=completed result='backup label=A-isjrffyu answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P-AGW2995-SEAL] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['data_raw']; codes={'own-of-A': -32600, 'random': -32600, 'tampered': -32600, 'malformed': -32600}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task', 'random': 'unknown task', 'tampered': 'unknown task', 'malformed': 'unknown task'}
+TL-setup completed=True
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] TL           MATCH     expected=refused observed=refused source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995-seal, whose default access log has no task ID; error code=-32600 message='unknown task'
+evidence: <repo>/evidence/20261010T204230Z-P-AGW2995-SEAL-v2.1
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: a292bbae-0f71-4079-a89c-38ab1b847cfc'
+[P-AGW2995] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-uy7g2ew8
+[P-AGW2995] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW2995] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-o8cxh3wv answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW2995] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+TL-setup completed=True
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: <repo>/evidence/20261010T204250Z-P-AGW2995-v2.1
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995-SEAL] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995-SEAL] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995-SEAL] T1           MATCH     expected=refused observed=refused error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] T3a          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=working
+[P-AGW2995-SEAL] T3b          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=input_required; after A answers: status=completed result='backup label=A-a4zzrfsd answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P-AGW2995-SEAL] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['data_raw']; codes={'own-of-A': -32600, 'random': -32600, 'tampered': -32600, 'malformed': -32600}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task', 'random': 'unknown task', 'tampered': 'unknown task', 'malformed': 'unknown task'}
+TL-setup completed=True
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] TL           MATCH     expected=refused observed=refused source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995-seal, whose default access log has no task ID; error code=-32600 message='unknown task'
+evidence: <repo>/evidence/20261010T204305Z-P-AGW2995-SEAL-v2.1
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 96a9c27a-ee09-4b43-b57f-58acf2d6f34d'
+[P-AGW2995] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-i4ugx2nl
+[P-AGW2995] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW2995] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-gol6t0nn answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW2995] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+TL-setup completed=True
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: <repo>/evidence/20261010T204325Z-P-AGW2995-v2.1
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995-SEAL] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995-SEAL] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995-SEAL] T1           MATCH     expected=refused observed=refused error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] T3a          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=working
+[P-AGW2995-SEAL] T3b          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=input_required; after A answers: status=completed result='backup label=A-5zenytgv answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P-AGW2995-SEAL] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['data_raw']; codes={'own-of-A': -32600, 'random': -32600, 'tampered': -32600, 'malformed': -32600}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task', 'random': 'unknown task', 'tampered': 'unknown task', 'malformed': 'unknown task'}
+TL-setup completed=True
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] TL           MATCH     expected=refused observed=refused source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995-seal, whose default access log has no task ID; error code=-32600 message='unknown task'
+evidence: <repo>/evidence/20261010T204339Z-P-AGW2995-SEAL-v2.1
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 07cad568-17bb-41af-94b2-d0db292ff301'
+[P-AGW2995] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-lkyftobl
+[P-AGW2995] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW2995] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-3c4wg4hb answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW2995] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+TL-setup completed=True
+[P-AGW2995] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: <repo>/evidence/20261010T204400Z-P-AGW2995-v2.1
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW2995-SEAL] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW2995-SEAL] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 400; error={'code': -32602, 'message': 'Unknown tool: cluster_audit'}
+[P-AGW2995-SEAL] T1           MATCH     expected=refused observed=refused error code=-32600 message='unknown task'
+[P-AGW2995-SEAL] T3a          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=working
+[P-AGW2995-SEAL] T3b          MATCH     expected=refused observed=refused B got error code=-32600 'unknown task'; A then sees status=input_required; after A answers: status=completed result='backup label=A-me07rei2 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P-AGW2995-SEAL] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['data_raw']; codes={'own-of-A': -32600, 'random': -32600, 'tampered': -32600, 'malformed': -32600}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task', 'random': 'unknown task', 'tampered': 'unknown task', 'malformed': 'unknown task'}
+TL-setup completed=True
+[P-AGW2995-SEAL] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW2995-SEAL] TL           MATCH     expected=refused observed=refused source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway-pr2995-seal, whose default access log has no task ID; error code=-32600 message='unknown task'
+evidence: <repo>/evidence/20261010T204414Z-P-AGW2995-SEAL-v2.1

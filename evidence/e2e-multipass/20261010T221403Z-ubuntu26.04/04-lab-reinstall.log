@@ -1,0 +1,115 @@
+
+==> pull docker.io/library/rust:1.99.0-trixie and docker.io/library/debian:trixie-slim
+
+==> task server (P0 / P1)
+    Finished `release` profile [optimized] target(s) in 0.21s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> sealing proxy (P2)
+warning: method `associated_data` is never used
+  --> src/../../server/src/owner.rs:23:12
+   |
+20 | impl Owner {
+   | ---------- method in this implementation
+...
+23 |     pub fn associated_data(&self) -> Vec<u8> {
+   |            ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `task-seal-proxy` (bin "task-seal-proxy") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 0.19s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> rmcp example over HTTP (P0-OFF)
+    Finished `release` profile [optimized] target(s) in 0.11s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> ExtMcp sealing processor
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+    Finished `release` profile [optimized] target(s) in 0.18s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> built images
+localhost/ai1-ext-seal:0.1.0
+localhost/ai1-official-p0:0.1.0
+localhost/ai1-seal-proxy:0.3.0
+localhost/ai1-task-server:0.3.1
+
+==> helm uninstall ai1-lab
+release "ai1-lab" uninstalled
+
+==> lab namespaces and cluster-scoped objects
+No resources found
+namespace "ai1-lab" deleted
+removed; the cluster is still there (scripts/platform.sh cluster-down deletes it)
+
+==> images: pull third-party, import all into k3d
+[36mINFO[0m[0000] Importing image(s) into cluster 'ai1-tasks'  
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0000] Saving 1 tarball(s) to shared image volume... 
+[36mINFO[0m[0000] Importing images into nodes...               
+[36mINFO[0m[0000] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011014239-file-images.tar' into node 'k3d-ai1-tasks-server-0'... 
+[36mINFO[0m[0000] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011014239-file-images.tar' into node 'k3d-drain-0-0'... 
+[36mINFO[0m[0000] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011014239-file-images.tar' into node 'k3d-ai1-tasks-agent-0'... 
+[36mINFO[0m[0010] Removing the tarball(s) from image volume... 
+[36mINFO[0m[0011] Removing k3d-tools node...                   
+[36mINFO[0m[0012] Successfully imported image(s)               
+[36mINFO[0m[0012] Successfully imported 1 image(s) into 1 cluster(s) 
+all 7 images present on every node
+
+==> helm upgrade --install ai1-lab (context k3d-ai1-tasks, drainDemo=true, pr2995=false)
+Release "ai1-lab" does not exist. Installing it now.
+NAME: ai1-lab
+LAST DEPLOYED: Sun Oct 11 01:42:52 2026
+NAMESPACE: ai1-lab
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+
+==> Keycloak realm ai1 answers
+ready
+NAME: ai1-lab
+LAST DEPLOYED: Sun Oct 11 01:42:52 2026
+NAMESPACE: ai1-lab
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+keycloak  keycloak-66f457d6b9-2dbd4   1/1   Running   0     46s
+mcp-shared  official-p0-f5fd9cc-bqz5g              1/1   Running   0     46s
+mcp-shared  official-p0-literal-5b5f59dd85-n4mcn   1/1   Running   0     46s
+mcp-shared  task-server-p0-9576cbbf5-lv8kp         1/1   Running   0     46s
+mcp-shared  task-server-p1-775fc6487c-rz4jh        1/1   Running   0     46s
+mcp-shared  task-server-p2-6cf59f9d95-969vb        1/1   Running   0     46s
+gateway  agentgateway-5ffd46d64-mpdwn   1/1   Running   3 (33s ago)   46s
+gateway  agentgateway-5ffd46d64-wv6vb   1/1   Running   3 (29s ago)   46s
+gateway  agentgateway-5ffd46d64-z465n   1/1   Running   3 (29s ago)   46s
+gateway  seal-proxy-7758855775-8spbz    1/1   Running   0             46s
+gateway  seal-proxy-7758855775-slckq    1/1   Running   0             46s
+gateway  seal-proxy-7758855775-wb6wp    1/1   Running   0             46s
+team-a  driver                     1/1   Running   0     46s
+team-a  payments-8584f8c75-58r72   1/1   Running   0     46s
+team-a  payments-8584f8c75-jscqt   1/1   Running   0     46s
+team-b  driver   1/1   Running   0     46s

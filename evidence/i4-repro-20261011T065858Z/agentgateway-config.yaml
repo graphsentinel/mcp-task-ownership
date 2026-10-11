@@ -1,0 +1,21 @@
+binds:
+- port: 8080
+  listeners:
+  - routes:
+    - matches:
+      - path: {exact: /mcp}
+      backends:
+      - mcp:
+          targets:
+          - name: shared
+            mcp:
+              host: http://task-server-p0.mcp-shared.svc.cluster.local:8080/mcp
+      policies:
+        mcpGuardrails:
+          processors:
+          - kind: remote
+            host: deny-processor.i4-repro.svc.cluster.local:9000
+            failureMode: failClosed
+            methods:
+              "tools/call": request
+              "resources/read": request

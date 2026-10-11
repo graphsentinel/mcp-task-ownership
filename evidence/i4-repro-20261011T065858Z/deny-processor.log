@@ -1,0 +1,3 @@
+2026-10-11T06:58:56.300614Z  INFO deny_processor: deny-processor listening addr=0.0.0.0:9000
+2026-10-11T06:58:58.894413Z  INFO deny_processor: refused method=tools/call
+2026-10-11T06:58:58.902178Z  INFO deny_processor: refused method=resources/read

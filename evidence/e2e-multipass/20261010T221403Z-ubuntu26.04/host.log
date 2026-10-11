@@ -1,0 +1,25 @@
+
+==> launch ai1-e2e2: Ubuntu 26.04, 8 CPU, 16G, 60G
+
+==> copy the files a clone would contain (git ls-files; evidence/ and presentation/ are not needed to run)
+
+==> scripts/platform.sh install
+01-platform-install: exit 0, 42 s
+
+==> scripts/platform.sh cluster-up
+02-cluster-up: exit 0, 49 s
+
+==> RUNS=5 WITH_PR2995=0 FULL=0 scripts/lab.sh all
+03-lab-all: exit 0, 1504 s
+
+==> scripts/lab.sh reinstall && scripts/lab.sh status
+04-lab-reinstall: exit 0, 141 s
+
+==> RUNS=1 scripts/lab.sh test
+05-lab-test-after-reinstall: exit 0, 199 s
+
+==> scripts/lab.sh uninstall && kubectl --context k3d-ai1-tasks get ns
+06-lab-uninstall: exit 0, 51 s
+
+==> fetch results
+result: exit 0

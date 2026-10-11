@@ -1,0 +1,120 @@
+
+==> placements: P0-OFF P0-OFF-LIT P0 P1 P-AGW P2 P2-NP x 1 runs
+--- run 1/1 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-xq25a0bf
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-xq25a0bf
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-0z486qe3
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261011T071504Z-P0-OFF-v2.1
+--- run 1/1 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261011T071522Z-P0-OFF-LIT-v2.1
+--- run 1/1 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-lx6tcd6v
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-lx6tcd6v
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-zd6taxer
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-v00lynyp answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261011T071603Z-P0-v2.1
+--- run 1/1 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSoIxpUyN2ZjNTJhYi0xZGIzLTQ0NDktOTRhNi1kM2ZhZGRlNDY3NTU.eN5dHEtyIA-ic9v1sVztR-oYFBbPpODC4zPGn41nEPc'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSoIysNhNWQ4OWU1Mi05NTMxLTQxYjUtYjM1Zi0yOGZhNWRkMGE3YjM.WqQIHpIeK8haWKPBYqdth9inKniRe7Qk3xxrljAY0Hs'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSoIzr9hZGNlMWY0Mi0wODVlLTQ4ZjQtYWYyZS02ZTIzMGI0ODAxMWM.4yRNpNR1jTDt0jC50PfUoj1TQaniFjRygl5G3Hh-6L0'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSoI5pkxNDllZTlhZC00MmI5LTQ0NWQtODAyZS0yODM4OWRiYjhlZWI.UiSnft8R2LX-9NThfM7g3mF505JonrSlDQk6FqD7YwA'; A then sees status=input_required; after A answers: status=completed result='backup label=A-ihlxm1m1 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSoI8eE0OGRmMmE4OC01ZTkyLTRkNTUtYjQwYS1jOWQxMjE1MzUyNzU.paJsls7AiVl3oLSglDcEXltvWD_uBKCwmGU6xZxR2KU'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 48df2a88-5e92-4d55-b40a-c9d121535275'
+evidence: /home/ubuntu/ai1/evidence/20261011T071616Z-P1-v2.1
+--- run 1/1 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: a370fc75-4e27-4a7f-a075-4f31e03690fb'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-yt518g4a
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-kcj1k75s answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261011T071635Z-P-AGW-v2.1
+--- run 1/1 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.owtdW22E8tGxlhTrZlBUngvvaELNAbjkDAHEkPT1ThcipFY4OS6talMCjmgjJTTLrpWQg9ZSNXp8ComfPLe4sFEvPoRfjjhTVUmywKoQbn51ywEZ6NL6L4902eMvHvLHnfSqqVYROUGfMyACY-chAW_BO6RCXUpvIbJruVpx490OkpN-GNqf_5pl8TBqoK7czqaZ9hL2f2o4jYEnWCzPQR0g74aNb3efxN8w3tIpJ2kpS6AFg6meURhBla5K1NTXzVvamj1GKSp_KGLeTYivOqHersCaDUoxcpCDdy1KumFkFT9i0WgmkDal5d0EByRkT2A5bYUsEgRzOEpjInEnmxjZCBuflthxYDimhB5I'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.lN5wjUQ4rtV4E7H0Z5oN45lGFhpcD09ueqNeoADJq7_xqhp10QbHZiO3YlRlKicjwEKwzZY3ufFKwm1RSy1Dx-qjhEdYZnFUgKhEImHD49YykJEMv02z93BME2vQm-S_r_v9CDyTNtsUR93uQfjo5JTIrdKrtPrmaAhWfSfYgyJlQGirOzujeJa1tYUOqPYa5R7IFLfwa-363CmvFdldFWKbsQMw0ZCzXg_kbF-TKLHmp2cGPsOMKc870UhMpl0tntVLxHRumurcSouU3k4g7BOn9DG_51-7Q2o-VmId6LwhgsNISMF5s2ZDShfR0u1HeO4E78M2ZeA8prq605p5jK-kdPfYU7eymCAOjwJ-'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.jLO8D8-NN357lWj0IsI5QVVbjC3kVyR79mSAdDMOhCEHbhag15NaCFwOn-3Lyl3dL4xYcsnJeiPYttZEqn2Op3SRc-DtbOoL0zWcMdJoKw_EX7gtXkV0sQkVyBiaYsvTDm_UNhCLhMvxIjv2fbHF9DqHep6bTKvJiOeCD1ZYQn5wSpYWGeeU9iodBZcYWBBH4zmOo2vb9MKgluv57SWcLcrFDNt6Kt2U__Jh5nkyV8aH-Zgb3pATiqDLwSXQu_cfwZ5mlm2xavF_2S0REJKipSLDdq0AGfDaGjXx2XN76YaEWghmAlqteWCeruu14pI71H8aLlmYZho_P2Q0NQ1zy-b2UVtSvSdKPKHjlUDy'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.evom8OKHBfVaVJeEYvuSUef2CuPEkNzw2QPjarI8XDpdEyb7iDzlapbjPTSJ4YDRsvaHwoneJGAyj60vDMqojHUPS_4giW-Xf02TmVELy66-c2bBwwIoNWsIY0cBrTLImj5lnnlN8bJ6u-yEspjDpGPDx-dQzW0849_CDsNXR7XLMEvdns_h_STeC7u6Io_-uCss3FyQ6uCQhBl4WDMrXSM2WgqFIdD4XchNVstmS2mlmyK5MqBLpjKVWTs7x_IrI2WyI-pSHBWAggl_P8q1lAOXI8E1nV-8wRAcahmdRvqvf-GSDvIuoLE93hg1gHm1w0BY6MGb5Sa0251_fNg53yIYmMdp7QHDYq0ImkLa'; A then sees status=input_required; after A answers: status=completed result='backup label=A-5zwllmv2 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.GYZ2iTTRTDnz0NgwSS0V4JVr4yybPZteAxZIjy_A9vrcMAnqcwxcoPGh8hEANm3meJANLWT0y9xCEUSns9oOXOGsQvauc7keRijyBDqAkaPbeM1dP-nlf9ZavCA3QyoEjbIY9opvSir04fQxgpM8yMgkc5qqEaolMGYarouLVFomeWFTeyHGsBSo8QAI9cek1_HgGqPBA104TzqZaGxgyOvRK87HJksD5VZxOjUZ0lt0GVsXWxVxpoofDY_JdrFDyrRuS7BXnMNk1CdTStgy7x60XtnxIGf_oY-tDx5MK12ElK0utTtzHYCzIzdbDQaHiwX_34aYTWw8X0HYCLX6WDLFFyrCMKUQGId775YI'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 63b03eb7-1c75-4133-8e5e-f3982f7cc45b'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-m4wgh', 'seal-proxy-7758855775-njmsq', 'seal-proxy-7758855775-qhqnv', 'seal-proxy-7758855775-qxmrj', 'seal-proxy-7758855775-x9t9g', 'seal-proxy-7758855775-xxwzk']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (14 IDs, 133 responses)
+evidence: /home/ubuntu/ai1/evidence/20261011T071648Z-P2-v2.1
+--- run 1/1 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.nMABkYUjcUVYXw-Ewz0YphvxbwoqFnK3dbBD89iJsHRXNif0nkDDwsZ30cg_y7_PvAQVc7vjnTfKXGNS3SApARMjAQkDmCYdvo7-wDa4ZEk7N7p4e-DfZ2A08DCXueLA3QVtpkXZtAhuL849dZEQKDmghU9PGsL59drwys22g_ix9BMyGF_cA06-rwd33VSHz4u51oOeZfdLmdvXrfy8Ow_50fH0Vh2iuCH6ggV8CG-lI1Y_ArUZld62NZ0JvLPLN4PVG0U-31UFLFteLQgw4BLbrVswFahdiBLg5sQ6Toq3WvTaWya_8ahcmy9rXf6eciVYIFUdovBreS7ST7CnJ9XBM9BrJ7OrJVYhJiyR'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.DNbmRlMSVqrQcjl1O6QsY0taREej8efme5LGQ7UvyaGkQuXV4fpT8r-SQ0VC4U5w_GzLE6ncB1x5O-SXoNB0rdwcVcF0oNPUENwBpx742tNH-MbE2zfImOAihU7Dy570NZVBz5Kbb29nEWSBznJI5UBcBXV4wNlJ_O2PXT1ZCjTYU3gUd2VdmqDUv0IWCeDPn7_IIBdcxduhHLcLaHEKHh2Tj3xTSfZCaaF-L9bEGQE8OwErwC0M88y9bGWLmFnGd4e80aS89wHVaZFF0loD5X3u_cLYafSVvoAseKcRB5KYyo50pRpP-YPuMSNYralwRgajnITwVso3Hz1ZA-cICr7PkmiRiZHP4U2iDBot'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 85d0d0ca-21dc-4296-a9b4-2d78c3a9c8ca'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (20 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261011T071736Z-P2-NP-v2.1
+
+==> drain demo (P0, P1, P-AGW, P2) x 1 runs
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-nol3nfcz) would break a PodDisruptionBudget for team-a/payments-8584f8c75-c2mrk,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-nol3nfcz by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-pwe1nyt4) would break a PodDisruptionBudget for team-a/payments-8584f8c75-7k8gx, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-umc7w5wx) would break a PodDisruptionBudget for team-a/payments-8584f8c75-7k8
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-umc7w5wx by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-rwvo4y2g) would break a PodDisruptionBudget for team-a/payments-8584f8c75-8
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+
+Measurements since 2026-10-11T07:15:03: 81 rows, placements: P0-OFF, P0-OFF-LIT, P0, P-AGW, P1, P2, P2-NP
+
+| placement | runs | T0 | T0-B | PC-anon | PC-agent-c | AUD | T1 | T3a | T3b | T4 | TL | TB | TR | DRAIN-watch | DRAIN-force |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| P0-OFF | 1 | pass 2/2 | pass 1/1 | access 1/1 | access 1/1 | accepted 1/1 | access 1/1 | access 1/1 | not-applicable 1/1 | distinguishable 1/1 | access 1/1 |  |  |  |  |
+| P0-OFF-LIT | 1 | fail 1/1 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| P0 | 2 | pass 3/3 | pass 1/1 | access 1/1 | access 1/1 | accepted 1/1 | access 1/1 | access 1/1 | access 1/1 | distinguishable 1/1 | access 1/1 |  |  | read 1/1 | forced-by-B 1/1 |
+| P-AGW | 2 | pass 3/3 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | access 1/1 | access 1/1 | access 1/1 | distinguishable 1/1 | access 1/1 |  |  | read 1/1 | forced-by-B 1/1 |
+| P1 | 2 | pass 3/3 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | indistinguishable 1/1 | refused 1/1 |  |  | refused 1/1 | refused 1/1 |
+| P2 | 2 | pass 4/4 | pass 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | refused 1/1 | indistinguishable 1/1 | refused 1/1 | reached 1/1 | opens-everywhere 1/1 | read 1/1 | refused 1/1 |
+| P2-NP | 1 | pass 2/2 |  |  |  |  | refused 1/1 |  |  |  | refused 1/1 | blocked 1/1 |  |  |  |
+
+Owner-binding placements (expect 'refused' for T1/T3a/T3b/TL): P1, P2, P2-NP
+Baseline placements      (expect 'access'  for T1/T3a/T3b/TL): P0-OFF, P0, P-AGW
+
+ALL CHECKS PASSED

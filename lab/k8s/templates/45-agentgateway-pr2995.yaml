@@ -1,0 +1,154 @@
+{{- if .Values.pr2995.enabled }}
+# agentgateway built from PR #2995 (stevenctl/agentgateway@2bc5d041, unmerged; label every result as such, DEC-03).
+# #2995 runs mcpGuardrails processors on tasks/get|update|cancel (request phase) and lets authorization see a
+# processor-mutated resource id. Two gateways, both 3 replicas, in front of the unchanged task-server-p0:
+#   P-AGW2995       same JWT + CEL policy as P-agw (v1.6.0), branch build: does anything change without a processor?
+#   P-AGW2995-SEAL  + an ExtMcp processor (lab/ext-seal) that seals task ids to (iss, sub, azp) from the gateway's
+#                   validated JWT (CEL metadata) and refuses foreign handles like unknown tasks.
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: agw2995-config, namespace: gateway}
+data:
+  config.yaml: |
+    binds:
+    - port: 8080
+      listeners:
+      - routes:
+        - matches:
+          - path: {exact: /mcp}
+          backends:
+          - mcp:
+              targets:
+              - name: shared
+                mcp:
+                  host: http://task-server-p0.mcp-shared.svc.cluster.local:8080/mcp
+          policies:
+            jwtAuth:
+              mode: strict
+              issuer: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1
+              audiences: [task-server]
+              jwks:
+                url: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1/protocol/openid-connect/certs
+            mcpAuthorization:
+              rules:
+              - 'jwt.azp in ["agent-a", "agent-b", "agent-s"]'
+---
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: agw2995seal-config, namespace: gateway}
+data:
+  config.yaml: |
+    binds:
+    - port: 8080
+      listeners:
+      - routes:
+        - matches:
+          - path: {exact: /mcp}
+          backends:
+          - mcp:
+              targets:
+              - name: shared
+                mcp:
+                  host: http://task-server-p0.mcp-shared.svc.cluster.local:8080/mcp
+          policies:
+            jwtAuth:
+              mode: strict
+              issuer: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1
+              audiences: [task-server]
+              jwks:
+                url: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1/protocol/openid-connect/certs
+            mcpAuthorization:
+              rules:
+              - 'jwt.azp in ["agent-a", "agent-b", "agent-s"]'
+            mcpGuardrails:
+              processors:
+              - kind: remote
+                host: ext-seal.gateway.svc.cluster.local:9000
+                failureMode: failClosed
+                methods:
+                  "tools/call": response
+                  "tasks/get": full
+                  "tasks/update": full
+                  "tasks/cancel": full
+                metadata:
+                  iss: 'jwt.iss'
+                  sub: 'jwt.sub'
+                  azp: 'jwt.azp'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: agentgateway-pr2995, namespace: gateway}
+spec:
+  replicas: 3
+  selector: {matchLabels: {app: agentgateway-pr2995}}
+  template:
+    metadata: {labels: {app: agentgateway-pr2995, ai1/placement: p-agw2995}}
+    spec:
+      containers:
+        - name: agentgateway
+          image: {{ .Values.images.agentgatewayPr2995 }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args: ["-f", "/config/config.yaml"]
+          ports: [{containerPort: 8080}]
+          volumeMounts: [{name: config, mountPath: /config}]
+      volumes: [{name: config, configMap: {name: agw2995-config}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: agentgateway-pr2995, namespace: gateway}
+spec:
+  selector: {app: agentgateway-pr2995}
+  ports: [{port: 8080, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: agentgateway-pr2995-seal, namespace: gateway}
+spec:
+  replicas: 3
+  selector: {matchLabels: {app: agentgateway-pr2995-seal}}
+  template:
+    metadata: {labels: {app: agentgateway-pr2995-seal, ai1/placement: p-agw2995-seal}}
+    spec:
+      containers:
+        - name: agentgateway
+          image: {{ .Values.images.agentgatewayPr2995 }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args: ["-f", "/config/config.yaml"]
+          ports: [{containerPort: 8080}]
+          volumeMounts: [{name: config, mountPath: /config}]
+      volumes: [{name: config, configMap: {name: agw2995seal-config}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: agentgateway-pr2995-seal, namespace: gateway}
+spec:
+  selector: {app: agentgateway-pr2995-seal}
+  ports: [{port: 8080, targetPort: 8080}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: ext-seal, namespace: gateway}
+spec:
+  replicas: 2
+  selector: {matchLabels: {app: ext-seal}}
+  template:
+    metadata: {labels: {app: ext-seal}}
+    spec:
+      containers:
+        - name: ext-seal
+          image: {{ .Values.images.extSeal }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          ports: [{containerPort: 9000}]
+          env:
+            - name: SEAL_KEY_ACTIVE
+              valueFrom: {secretKeyRef: {name: task-seal-key-agw, key: active}}
+            - name: RUST_LOG
+              value: info
+---
+apiVersion: v1
+kind: Service
+metadata: {name: ext-seal, namespace: gateway}
+spec:
+  selector: {app: ext-seal}
+  ports: [{name: grpc, port: 9000, targetPort: 9000, appProtocol: kubernetes.io/h2c}]
+{{- end }}

@@ -1,0 +1,2 @@
+working tree with uncommitted changes (base fb965a8); NOT what a clone gets
+(the per-file list of the working tree was removed for publication)

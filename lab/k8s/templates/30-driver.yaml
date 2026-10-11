@@ -1,0 +1,49 @@
+# The driver runs inside the cluster (namespace team-a), so tokens are fetched from the
+# in-cluster Keycloak service and carry the pinned issuer. Lab-only credentials (same values
+# as realm-ai1.json). driver.py is copied in with `kubectl cp` by run-placement.sh.
+apiVersion: v1
+kind: Secret
+metadata: {name: driver-creds, namespace: team-a}
+stringData:
+  KC_TOKEN_URL: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1/protocol/openid-connect/token
+  KC_SECRET_A: agent-a-lab-secret
+  KC_SECRET_B: agent-b-lab-secret
+  KC_SECRET_C: agent-c-lab-secret
+  KC_INTROSPECT_SECRET: task-server-lab-secret
+  KC_SECRET_NOAUD: agent-noaud-lab-secret
+  KC_SECRET_S: agent-s-lab-secret
+  KC_PASS_A: alice-lab-pw
+  KC_PASS_B: bob-lab-pw
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: driver, namespace: team-a, labels: {app: driver}}
+spec:
+  containers:
+    - name: driver
+      image: {{ .Values.images.python }}
+      imagePullPolicy: {{ .Values.imagePullPolicy }}
+      command: ["sleep", "infinity"]
+      envFrom: [{secretRef: {name: driver-creds}}]
+---
+# Second driver pod in team-b, for the bypass test (TB): B calls the server directly.
+apiVersion: v1
+kind: Secret
+metadata: {name: driver-creds, namespace: team-b}
+stringData:
+  KC_TOKEN_URL: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1/protocol/openid-connect/token
+  KC_SECRET_A: agent-a-lab-secret
+  KC_SECRET_B: agent-b-lab-secret
+  KC_PASS_A: alice-lab-pw
+  KC_PASS_B: bob-lab-pw
+---
+apiVersion: v1
+kind: Pod
+metadata: {name: driver, namespace: team-b, labels: {app: driver}}
+spec:
+  containers:
+    - name: driver
+      image: {{ .Values.images.python }}
+      imagePullPolicy: {{ .Values.imagePullPolicy }}
+      command: ["sleep", "infinity"]
+      envFrom: [{secretRef: {name: driver-creds}}]

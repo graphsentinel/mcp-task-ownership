@@ -1,0 +1,1873 @@
+
+==> launch ai1-e2e: Ubuntu 26.04, 8 CPU, 16G, 60G
+==> copy the files a clone would contain (git ls-files; evidence/ and presentation/ are not needed to run)
+168
+
+==> scripts/bootstrap-ubuntu.sh
+
+==> apt packages (Ubuntu's versions)
+Hit:1 http://archive.ubuntu.com/ubuntu resolute InRelease
+Hit:2 http://security.ubuntu.com/ubuntu resolute-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu resolute-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu resolute-backports InRelease
+Reading package lists...
+sudo: preserving the entire environment is not supported, '-E' is ignored
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.53.0-1ubuntu1).
+git set to manually installed.
+python3 is already the newest version (3.14.3-0ubuntu2).
+python3 set to manually installed.
+curl is already the newest version (8.18.0-1ubuntu2.7).
+curl set to manually installed.
+ca-certificates is already the newest version (20260601~26.04.1).
+ca-certificates set to manually installed.
+Solving dependencies...
+The following additional packages will be installed:
+  libssl3t64 openssl-provider-legacy
+The following packages will be upgraded:
+  libssl3t64 openssl openssl-provider-legacy
+3 upgraded, 0 newly installed, 0 to remove and 23 not upgraded.
+Need to get 3651 kB of archives.
+After this operation, 10.2 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssl-provider-legacy amd64 3.5.5-1ubuntu3.7 [39.7 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 libssl3t64 amd64 3.5.5-1ubuntu3.7 [2368 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 openssl amd64 3.5.5-1ubuntu3.7 [1243 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+Fetched 3651 kB in 1s (4068 kB/s)
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 91496 files and directories currently installed.)
+
+Preparing to unpack .../openssl-provider-legacy_3.5.5-1ubuntu3.7_amd64.deb ...
+
+Unpacking openssl-provider-legacy (3.5.5-1ubuntu3.7) over (3.5.5-1ubuntu3.5) ...
+
+Setting up openssl-provider-legacy (3.5.5-1ubuntu3.7) ...
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 91496 files and directories currently installed.)
+
+Preparing to unpack .../libssl3t64_3.5.5-1ubuntu3.7_amd64.deb ...
+
+Unpacking libssl3t64:amd64 (3.5.5-1ubuntu3.7) over (3.5.5-1ubuntu3.5) ...
+
+Setting up libssl3t64:amd64 (3.5.5-1ubuntu3.7) ...
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 91496 files and directories currently installed.)
+
+Preparing to unpack .../openssl_3.5.5-1ubuntu3.7_amd64.deb ...
+
+Unpacking openssl (3.5.5-1ubuntu3.7) over (3.5.5-1ubuntu3.5) ...
+
+Setting up openssl (3.5.5-1ubuntu3.7) ...
+
+Processing triggers for man-db (2.13.1-1build1) ...
+
+Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+ /etc/needrestart/restart.d/systemd-manager
+ /etc/needrestart/restart.d/systemd-user
+ systemctl restart packagekit.service ssh.service systemd-hostnamed.service systemd-journald.service systemd-networkd.service systemd-resolved.service systemd-timedated.service systemd-udevd.service udisks2.service
+
+Service restarts being deferred:
+ systemctl restart networkd-dispatcher.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+User sessions running outdated binaries:
+ ubuntu @ session #1: sshd-session[1506]
+ ubuntu @ session #4: sshd-session[2159]
+ ubuntu @ user manager: (sd-pam)[1540]
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+==> Docker from Ubuntu's docker.io package
+sudo: preserving the entire environment is not supported, '-E' is ignored
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Solving dependencies...
+The following additional packages will be installed:
+  bridge-utils containerd dns-root-data dnsmasq-base pigz runc ubuntu-fan
+Suggested packages:
+  ifupdown aufs-tools cgroupfs-mount | cgroup-lite debootstrap docker-buildx
+  docker-compose-v2 docker-doc rinse rootlesskit zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils containerd dns-root-data dnsmasq-base docker.io pigz runc
+  ubuntu-fan
+0 upgraded, 8 newly installed, 0 to remove and 23 not upgraded.
+Need to get 74.0 MB of archives.
+After this operation, 281 MB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu resolute/universe amd64 pigz amd64 2.8-1build1 [66.8 kB]
+Get:2 http://archive.ubuntu.com/ubuntu resolute/main amd64 bridge-utils amd64 1.7.1-4ubuntu3 [34.5 kB]
+Get:3 http://archive.ubuntu.com/ubuntu resolute/main amd64 runc amd64 1.4.0-0ubuntu1 [9828 kB]
+Get:4 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 containerd amd64 2.2.2-0ubuntu1.1 [28.1 MB]
+Get:5 http://archive.ubuntu.com/ubuntu resolute/main amd64 dns-root-data all 2025080400build1 [6022 B]
+Get:6 http://archive.ubuntu.com/ubuntu resolute-updates/main amd64 dnsmasq-base amd64 2.92-1ubuntu0.5 [439 kB]
+Get:7 http://archive.ubuntu.com/ubuntu resolute-updates/universe amd64 docker.io amd64 29.1.3-0ubuntu4.1 [35.5 MB]
+Get:8 http://archive.ubuntu.com/ubuntu resolute/universe amd64 ubuntu-fan all 0.12.17 [34.3 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+Preconfiguring packages ...
+Fetched 74.0 MB in 7s (11.2 MB/s)
+Selecting previously unselected package pigz.
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 91496 files and directories currently installed.)
+
+Preparing to unpack .../0-pigz_2.8-1build1_amd64.deb ...
+
+Unpacking pigz (2.8-1build1) ...
+
+Selecting previously unselected package bridge-utils.
+
+Preparing to unpack .../1-bridge-utils_1.7.1-4ubuntu3_amd64.deb ...
+
+Unpacking bridge-utils (1.7.1-4ubuntu3) ...
+
+Selecting previously unselected package runc.
+
+Preparing to unpack .../2-runc_1.4.0-0ubuntu1_amd64.deb ...
+
+Unpacking runc (1.4.0-0ubuntu1) ...
+
+Selecting previously unselected package containerd.
+
+Preparing to unpack .../3-containerd_2.2.2-0ubuntu1.1_amd64.deb ...
+
+Unpacking containerd (2.2.2-0ubuntu1.1) ...
+
+Selecting previously unselected package dns-root-data.
+
+Preparing to unpack .../4-dns-root-data_2025080400build1_all.deb ...
+
+Unpacking dns-root-data (2025080400build1) ...
+
+Selecting previously unselected package dnsmasq-base.
+
+Preparing to unpack .../5-dnsmasq-base_2.92-1ubuntu0.5_amd64.deb ...
+
+Unpacking dnsmasq-base (2.92-1ubuntu0.5) ...
+
+Selecting previously unselected package docker.io.
+
+Preparing to unpack .../6-docker.io_29.1.3-0ubuntu4.1_amd64.deb ...
+
+Unpacking docker.io (29.1.3-0ubuntu4.1) ...
+
+Selecting previously unselected package ubuntu-fan.
+
+Preparing to unpack .../7-ubuntu-fan_0.12.17_all.deb ...
+
+Unpacking ubuntu-fan (0.12.17) ...
+
+Setting up dnsmasq-base (2.92-1ubuntu0.5) ...
+
+Setting up runc (1.4.0-0ubuntu1) ...
+
+Setting up dns-root-data (2025080400build1) ...
+
+Setting up bridge-utils (1.7.1-4ubuntu3) ...
+
+debconf: unable to initialize frontend: Dialog
+
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+
+debconf: falling back to frontend: Readline
+
+debconf: unable to initialize frontend: Readline
+
+debconf: (This frontend requires a controlling tty.)
+
+debconf: falling back to frontend: Teletype
+
+debconf: unable to initialize frontend: Teletype
+
+debconf: (This frontend requires a controlling tty.)
+
+debconf: falling back to frontend: Noninteractive
+
+Setting up pigz (2.8-1build1) ...
+
+Setting up containerd (2.2.2-0ubuntu1.1) ...
+
+Created symlink '/etc/systemd/system/multi-user.target.wants/containerd.service' → '/usr/lib/systemd/system/containerd.service'.
+
+
+Setting up ubuntu-fan (0.12.17) ...
+
+Created symlink '/etc/systemd/system/multi-user.target.wants/ubuntu-fan.service' → '/usr/lib/systemd/system/ubuntu-fan.service'.
+
+
+Setting up docker.io (29.1.3-0ubuntu4.1) ...
+
+debconf: unable to initialize frontend: Dialog
+
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+
+debconf: falling back to frontend: Readline
+
+debconf: unable to initialize frontend: Readline
+
+debconf: (This frontend requires a controlling tty.)
+
+debconf: falling back to frontend: Teletype
+
+debconf: unable to initialize frontend: Teletype
+
+debconf: (This frontend requires a controlling tty.)
+
+debconf: falling back to frontend: Noninteractive
+
+Created symlink '/etc/systemd/system/multi-user.target.wants/docker.service' → '/usr/lib/systemd/system/docker.service'.
+
+
+Created symlink '/etc/systemd/system/sockets.target.wants/docker.socket' → '/usr/lib/systemd/system/docker.socket'.
+
+
+Processing triggers for dbus (1.16.2-2ubuntu4) ...
+
+Processing triggers for man-db (2.13.1-1build1) ...
+
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ systemctl restart networkd-dispatcher.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+User sessions running outdated binaries:
+ ubuntu @ session #1: sshd-session[1506]
+ ubuntu @ session #4: sshd-session[2159]
+ ubuntu @ user manager: (sd-pam)[1540]
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+==> docker group for ubuntu
+
+==> kubectl v1.37.1 (dl.k8s.io)
+/tmp/tmp.9e1tGvQzxq/kubectl: OK
+
+==> k3d v5.9.0 (github.com/k3d-io/k3d)
+/tmp/tmp.9e1tGvQzxq/k3d: OK
+
+==> versions
+Docker version 29.1.3, build 29.1.3-0ubuntu4.1
+Client Version: v1.37.1
+k3d version v5.9.0
+Python 3.14.4
+
+==> sysctl for k3s-in-docker
+
+Done. You were added to the docker group: log out and in again (or run 'newgrp docker'), then:
+  scripts/lab.sh all
+01-bootstrap: exit 0, 37 s
+
+==> RUNS=5 WITH_PR2995=0 FULL=0 scripts/lab.sh all
+
+==> pull docker.io/library/rust:1.99.0-trixie and docker.io/library/debian:trixie-slim
+
+==> task server (P0 / P1)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded atomic-waker v1.1.2
+  Downloaded async-trait v0.1.92
+  Downloaded ref-cast v1.0.27
+  Downloaded cfg_aliases v0.2.2
+  Downloaded lru-slab v0.1.3
+  Downloaded ref-cast-impl v1.0.27
+  Downloaded autocfg v1.5.1
+  Downloaded anyhow v1.0.104
+  Downloaded percent-encoding v2.3.2
+  Downloaded futures-macro v0.3.34
+  Downloaded powerfmt v0.2.1
+  Downloaded futures-io v0.3.34
+  Downloaded futures-core v0.3.34
+  Downloaded httpdate v1.0.3
+  Downloaded idna_adapter v1.2.2
+  Downloaded itoa v1.0.18
+  Downloaded http-body v1.1.0
+  Downloaded rand_pcg v0.10.2
+  Downloaded matchers v0.2.0
+  Downloaded potential_utf v0.1.6
+  Downloaded form_urlencoded v1.2.2
+  Downloaded mime v0.3.17
+  Downloaded futures-sink v0.3.34
+  Downloaded num-conv v0.2.2
+  Downloaded futures-task v0.3.34
+  Downloaded equivalent v1.0.2
+  Downloaded crypto-common v0.2.2
+  Downloaded dyn-clone v1.0.20
+  Downloaded ident_case v1.0.1
+  Downloaded block-buffer v0.12.1
+  Downloaded cpufeatures v0.3.1
+  Downloaded num-integer v0.1.47
+  Downloaded errno v0.3.14
+  Downloaded find-msvc-tools v0.1.14
+  Downloaded futures-executor v0.3.34
+  Downloaded http-body-util v0.1.5
+  Downloaded hyper-rustls v0.27.10
+  Downloaded ipnet v2.12.2
+  Downloaded lazy_static v1.5.1
+  Downloaded want v0.3.2
+  Downloaded axum-core v0.5.6
+  Downloaded pin-project-lite v0.2.17
+  Downloaded deranged v0.5.8
+  Downloaded ctutils v0.4.3
+  Downloaded pem v3.0.6
+  Downloaded rand_core v0.10.1
+  Downloaded cfg-if v1.0.5
+  Downloaded cmov v0.5.4
+  Downloaded darling_macro v0.24.1
+  Downloaded displaydoc v0.2.7
+  Downloaded nu-ansi-term v0.50.3
+  Downloaded pastey v0.2.3
+  Downloaded time-core v0.1.9
+  Downloaded digest v0.11.3
+  Downloaded getrandom v0.2.17
+  Downloaded hmac v0.13.0
+  Downloaded httparse v1.10.1
+  Downloaded hybrid-array v0.4.15
+  Downloaded iana-time-zone v0.1.65
+  Downloaded litemap v0.8.3
+  Downloaded matchit v0.8.4
+  Downloaded quinn-udp v0.5.16
+  Downloaded try-lock v0.2.5
+  Downloaded chacha20 v0.10.2
+  Downloaded serde_urlencoded v0.7.1
+  Downloaded stable_deref_trait v1.2.1
+  Downloaded quote v1.0.47
+  Downloaded once_cell v1.21.4
+  Downloaded futures-channel v0.3.34
+  Downloaded icu_provider v2.3.1
+  Downloaded jsonwebtoken v9.3.1
+  Downloaded num-traits v0.2.19
+  Downloaded const-oid v0.10.2
+  Downloaded futures v0.3.34
+  Downloaded proc-macro2 v1.0.107
+  Downloaded zerofrom-derive v0.1.8
+  Downloaded darling v0.24.1
+  Downloaded log v0.4.34
+  Downloaded bitflags v2.13.2
+  Downloaded getrandom v0.4.3
+  Downloaded untrusted v0.9.0
+  Downloaded base64 v0.23.1
+  Downloaded icu_locale_core v2.3.0
+  Downloaded icu_normalizer_data v2.3.0
+  Downloaded base64 v0.22.1
+  Downloaded bytes v1.12.1
+  Downloaded icu_collections v2.3.0
+  Downloaded quinn v0.11.12
+  Downloaded yoke-derive v0.8.4
+  Downloaded rand v0.10.3
+  Downloaded http v1.5.0
+  Downloaded memchr v2.8.3
+  Downloaded strsim v0.11.1
+  Downloaded cc v1.6.0
+  Downloaded darling_core v0.24.1
+  Downloaded icu_properties v2.3.0
+  Downloaded num-bigint v0.4.8
+  Downloaded indexmap v2.14.2
+  Downloaded hyper-util v0.1.21
+  Downloaded mio v1.2.4
+  Downloaded aho-corasick v1.1.5
+  Downloaded idna v1.1.0
+  Downloaded axum v0.8.9
+  Downloaded hashbrown v0.17.1
+  Downloaded futures-util v0.3.34
+  Downloaded hyper v1.11.1
+  Downloaded icu_properties_data v2.3.0
+  Downloaded subtle v2.6.1
+  Downloaded quinn-proto v0.11.19
+  Downloaded chrono v0.4.45
+  Downloaded rustc-hash v2.1.3
+  Downloaded thread_local v1.1.10
+  Downloaded sync_wrapper v1.0.2
+  Downloaded tower-service v0.3.3
+  Downloaded icu_normalizer v2.3.0
+  Downloaded tokio-macros v2.7.2
+  Downloaded libc v0.2.190
+  Downloaded zerofrom v0.1.8
+  Downloaded serde_path_to_error v0.1.20
+  Downloaded rmcp-macros v3.5.1
+  Downloaded signal-hook-registry v1.4.8
+  Downloaded writeable v0.6.4
+  Downloaded shlex v2.0.1
+  Downloaded schemars_derive v1.2.2
+  Downloaded thiserror v2.0.21
+  Downloaded slab v0.4.12
+  Downloaded tower-layer v0.3.3
+  Downloaded tracing-log v0.2.0
+  Downloaded tokio-rustls v0.26.6
+  Downloaded simple_asn1 v0.6.4
+  Downloaded thiserror-impl v2.0.21
+  Downloaded synstructure v0.14.0
+  Downloaded zeroize v1.9.0
+  Downloaded zerovec-derive v0.11.6
+  Downloaded sha2 v0.11.0
+  Downloaded time-macros v0.2.32
+  Downloaded utf8_iter v1.0.4
+  Downloaded rustls-pki-types v1.15.1
+  Downloaded smallvec v1.16.2
+  Downloaded zmij v1.0.23
+  Downloaded tokio-stream v0.1.19
+  Downloaded yoke v0.8.3
+  Downloaded tinystr v0.8.4
+  Downloaded serde_derive_internals v0.30.0
+  Downloaded unicode-ident v1.0.26
+  Downloaded sse-stream v0.2.6
+  Downloaded serde_core v1.0.229
+  Downloaded serde_derive v1.0.229
+  Downloaded tracing-attributes v0.1.31
+  Downloaded ryu v1.0.23
+  Downloaded tracing-core v0.1.36
+  Downloaded socket2 v0.6.5
+  Downloaded uuid v1.27.0
+  Downloaded sharded-slab v0.1.7
+  Downloaded serde v1.0.229
+  Downloaded tinyvec v1.13.3
+  Downloaded url v2.5.8
+  Downloaded schemars v1.2.2
+  Downloaded zerotrie v0.2.5
+  Downloaded rustls-webpki v0.103.15
+  Downloaded reqwest v0.12.28
+  Downloaded typenum v1.20.1
+  Downloaded tower v0.5.3
+  Downloaded zerovec v0.11.8
+  Downloaded tokio-util v0.7.19
+  Downloaded serde_json v1.0.151
+  Downloaded tower-http v0.6.11
+  Downloaded webpki-roots v1.0.9
+  Downloaded tracing-subscriber v0.3.23
+  Downloaded regex-syntax v0.8.11
+  Downloaded time v0.3.55
+  Downloaded syn v3.0.6
+  Downloaded syn v2.0.119
+  Downloaded rustls v0.23.45
+  Downloaded tracing v0.1.44
+  Downloaded rmcp v3.5.1
+  Downloaded regex-automata v0.4.18
+  Downloaded tokio v1.53.2
+  Downloaded ring v0.17.14
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling libc v0.2.190
+   Compiling pin-project-lite v0.2.17
+   Compiling futures-core v0.3.34
+   Compiling bytes v1.12.1
+   Compiling itoa v1.0.18
+   Compiling cfg-if v1.0.5
+   Compiling stable_deref_trait v1.2.1
+   Compiling futures-sink v0.3.34
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling serde_core v1.0.229
+   Compiling futures-channel v0.3.34
+   Compiling zmij v1.0.23
+   Compiling tracing-core v0.1.36
+   Compiling shlex v2.0.1
+   Compiling log v0.4.34
+   Compiling futures-io v0.3.34
+   Compiling http v1.5.0
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling find-msvc-tools v0.1.14
+   Compiling errno v0.3.14
+   Compiling mio v1.2.4
+   Compiling signal-hook-registry v1.4.8
+   Compiling socket2 v0.6.5
+   Compiling futures-task v0.3.34
+   Compiling smallvec v1.16.2
+   Compiling slab v0.4.12
+   Compiling http-body v1.1.0
+   Compiling cc v1.6.0
+   Compiling autocfg v1.5.1
+   Compiling serde v1.0.229
+   Compiling num-traits v0.2.19
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling utf8_iter v1.0.4
+   Compiling icu_properties_data v2.3.0
+   Compiling zeroize v1.9.0
+   Compiling tower-service v0.3.3
+   Compiling percent-encoding v2.3.2
+   Compiling icu_normalizer_data v2.3.0
+   Compiling getrandom v0.2.17
+   Compiling serde_json v1.0.151
+   Compiling httparse v1.10.1
+   Compiling typenum v1.20.1
+   Compiling untrusted v0.9.0
+   Compiling rustls-pki-types v1.15.1
+   Compiling try-lock v0.2.5
+   Compiling want v0.3.2
+   Compiling form_urlencoded v1.2.2
+   Compiling ring v0.17.14
+   Compiling http-body-util v0.1.5
+   Compiling hybrid-array v0.4.15
+   Compiling sync_wrapper v1.0.2
+   Compiling atomic-waker v1.1.2
+   Compiling cmov v0.5.4
+   Compiling strsim v0.11.1
+   Compiling synstructure v0.14.0
+   Compiling tower-layer v0.3.3
+   Compiling httpdate v1.0.3
+   Compiling getrandom v0.4.3
+   Compiling rustls v0.23.45
+   Compiling base64 v0.23.1
+   Compiling ident_case v1.0.1
+   Compiling thiserror v2.0.21
+   Compiling rand_core v0.10.1
+   Compiling darling_core v0.24.1
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+   Compiling ctutils v0.4.3
+   Compiling tracing-attributes v0.1.31
+   Compiling ipnet v2.12.2
+   Compiling time-core v0.1.9
+   Compiling subtle v2.6.1
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+   Compiling tokio-macros v2.7.2
+   Compiling displaydoc v0.2.7
+   Compiling zerofrom v0.1.8
+   Compiling futures-macro v0.3.34
+   Compiling yoke v0.8.3
+   Compiling tokio v1.53.2
+   Compiling tracing v0.1.44
+   Compiling zerotrie v0.2.5
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.21
+   Compiling zerovec v0.11.8
+   Compiling const-oid v0.10.2
+   Compiling futures-util v0.3.34
+   Compiling num-conv v0.2.2
+   Compiling ref-cast v1.0.27
+   Compiling cpufeatures v0.3.1
+   Compiling time-macros v0.2.32
+   Compiling darling_macro v0.24.1
+   Compiling tinystr v0.8.4
+   Compiling icu_locale_core v2.3.0
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling digest v0.11.3
+   Compiling ref-cast-impl v1.0.27
+   Compiling icu_provider v2.3.1
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling serde_derive_internals v0.30.0
+   Compiling num-integer v0.1.47
+   Compiling powerfmt v0.2.1
+   Compiling regex-syntax v0.8.11
+   Compiling deranged v0.5.8
+   Compiling ryu v1.0.23
+   Compiling idna_adapter v1.2.2
+   Compiling base64 v0.22.1
+   Compiling idna v1.1.0
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling time v0.3.55
+   Compiling regex-automata v0.4.18
+   Compiling rustls-webpki v0.103.15
+   Compiling hyper-util v0.1.21
+   Compiling url v2.5.8
+   Compiling schemars_derive v1.2.2
+   Compiling serde_urlencoded v0.7.1
+   Compiling num-bigint v0.4.8
+   Compiling futures-executor v0.3.34
+   Compiling chrono v0.4.45
+   Compiling darling v0.24.1
+   Compiling chacha20 v0.10.2
+   Compiling webpki-roots v1.0.9
+   Compiling hashbrown v0.17.1
+   Compiling mime v0.3.17
+   Compiling equivalent v1.0.2
+   Compiling dyn-clone v1.0.20
+   Compiling rmcp v3.5.1
+   Compiling anyhow v1.0.104
+   Compiling bitflags v2.13.2
+   Compiling lazy_static v1.5.1
+   Compiling sharded-slab v0.1.7
+   Compiling indexmap v2.14.2
+   Compiling tower-http v0.6.11
+   Compiling schemars v1.2.2
+   Compiling tokio-rustls v0.26.6
+   Compiling simple_asn1 v0.6.4
+   Compiling hyper-rustls v0.27.10
+   Compiling axum-core v0.5.6
+   Compiling rand v0.10.3
+   Compiling rmcp-macros v3.5.1
+   Compiling futures v0.3.34
+   Compiling matchers v0.2.0
+   Compiling pem v3.0.6
+   Compiling tokio-stream v0.1.19
+   Compiling tokio-util v0.7.19
+   Compiling uuid v1.27.0
+   Compiling sse-stream v0.2.6
+   Compiling hmac v0.13.0
+   Compiling sha2 v0.11.0
+   Compiling async-trait v0.1.92
+   Compiling serde_path_to_error v0.1.20
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.10
+   Compiling matchit v0.8.4
+   Compiling nu-ansi-term v0.50.3
+   Compiling pastey v0.2.3
+   Compiling jsonwebtoken v9.3.1
+   Compiling tracing-subscriber v0.3.23
+   Compiling axum v0.8.9
+   Compiling reqwest v0.12.28
+   Compiling task-lab-server v0.1.0 (/src)
+    Finished `release` profile [optimized] target(s) in 1m 11s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> sealing proxy (P2)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded aead v0.5.2
+  Downloaded cpufeatures v0.2.17
+  Downloaded opaque-debug v0.3.1
+  Downloaded universal-hash v0.5.1
+  Downloaded chacha20 v0.9.1
+  Downloaded version_check v0.9.5
+  Downloaded crypto-common v0.1.7
+  Downloaded inout v0.1.4
+  Downloaded generic-array v0.14.7
+  Downloaded rand_core v0.6.4
+  Downloaded poly1305 v0.8.0
+  Downloaded cipher v0.4.4
+  Downloaded chacha20poly1305 v0.10.1
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling libc v0.2.190
+   Compiling cfg-if v1.0.5
+   Compiling pin-project-lite v0.2.17
+   Compiling itoa v1.0.18
+   Compiling futures-core v0.3.34
+   Compiling stable_deref_trait v1.2.1
+   Compiling bytes v1.12.1
+   Compiling once_cell v1.21.4
+   Compiling serde_core v1.0.229
+   Compiling futures-sink v0.3.34
+   Compiling memchr v2.8.3
+   Compiling zmij v1.0.23
+   Compiling futures-channel v0.3.34
+   Compiling tracing-core v0.1.36
+   Compiling version_check v0.9.5
+   Compiling shlex v2.0.1
+   Compiling find-msvc-tools v0.1.14
+   Compiling log v0.4.34
+   Compiling smallvec v1.16.2
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling cc v1.6.0
+   Compiling generic-array v0.14.7
+   Compiling zeroize v1.9.0
+   Compiling slab v0.4.12
+   Compiling autocfg v1.5.1
+   Compiling futures-io v0.3.34
+   Compiling futures-task v0.3.34
+   Compiling getrandom v0.2.17
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.4
+   Compiling http v1.5.0
+   Compiling num-traits v0.2.19
+   Compiling litemap v0.8.3
+   Compiling typenum v1.20.1
+   Compiling serde v1.0.229
+   Compiling writeable v0.6.4
+   Compiling icu_properties_data v2.3.0
+   Compiling http-body v1.1.0
+   Compiling ring v0.17.14
+   Compiling percent-encoding v2.3.2
+   Compiling icu_normalizer_data v2.3.0
+   Compiling utf8_iter v1.0.4
+   Compiling rand_core v0.6.4
+   Compiling hashbrown v0.17.1
+   Compiling untrusted v0.9.0
+   Compiling tower-service v0.3.3
+   Compiling equivalent v1.0.2
+   Compiling httparse v1.10.1
+   Compiling serde_json v1.0.151
+   Compiling subtle v2.6.1
+   Compiling crypto-common v0.1.7
+   Compiling rustls-pki-types v1.15.1
+   Compiling try-lock v0.2.5
+   Compiling want v0.3.2
+   Compiling indexmap v2.14.2
+   Compiling form_urlencoded v1.2.2
+   Compiling sync_wrapper v1.0.2
+   Compiling rustls v0.23.45
+   Compiling thiserror v2.0.21
+   Compiling tower-layer v0.3.3
+   Compiling ident_case v1.0.1
+   Compiling atomic-waker v1.1.2
+   Compiling strsim v0.11.1
+   Compiling base64 v0.23.1
+   Compiling httpdate v1.0.3
+   Compiling ipnet v2.12.2
+   Compiling synstructure v0.14.0
+   Compiling darling_core v0.24.1
+   Compiling tracing-attributes v0.1.31
+   Compiling ref-cast v1.0.27
+   Compiling num-conv v0.2.2
+   Compiling time-core v0.1.9
+   Compiling getrandom v0.4.3
+   Compiling time-macros v0.2.32
+   Compiling serde_derive_internals v0.30.0
+   Compiling tracing v0.1.44
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling tokio-macros v2.7.2
+   Compiling futures-macro v0.3.34
+   Compiling serde_derive v1.0.229
+   Compiling zerofrom v0.1.8
+   Compiling yoke v0.8.3
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling tokio v1.53.2
+   Compiling futures-util v0.3.34
+   Compiling thiserror-impl v2.0.21
+   Compiling darling_macro v0.24.1
+   Compiling ref-cast-impl v1.0.27
+   Compiling inout v0.1.4
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling icu_locale_core v2.3.0
+   Compiling icu_collections v2.3.0
+   Compiling num-integer v0.1.47
+   Compiling http-body-util v0.1.5
+   Compiling cpufeatures v0.2.17
+   Compiling base64 v0.22.1
+   Compiling regex-syntax v0.8.11
+   Compiling icu_provider v2.3.1
+   Compiling powerfmt v0.2.1
+   Compiling icu_properties v2.3.0
+   Compiling icu_normalizer v2.3.0
+   Compiling ryu v1.0.23
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling deranged v0.5.8
+   Compiling url v2.5.8
+   Compiling regex-automata v0.4.18
+   Compiling hyper v1.11.1
+   Compiling rustls-webpki v0.103.15
+   Compiling hyper-util v0.1.21
+   Compiling tower v0.5.3
+   Compiling time v0.3.55
+   Compiling serde_urlencoded v0.7.1
+   Compiling futures-executor v0.3.34
+   Compiling chrono v0.4.45
+   Compiling num-bigint v0.4.8
+   Compiling cipher v0.4.4
+   Compiling darling v0.24.1
+   Compiling schemars_derive v1.2.2
+   Compiling webpki-roots v1.0.9
+   Compiling universal-hash v0.5.1
+   Compiling lazy_static v1.5.1
+   Compiling opaque-debug v0.3.1
+   Compiling mime v0.3.17
+   Compiling bitflags v2.13.2
+   Compiling rmcp v3.5.1
+   Compiling tokio-rustls v0.26.6
+   Compiling anyhow v1.0.104
+   Compiling dyn-clone v1.0.20
+   Compiling hyper-rustls v0.27.10
+   Compiling schemars v1.2.2
+   Compiling simple_asn1 v0.6.4
+   Compiling tower-http v0.6.11
+   Compiling axum-core v0.5.6
+   Compiling poly1305 v0.8.0
+   Compiling sharded-slab v0.1.7
+   Compiling uuid v1.27.0
+   Compiling rmcp-macros v3.5.1
+   Compiling chacha20 v0.9.1
+   Compiling futures v0.3.34
+   Compiling matchers v0.2.0
+   Compiling tokio-util v0.7.19
+   Compiling pem v3.0.6
+   Compiling aead v0.5.2
+   Compiling serde_path_to_error v0.1.20
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.10
+   Compiling nu-ansi-term v0.50.3
+   Compiling matchit v0.8.4
+   Compiling pastey v0.2.3
+   Compiling tracing-subscriber v0.3.23
+   Compiling jsonwebtoken v9.3.1
+   Compiling axum v0.8.9
+   Compiling chacha20poly1305 v0.10.1
+   Compiling reqwest v0.12.28
+   Compiling task-seal-proxy v0.1.0 (/src/proxy)
+warning: method `associated_data` is never used
+  --> src/../../server/src/owner.rs:23:12
+   |
+20 | impl Owner {
+   | ---------- method in this implementation
+...
+23 |     pub fn associated_data(&self) -> Vec<u8> {
+   |            ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `task-seal-proxy` (bin "task-seal-proxy") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 1m 04s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> rmcp example over HTTP (P0-OFF)
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling pin-project-lite v0.2.17
+   Compiling libc v0.2.190
+   Compiling futures-core v0.3.34
+   Compiling bytes v1.12.1
+   Compiling itoa v1.0.18
+   Compiling serde_core v1.0.229
+   Compiling futures-sink v0.3.34
+   Compiling zmij v1.0.23
+   Compiling futures-channel v0.3.34
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling slab v0.4.12
+   Compiling futures-io v0.3.34
+   Compiling tracing-core v0.1.36
+   Compiling cfg-if v1.0.5
+   Compiling log v0.4.34
+   Compiling futures-task v0.3.34
+   Compiling serde v1.0.229
+   Compiling autocfg v1.5.1
+   Compiling http v1.5.0
+   Compiling num-traits v0.2.19
+   Compiling tower-service v0.3.3
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.4
+   Compiling serde_json v1.0.151
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling http-body v1.1.0
+   Compiling httparse v1.10.1
+   Compiling ident_case v1.0.1
+   Compiling rand_core v0.10.1
+   Compiling strsim v0.11.1
+   Compiling getrandom v0.4.3
+   Compiling http-body-util v0.1.5
+   Compiling smallvec v1.16.2
+   Compiling ref-cast v1.0.27
+   Compiling sync_wrapper v1.0.2
+   Compiling atomic-waker v1.1.2
+   Compiling thiserror v2.0.21
+   Compiling cpufeatures v0.3.1
+   Compiling httpdate v1.0.3
+   Compiling tower-layer v0.3.3
+   Compiling percent-encoding v2.3.2
+   Compiling regex-syntax v0.8.11
+   Compiling form_urlencoded v1.2.2
+   Compiling chacha20 v0.10.2
+   Compiling hashbrown v0.17.1
+   Compiling rmcp v3.5.1
+   Compiling equivalent v1.0.2
+   Compiling anyhow v1.0.104
+   Compiling lazy_static v1.5.1
+   Compiling mime v0.3.17
+   Compiling ryu v1.0.23
+   Compiling dyn-clone v1.0.20
+   Compiling sharded-slab v0.1.7
+   Compiling indexmap v2.14.2
+   Compiling darling_core v0.24.1
+   Compiling serde_derive_internals v0.30.0
+   Compiling regex-automata v0.4.18
+   Compiling rand v0.10.3
+   Compiling uuid v1.27.0
+   Compiling tracing-attributes v0.1.31
+   Compiling tokio-macros v2.7.2
+   Compiling futures-macro v0.3.34
+   Compiling serde_derive v1.0.229
+   Compiling ref-cast-impl v1.0.27
+   Compiling tokio v1.53.2
+   Compiling futures-util v0.3.34
+   Compiling schemars_derive v1.2.2
+   Compiling tracing v0.1.44
+   Compiling darling_macro v0.24.1
+   Compiling thiserror-impl v2.0.21
+   Compiling darling v0.24.1
+   Compiling rmcp-macros v3.5.1
+   Compiling axum-core v0.5.6
+   Compiling matchers v0.2.0
+   Compiling async-trait v0.1.92
+   Compiling serde_path_to_error v0.1.20
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.10
+   Compiling nu-ansi-term v0.50.3
+   Compiling matchit v0.8.4
+   Compiling chrono v0.4.45
+   Compiling futures-executor v0.3.34
+   Compiling serde_urlencoded v0.7.1
+   Compiling futures v0.3.34
+   Compiling sse-stream v0.2.6
+   Compiling base64 v0.23.1
+   Compiling pastey v0.2.3
+   Compiling tracing-subscriber v0.3.23
+   Compiling schemars v1.2.2
+   Compiling hyper v1.11.1
+   Compiling tower v0.5.3
+   Compiling tokio-util v0.7.19
+   Compiling tokio-stream v0.1.19
+   Compiling hyper-util v0.1.21
+   Compiling axum v0.8.9
+   Compiling official-task-demo-http v0.1.0 (/src)
+    Finished `release` profile [optimized] target(s) in 57.98s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> ExtMcp sealing processor
+debconf: unable to initialize frontend: Dialog
+debconf: (TERM is not set, so the dialog frontend is not usable.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+debconf: unable to initialize frontend: Teletype
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Noninteractive
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded async-stream-impl v0.3.6
+  Downloaded async-stream v0.3.6
+  Downloaded either v1.19.0
+  Downloaded rand_chacha v0.3.1
+  Downloaded axum-core v0.4.5
+  Downloaded heck v0.5.0
+  Downloaded fnv v1.0.7
+  Downloaded multimap v0.10.1
+  Downloaded axum v0.7.9
+  Downloaded pin-project-internal v1.1.13
+  Downloaded tonic-build v0.12.3
+  Downloaded rustversion v1.0.23
+  Downloaded fixedbitset v0.5.7
+  Downloaded prost-derive v0.13.5
+  Downloaded hyper-timeout v0.5.2
+  Downloaded prost v0.13.5
+  Downloaded zeroize v1.9.1
+  Downloaded matchit v0.7.3
+  Downloaded fastrand v2.5.0
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded prost-build v0.13.5
+  Downloaded prost-types v0.13.5
+  Downloaded smallvec v1.16.3
+  Downloaded tempfile v3.27.0
+  Downloaded indexmap v1.9.3
+  Downloaded socket2 v0.5.10
+  Downloaded prettyplease v0.2.37
+  Downloaded pin-project v1.1.13
+  Downloaded rand v0.8.8
+  Downloaded tonic v0.12.3
+  Downloaded tower v0.4.13
+  Downloaded hashbrown v0.12.3
+  Downloaded tokio-util v0.7.20
+  Downloaded itertools v0.14.0
+  Downloaded serde_json v1.0.152
+  Downloaded regex v1.13.1
+  Downloaded hyper v1.12.0
+  Downloaded h2 v0.4.20
+  Downloaded syn v3.0.7
+  Downloaded zerocopy v0.8.62
+  Downloaded rustix v1.1.5
+  Downloaded petgraph v0.7.1
+  Downloaded linux-raw-sys v0.12.1
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling libc v0.2.190
+   Compiling pin-project-lite v0.2.17
+   Compiling bytes v1.12.1
+   Compiling cfg-if v1.0.5
+   Compiling futures-core v0.3.34
+   Compiling anyhow v1.0.104
+   Compiling itoa v1.0.18
+   Compiling either v1.19.0
+   Compiling version_check v0.9.5
+   Compiling once_cell v1.21.4
+   Compiling itertools v0.14.0
+   Compiling slab v0.4.12
+   Compiling tracing-core v0.1.36
+   Compiling generic-array v0.14.7
+   Compiling typenum v1.20.1
+   Compiling futures-task v0.3.34
+   Compiling futures-util v0.3.34
+   Compiling http v1.5.0
+   Compiling syn v2.0.119
+   Compiling syn v3.0.7
+   Compiling getrandom v0.2.17
+   Compiling rand_core v0.6.4
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+   Compiling rustix v1.1.5
+   Compiling http-body v1.1.0
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.2
+   Compiling tower-service v0.3.3
+   Compiling getrandom v0.4.3
+   Compiling futures-sink v0.3.34
+   Compiling zerocopy v0.8.62
+   Compiling crypto-common v0.1.7
+   Compiling prettyplease v0.2.37
+   Compiling indexmap v2.14.2
+   Compiling linux-raw-sys v0.12.1
+   Compiling bitflags v2.13.2
+   Compiling serde_core v1.0.229
+   Compiling httparse v1.10.1
+   Compiling regex-syntax v0.8.11
+   Compiling smallvec v1.16.3
+   Compiling fnv v1.0.7
+   Compiling autocfg v1.5.1
+   Compiling tower-layer v0.3.3
+   Compiling try-lock v0.2.5
+   Compiling rustversion v1.0.23
+   Compiling atomic-waker v1.1.2
+   Compiling fixedbitset v0.5.7
+   Compiling fastrand v2.5.0
+   Compiling indexmap v1.9.3
+   Compiling want v0.3.2
+   Compiling petgraph v0.7.1
+   Compiling regex-automata v0.4.18
+   Compiling tokio-macros v2.7.2
+   Compiling prost-derive v0.13.5
+   Compiling tracing-attributes v0.1.31
+   Compiling tempfile v3.27.0
+   Compiling tokio v1.53.2
+   Compiling regex v1.13.1
+   Compiling futures-channel v0.3.34
+   Compiling tracing v0.1.44
+   Compiling httpdate v1.0.3
+   Compiling prost v0.13.5
+   Compiling serde v1.0.229
+   Compiling multimap v0.10.1
+   Compiling sync_wrapper v1.0.2
+   Compiling log v0.4.34
+   Compiling heck v0.5.0
+   Compiling pin-project-internal v1.1.13
+   Compiling async-trait v0.1.92
+   Compiling serde_derive v1.0.229
+   Compiling prost-types v0.13.5
+   Compiling http-body-util v0.1.5
+   Compiling ppv-lite86 v0.2.21
+   Compiling inout v0.1.4
+   Compiling subtle v2.6.1
+   Compiling memchr v2.8.3
+   Compiling rand_chacha v0.3.1
+   Compiling zmij v1.0.23
+   Compiling hashbrown v0.12.3
+   Compiling cpufeatures v0.2.17
+   Compiling zeroize v1.9.1
+   Compiling prost-build v0.13.5
+   Compiling mime v0.3.17
+   Compiling cipher v0.4.4
+   Compiling axum-core v0.4.5
+   Compiling rand v0.8.8
+   Compiling tonic-build v0.12.3
+   Compiling universal-hash v0.5.1
+   Compiling pin-project v1.1.13
+   Compiling tower v0.5.3
+   Compiling async-stream-impl v0.3.6
+   Compiling matchit v0.7.3
+   Compiling opaque-debug v0.3.1
+   Compiling serde_json v1.0.152
+   Compiling percent-encoding v2.3.2
+   Compiling lazy_static v1.5.1
+   Compiling sharded-slab v0.1.7
+   Compiling tracing-log v0.2.0
+   Compiling tokio-util v0.7.20
+   Compiling axum v0.7.9
+   Compiling tokio-stream v0.1.19
+   Compiling h2 v0.4.20
+   Compiling tower v0.4.13
+   Compiling poly1305 v0.8.0
+   Compiling ext-seal v0.1.0 (/src)
+   Compiling async-stream v0.3.6
+   Compiling matchers v0.2.0
+   Compiling chacha20 v0.9.1
+   Compiling aead v0.5.2
+   Compiling socket2 v0.5.10
+   Compiling thread_local v1.1.10
+   Compiling base64 v0.22.1
+   Compiling nu-ansi-term v0.50.3
+   Compiling tracing-subscriber v0.3.23
+   Compiling chacha20poly1305 v0.10.1
+   Compiling hyper v1.12.0
+   Compiling hyper-util v0.1.21
+   Compiling hyper-timeout v0.5.2
+   Compiling tonic v0.12.3
+    Finished `release` profile [optimized] target(s) in 37.58s
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+
+==> built images
+localhost/ai1-ext-seal:0.1.0
+localhost/ai1-official-p0:0.1.0
+localhost/ai1-seal-proxy:0.3.0
+localhost/ai1-task-server:0.3.1
+
+==> k3d cluster ai1-tasks (docker.io/rancher/k3s:v1.37.1-k3s1): 1 server, 1 agent, plus drain node
+[36mINFO[0m[0000] Prep: Network                                
+[36mINFO[0m[0000] Created network 'k3d-ai1-tasks'              
+[36mINFO[0m[0000] Created image volume k3d-ai1-tasks-images    
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0001] Creating node 'k3d-ai1-tasks-server-0'       
+[36mINFO[0m[0001] Pulling image 'ghcr.io/k3d-io/k3d-tools:5.9.0' 
+[36mINFO[0m[0002] Pulling image 'docker.io/rancher/k3s:v1.37.1-k3s1' 
+[36mINFO[0m[0004] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0014] Creating node 'k3d-ai1-tasks-agent-0'        
+[36mINFO[0m[0014] Creating LoadBalancer 'k3d-ai1-tasks-serverlb' 
+[36mINFO[0m[0015] Pulling image 'ghcr.io/k3d-io/k3d-proxy:5.9.0' 
+[36mINFO[0m[0023] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0023] HostIP: using network gateway 172.18.0.1 address 
+[36mINFO[0m[0023] Starting cluster 'ai1-tasks'                 
+[36mINFO[0m[0023] Starting servers...                          
+[36mINFO[0m[0023] Starting node 'k3d-ai1-tasks-server-0'       
+[36mINFO[0m[0029] Starting agents...                           
+[36mINFO[0m[0029] Starting node 'k3d-ai1-tasks-agent-0'        
+[36mINFO[0m[0033] Starting helpers...                          
+[36mINFO[0m[0033] Starting node 'k3d-ai1-tasks-serverlb'       
+[36mINFO[0m[0039] Injecting records for hostAliases (incl. host.k3d.internal) and for 3 network members into CoreDNS configmap... 
+[36mINFO[0m[0041] Cluster 'ai1-tasks' created successfully!    
+[36mINFO[0m[0041] You can now use it like this:                
+kubectl cluster-info
+[36mINFO[0m[0000] Adding 1 node(s) to the runtime local cluster 'ai1-tasks'... 
+[36mINFO[0m[0000] Using the k3d-tools node to gather environment information 
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0000] HostIP: using network gateway 172.18.0.1 address 
+[36mINFO[0m[0001] Starting node 'k3d-drain-0-0'                
+[36mINFO[0m[0005] Successfully created 1 node(s)!              
+
+==> images: pull third-party, import all into k3d
+[36mINFO[0m[0000] Importing image(s) into cluster 'ai1-tasks'  
+[36mINFO[0m[0000] Starting new tools node...                   
+[36mINFO[0m[0000] Starting node 'k3d-ai1-tasks-tools'          
+[36mINFO[0m[0001] Saving 1 tarball(s) to shared image volume... 
+[36mINFO[0m[0001] Importing images into nodes...               
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011011116-file-images.tar' into node 'k3d-ai1-tasks-server-0'... 
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011011116-file-images.tar' into node 'k3d-ai1-tasks-agent-0'... 
+[36mINFO[0m[0001] Importing images from tarball '/k3d/images/k3d-ai1-tasks-images-20261011011116-file-images.tar' into node 'k3d-drain-0-0'... 
+[36mINFO[0m[0019] Removing the tarball(s) from image volume... 
+[36mINFO[0m[0020] Removing k3d-tools node...                   
+[36mINFO[0m[0022] Successfully imported image(s)               
+[36mINFO[0m[0022] Successfully imported 1 image(s) into 1 cluster(s) 
+all 7 images present on every node
+
+==> namespaces, Keycloak realm, keys
+namespace/team-a created
+namespace/team-b created
+namespace/gateway created
+namespace/mcp-shared created
+namespace/keycloak created
+configmap/realm-ai1 created
+secret/task-seal-key created
+secret/task-seal-key-p2 created
+secret/task-seal-key-agw created
+
+==> workloads
+deployment.apps/keycloak created
+service/keycloak created
+deployment.apps/task-server-p0 created
+service/task-server-p0 created
+deployment.apps/task-server-p1 created
+service/task-server-p1 created
+deployment.apps/official-p0 created
+service/official-p0 created
+deployment.apps/official-p0-literal created
+service/official-p0-literal created
+secret/driver-creds created
+pod/driver created
+secret/driver-creds created
+pod/driver created
+configmap/agw-config created
+deployment.apps/agentgateway created
+service/agentgateway created
+deployment.apps/task-server-p2 created
+service/task-server-p2 created
+deployment.apps/seal-proxy created
+service/seal-proxy created
+serviceaccount/task-server created
+clusterrole.rbac.authorization.k8s.io/ai1-node-drain created
+clusterrolebinding.rbac.authorization.k8s.io/ai1-node-drain created
+deployment.apps/payments created
+poddisruptionbudget.policy/payments created
+
+==> waiting for readiness
+Waiting for deployment "keycloak" rollout to finish: 0 of 1 updated replicas are available...
+deployment "keycloak" successfully rolled out
+deployment "task-server-p0" successfully rolled out
+Waiting for deployment "task-server-p1" rollout to finish: 0 of 1 updated replicas are available...
+deployment "task-server-p1" successfully rolled out
+deployment "task-server-p2" successfully rolled out
+deployment "official-p0" successfully rolled out
+deployment "official-p0-literal" successfully rolled out
+Waiting for deployment "agentgateway" rollout to finish: 2 of 3 updated replicas are available...
+deployment "agentgateway" successfully rolled out
+deployment "seal-proxy" successfully rolled out
+deployment "payments" successfully rolled out
+pod/driver condition met
+pod/driver condition met
+
+==> Keycloak realm ai1 answers
+ready
+
+==> placements: P0-OFF P0-OFF-LIT P0 P1 P-AGW P2 P2-NP x 5 runs
+--- run 1/5 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-ey0vtrau
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-ey0vtrau
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-c92mtlb0
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261010T221315Z-P0-OFF-v2.1
+--- run 1/5 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261010T221334Z-P0-OFF-LIT-v2.1
+--- run 1/5 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-y7xmjbil
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-y7xmjbil
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-6wnngolg
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-fuz1mb54 answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T221416Z-P0-v2.1
+--- run 1/5 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSgYxE4yZWJjMzU0Yy0xMWZmLTRhY2EtYjNmYi1hY2RkNDhiNWQzMzA.4yOb1BtpMs9G5Aeyis_dtlxLTLmDmg9MYkwJCsZEeIo'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSgYyJRiNGI3YmI1Yy1mN2Y5LTRjYzYtYWQxZC1kMTEyMmM3ODRkNzU.OUlm4XB6dQ3aK0Al5tH81aCy2cztUcJML9HRu9GFlWo'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgYzJ80M2E1ZWE2Yi03MDViLTQwYWItYmU0Yy0xNWVhNDdkMWFkNGE.J_G_GEBVFiujtReB6tG0cXxU1NJYPlt1qz2_fKLWDAw'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgY5HIxNzVlNzdjZC0yNWMxLTQ1NTItOGRlNS04MmM3NThjZGJjMzQ.sEuFP6qaFB9rZoFvVX7op8L9AvhdoaL2iCN3ekhKOr4'; A then sees status=input_required; after A answers: status=completed result='backup label=A-mm1cat36 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSgY8E9iNGI0MWI3OC1jYWJhLTRiODEtODhmZC1jMWRjNGQxNmVmZGY.vXROrPmEtKxlMYN9F7G4MGSJ-svY_8ZkwTS_UBKmcpM'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: b4b41b78-caba-4b81-88fd-c1dc4d16efdf'
+evidence: /home/ubuntu/ai1/evidence/20261010T221430Z-P1-v2.1
+--- run 1/5 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: e792576e-1eeb-4613-b46b-1120fcd567a3'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-amxwe4hp
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-5yts5noc answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T221449Z-P-AGW-v2.1
+--- run 1/5 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.oVyrKetBKtzbXC8GQVbUsSOy926rrR7jmNq6l8z-M6ry9WWzh3De5Woo4xXMbPb3gPGBZc2NtgHE_78aGaGs4W3g1ONET013eVbrWOpV3m_1IWCofbFp3qsmMR1Dr-STdlOL1m8zLEQvXBTRr2FBSnmkqCa1oXMXaW6rpsnX_4SV_Gn9Jd6-a9u-2QM91jVGf9VbS5PeLsGdKheLLzg1WRX6ZAT_Gt7Cl63i-i5tZ5t2AAw5HctaqGxCUpaZvUeXOuGOYftOgPMbRTlsM7vBU3phT8hJq4p94ydTfOkx3ihnILbTayxOsryN3zmMaRr7V4bn4sYEpKLX-1OQ6Ib0xRUJm--Kz-NGL45Ui5_s'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.iak_PjJGYo4vnR29aHkJNErIJSJB8_NcmTF7CcPJnPFviWOxRwBaBZB1KBf2rsd7Og6F-Vo99WGif4J-V7bs82yJx9tyhdww9D9i4NN96xkXmZGZIZK8Aw2q9AbpHlUYv2EhcbI3JV0ye66wyZomu0XWEtz6d4Ok5oqvYMkGS1M325zio2iwboOkDtMdJr0RqoSOc6I7gU7sdQmYPgnDN2RhCsK51qPzYEBKC5ZPPpY3-SpLOD2A5EdapJ6KW2CZXJUXk0ddjuW1Zq0yPT_Y-ynMEMEzgA31JYLRRR2gD3MHTikrg22Zb7yywnkvb_hTQzdwPYBp7FhdkWnOAOqK9LRah1kU6tJ-iyqnh5oB'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.xQKua1OVFDbDy54vuUPvtjm5SU9VB6-PCkxYV_-fWkLH8zXg8mEEBdgF439jAEMwTMWTW8Ym5-N7rtQisdUrxQjTgh8dTiOr__k6oM31-lICRwdQf4yBfHkcB0Tdr2qhArS3o0U32TSjWygR3LLEIQmVGtM6UDgf06Hvc-5KMHBQln_gR18L4UUTq_m-Ilo7ReA_h2LekrbHZZX8ekvaAqj3a_OP5uHsmMK3tEg5e4GQ6htR1LLRdQnbatf8wPUSFka0OEZco9-lPuDklZMwrQlx-x_uZfgKqRQrjhdpfVvEvaW1io6uf1cq7x89_mCksM357-1ifNF24MmI4t1C_cBnuFm0FGP-5FIc7pF1'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.xuKGL-ZmichHN1zufD3QO54HYagrDQydCnmqMdRzlzwJW8N79GdOm-w_USUKxHjxvFDv0RTC1Fyz-oPhYNw5w4lROHGc8zV7fXBPQ0BzwLWtEW1r8aSpSHUTbntcKML04W24rg7UtpyiQD2__cVL48mnsLZ509HGOOdYklZJBRT9O9dj8aESaa_TC2c9lirjBbyIFLGWTa7c9sTG0txlkPzEhuqivHDtUrq1SAwSdTrnd70rBNf8irJX7i14q-4Bbb8hlUrU_0akA-0c_8Ws7ukxK14zsW3L_BDDgDgz3ZpL8ToAezuRyd8zwkrGiCOUfIxyqaC0uhM7X8V4LYUF6Smm7e0fsEuovpYf8NSs'; A then sees status=input_required; after A answers: status=completed result='backup label=A-azbjed1h answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.tza3mg9SAOQiVd86Qv1P8wndtuMjX6i083CoRH_3vwhLGJVWlGkq1DdVJQcXIEb37R8hvAmTLaGVsV8ZciH1BEzCVVjmGz9sB-pDbqJLNTH5nh140ezyMNMJVR5LMIjV1hPEwOD8XyTr27QlZaT3Nd23yOQHRn7wGouu-KzVdt9BZ-iV9gQGDVopBoLP_0YgaTphqCa-5s-j8r6FDlEgtphuCdU5jLFdjdYwHxM39z6SHT08SEZesSSPw5GvAH4M-Ac31QSDamWvHw3rVu6E4eFAvEvuRDDRTPvF1uz2CTNlCqkLCdNz8f4HUx6PvZvMTZgD1ChZpKbn3dtFl1eDA2J7qUAAA8na4-OgiKlY'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 5147eff5-5700-4046-9aed-0d338135a869'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-655qb', 'seal-proxy-7758855775-6vj6n', 'seal-proxy-7758855775-kfnjb', 'seal-proxy-7758855775-lhl65', 'seal-proxy-7758855775-lzws2', 'seal-proxy-7758855775-m64nn']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (14 IDs, 133 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T221503Z-P2-v2.1
+--- run 1/5 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.YGaw1xnoEXf5hJIOXdvGV9xPtQGFhdkDa-ujS4Kk6hJi3pQhiuhK02Hb3MAFDUbubehhIOKvbJvojSL83m9_KTsi2OMk6_HKZLJJ2Ds1N6lRzcvdCdCB0noVBBp9AiswW7G3Fg09lXtqcvpRb-qDV7WeX0BMVoMWqmKwHe_FSj-3ojWBz7xKiBJKqXOG4plHB1k9GzoIOfJMcG19ttGIVDmf0t5QD535z9-qODQVnrUGFK54u5fZVP4Kg6P4s3Pdcfztv1ldWIEEThIMHIk8RoWFDUh4W2cELDHd5EzzZUZs6DS-B--2QGSKZY8puRwmRNVmOLKglKwnrAzAOhbXZomLd2Hpay1Vctb4zum7'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.ooe3PfxmWh0a0W8QMwQvhXTWN3R6RhvW5ctNuKNR3oIUJq9dG5tP33VTkpImmTKRdaNBBQzgi5U5B6hf83SZmXRBwUndCbAb9jTgQY5yszIRBF1m8zJXPeU_tNacp_SiDD-s2EvoUxR4lgPArVRIVvRwy43YB1Xj-ey4PGURrO6Zrnu8B0JPCM5InC7tiu7SPnBJf9vdOz7RBU32utpVBnnZYmD2qYVPsfkJcHBv-2A4G6vdNikVn-7pAOcg9nPH1a-yfgk8zYSlPY-AV9C6L46OyEXj3eAyKfv8wzc8DwztL6_gMHGJcCk9gG7Uwa56s10I8SEBSznBUEB2H_CJtnbJvo86rfiBGQxYSI1o'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: d9ee5ad2-dfca-4c99-a52b-3697b21b5f74'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (20 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T221552Z-P2-NP-v2.1
+--- run 2/5 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-5qstzyw5
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-5qstzyw5
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-c227bkhw
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261010T221606Z-P0-OFF-v2.1
+--- run 2/5 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261010T221625Z-P0-OFF-LIT-v2.1
+--- run 2/5 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-kjv94leg
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-kjv94leg
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-neir6j8n
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-849qh847 answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T221707Z-P0-v2.1
+--- run 2/5 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSgbX-Q5ZTY3MmQ0NS01MzZkLTRlNTctYmUzNC0zMDBjYmQyMmJiMTA.lG4d_MjIh6-8kRjxgTZlNn-TeWc-8e8hwuvOcNLUfC4'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSgbZFwzMDIxZmEzMi0yNTQyLTQxYTgtOTNkNi05NGI2Nzc4NzczNDY.H7JtA79Y92lxmOqbjkvE5CDzULOFLVoYXgBZ7h0OnrE'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgbaGg0NTFlZWZjZS1lNjE2LTRhMTAtYjcwMy1kNWM2M2RlNWQ1ZTM.er2ziLHKxamt9TuGJoyGbX0pTw7aUTmOZJeI8XA7Zo0'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgbgH1jMzhhYmRjOS03NWE5LTQ4MjctOGU5OS0zYWZlNGE2YWM0ZTk.r__VLWxkbVpm8sN-xt2NyHEW5nifYNgxV6dAp89luM0'; A then sees status=input_required; after A answers: status=completed result='backup label=A-5vsji1y8 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSgbjCtmYjY1MTY5Zi01YmNjLTQwOGEtYTYwMS02ZDA2NGU2NjExOWQ.Y7sTWMbfp3OW3tFnKrM9oB3lIPGBdz7ElEudAIr65Wc'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: fb65169f-5bcc-408a-a601-6d064e66119d'
+evidence: /home/ubuntu/ai1/evidence/20261010T221721Z-P1-v2.1
+--- run 2/5 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: b4e89179-f953-4cba-b05c-ff9b54aeab21'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-acxj71c8
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-7ily62ia answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T221740Z-P-AGW-v2.1
+--- run 2/5 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.mwJyIlc8Rtz2KIgy2KsJtTx6lPDjFcb_qxd93jbIIDxAl4Gpz8igM2PhElMF5lRawLBegTrdVtDX9bw8VPgB_Tdup5LgP6Pzr-uvGO6ZTfZkahWd65L60QC6mV_WZnhQWBqOVRw-l8baUlke3Bh8Q39Wy4SBHqu0u6wH01qvl9uVGCCza1ChlyyVfWdLeKvB7EVOL2a369eNaUZr15pBzkOF0yaoxsX3nWFrqoSthIz8eptHZspwnOAMTGcSN1AqsLz1B4ET3ZxAdHWOCfLYrGB6c4iv9uKMHx-IxYFwA-wujRCF8n52iUuO8vhmn49Ba8FCYoy75iekoccRzbI4AFqpgwNUb3y9Ft1HbUPi'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.7VMS9vf7xRcTEsplF6Vb5vslmjoIVwqfBYZPSUMUnjTv3Mj4aexMOsnxAanHjT-DkMQsP3VhSLF5OK9rYh18kKlm4PQDZ7qG4_KKAS7qFw3CKxtkseU89oxkc8jsNq1sjSFXwUy3eeHtpLyYaeDzyNe65loo-PVYGdqkxmlb6sbdpLNFnfb5fDmlXmKuQquvohk5jsCXBVgBlMr3gEFFuelm9St82Gd-k9xWtar9IdTEsZ_Gg-tHlWm6pOQ8SJL77QYPA6JD2fSunOQP3WKD6bpozZlqBFDxzKeGA0hGvvYI1zsuWTkPI11_YgoiQZ24lR9p1IDpDmy8p_2-q69YFyZ1gVmdotoeegU8Yqw5'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.PStkvVaYEtAmyvO5n76Jzhsg2uu2eLMt_v-llZuWhpUdBja7CUnGl6d6WFWUrhOi6DNrXFOqVdApzA90QVkV5P_C-rtzEpXddeWa9-iVgnD_yDQ_2mp8MMfr-iZYSerssngNMjdZn4OaPEUBQRUkpQ4SJ_aVSfprJ9u-T9y7S-g-tRqclt_LISENRcbmgyrDZPrwiJrEwSAh69Wd9S-jpBgAKBk9BbCVZQ9FBZJgKbMMmO6c_So1qMrbTRWj_3evXD5aGdA-qhUGJ42Fx33vA5BAI4k8UL_QZxFvSVFuxT5ve3y0p-jLmD7PCaoT5Fd6JSrfMysPAyEeXhHuzNsNMDyjnjeMdmQmHRIPQB5Y'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.0QnqMaarbNvQ-gFvUqmqe1xP_o9mfjd2WNK14gR4TtsDLN3nXmQZKFPTQayu1JkmT55ylloLVWyzSZy0F7XExs1AS8_HYf63oNaO8AkVvNy3oo1D-sDRJCZKa7ixTFqkZQh3QpH8A_vGpmZDy1mV4CfVNaTxF_y20g3d2Ln_O75cTIWlyH82Dfb8M-7-cuCXBJhORJupmOfLuR7ODATe5rNlFzoZtetqmRqMa2MGmjL0urIJm6LijlMNBzSO6zlfk5Ui3WKckxE5sc6WAkwGWmqz3CvAinIu2u7_80Q7lI_ww6FXF9RquhfnCK8L2tg6ocKz6_oB_JTZCyHNEzhrEmt-t_B_qbBhaPEkYr6J'; A then sees status=input_required; after A answers: status=completed result='backup label=A-75szxhv8 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.U28X2PmCyludKPE4-InhSRuGik4B-ksXin6RAWJI_X9rqCMa9pgTTExLasZT_vintdlUY__vSl6EDSrf1tWuPnXD75lE7miNo1ar-WS2ETTvRsQbHCU4FLDETu8CDTL8E-0yTMYv67ih-y0Fz58EfU7R2KvdKvjT0chxDAMKzotw_upjvGqSxhcK0pgfFNPytVnLuijRWhRYxCVPrBLCvSjzsJ5xfZJTtUrMUaAD_556rEWrH669oCdbfm6bwnpIWvNBSbjS_m_gTdZdNlsfzSwSCsYIgTcbBTrq9sMW-_x5qV61XQLxLdvY5jr9me2d-sSLa1FW3SXAI1vv4gG1f96-yMiSvgs6QCYpmeP9'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 08f3ae50-2784-489e-83d2-45dc82f43afa'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-655qb', 'seal-proxy-7758855775-cpzc8', 'seal-proxy-7758855775-lhl65', 'seal-proxy-7758855775-m64nn', 'seal-proxy-7758855775-m75lb', 'seal-proxy-7758855775-r8kx8']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (34 IDs, 132 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T221755Z-P2-v2.1
+--- run 2/5 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.fZFdQZqVAQyMWmMk9qtg5nzIml3PA7DR1NVsWXw-4xu7UNwMUH6ScvVqQkQ8snN8478OMwoOHCYxbl53rJVfEcrZzTLglFBiS4ZJ1M5J8FcGZdMG_Gdp6Rq79oS8_kk_Dn5wSWJdXRRoMw782vuP2CbMZWP1MUQJr-c9b4Gv3DvQAcfOKuEPA5FHypIorpQjLBltbhUQacR4T_W9-wA_hNRM8OBX8ndWzXk4fSNc6EzHb06g05Gw-_Igj_C9-_urQ1uUdEnYu0CcGdZgS94xWZ4Umy3umzuWOGqJb4zUjrQoMo62ZrgVXlEqICl3QA6VajgryV8Q87w6988iFzT3mH4UZwhRd9DmRhPSbm7T'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.5LLZ0IFZzu999-is1oDJ72fLLnChZDVHn6xuwtdBq_HmsCHjDmVjsAf7e_MCMRQT43FHjbfv4_gQalVQGptb7Ijt4pb1DGGeSbQ09VTnMI-HyeK5n32EqmPUF7xgJXtD8l2AjlaaAHrtjBgeh39_4CMkS6ighmMxA8GtqKsh0d1eMI3T0Sx3wLEZujtV9NwYmRe-O4PfhfBycLTlXaVQY4Z8A3CrFFmNma8lObw-42gcEQq1WK6TrEKiVmU3EzvAtXueHJur2j6QBlzEQ_DoOUbr1GPhNL6rt4vpI-4H8IHGQCnJrwCzDESRxCbed5QTb8lyPcp41M7hFw7qqLpoLoBtDW8B72qwTw6wqrDm'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 286e0d50-20c8-4c82-b394-c831c7bdfefd'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (40 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T221846Z-P2-NP-v2.1
+--- run 3/5 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-et1r2ua1
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-et1r2ua1
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-5vnbo6yw
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261010T221900Z-P0-OFF-v2.1
+--- run 3/5 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261010T221919Z-P0-OFF-LIT-v2.1
+--- run 3/5 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-3fbmbqke
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-3fbmbqke
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-s5dnomuz
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-rhgg8luf answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T222002Z-P0-v2.1
+--- run 3/5 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSgeEYtiNjc0YzA1OS03NzEwLTRjMTYtYmQ3OC1mNmM0NGYwOGNjYjQ.Ocs7Aop53NaUIbh0u9dTJiNWJ6kc1x0USl0wmmHNUgk'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSgeFh0xNWNkNmViMC05ODNjLTQxNDgtOTdhMy1jZGI5YmU5ODFkYWE.OmiHcOO2OWO0K2L22X6DNy8GkPh4r4Nqxmqu8uTj9HQ'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgeGioyZmJjZTRmMi1iZTE3LTQ2MGYtOWFjYS1kN2Y0M2NjYWY1MDc.J7M9B0-p09RB9KMxBBP16TDc2F6_wifPArYckfCId_0'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgeMh0wOGUxNTY1NS1hZjE4LTQ3NWUtYjBhMy02NTQ0NzU2ZWViMDc.Fj9X5SADyErkUB0dEn8-7M94Wx3A70CeQRkmr1Km_JY'; A then sees status=input_required; after A answers: status=completed result='backup label=A-jir50ibb answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSgeP0wxZTVhZWRmOC01YmViLTRjYzctYTY4MS1mYjIxODIxMmI0N2I.H0f3PJSWZXC17Qb00AXgGU1W5YE79ZpjLEKTeCxYr-w'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 1e5aedf8-5beb-4cc7-a681-fb218212b47b'
+evidence: /home/ubuntu/ai1/evidence/20261010T222017Z-P1-v2.1
+--- run 3/5 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 4bfc0214-3011-467b-945c-7b0b926aeb49'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-rk4po71z
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-o04k2ww0 answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T222038Z-P-AGW-v2.1
+--- run 3/5 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.VogSD-NEm9Vlng-wcJSqZGooLeTR_AeLcySe9d5KExf3j4BJEVfmLXo8zWD0iXnZdcrBdk9EuHeyj4wV-Da2dllF-1Cu7q_XFMpfS499DxYUt3fzTNcOG0IdYcfKKwld3IJhJYCWzAygUVlITXoDycyo5718Mn0eEd4QlZ0xSwRB9XMIAf8juLsiHT0MtQotknOyPxCt5LKaK6rlKXzXjmj16ECfK7AHm9ydgvLuJuhkuiaTArGhGm-4pcaD5ftqsyvpJEC8B1p3atOibxQ-jlLCwcJOyMuYUUrXksga151sBz5v8WLuMasBp4uUCZ6xA26uE7FsaeWFFphquybsJvDpvk54zYwKLrrsnJck'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.1jHmEE-CbXsMvXX_W4SaYlu1INZCyno12EoeyJ1eU9xAaj5DvHMseJXgKtBoI_x1JUGBbNF-hIKBuahpD7i4BSpAbVl0khXHqJ7vXl2GbkOEV3eYJlwkjBQuKwsEKqJQVN_Dios5A1V7peKJa_F7guKVbiw5kKt9ptA4nJqxqsfOVNg-Uh9Bcbr-R7hbUnm5_y4MtsTcUVTU6EUE1U2unM28jX9tmKM8XeBbSSWaF_FVi4hRQUX-whhTNB7K0tZEq4_tubD_aznmpg3MMDczLGB0esbu3RrwaYmQn8i6Yvq_-kdWdFnbyjgezyO0RBs6AkcO9aptfURDw1LtuT10AE-QodYw-Gjcmekd15lX'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.SZEbEC1Ur-XBzc3nAbnVEmWJbsYgSN2LAMfUAzmVgkw7hgIPZsFRGlDdpaxvppF1c69K5nCu2erJ1KtVgZzkywOq09OFDtw1N3na89wd2yhYKMhQ6DKPr59PLMhOGHaNrviF4Ita1dlG12I1NpzkDuSTW-3XRqglAPICblxOTYHDLbrqJ1z2lbLP3axoi1_CxSzk0fnwOsYqXDNVTjei2_mzN1M4iPkoPpzP4qf6XSn5gfHjQqrB00MfOZG5sV-SYxP1oGEmjsMb6cah_piReoogCw6dcSxA9an3LfqV3NXUSKTjKxNkwyAze8Sv2w6Uhx6VnMcAePaDQ3qrJZhVOr3j7kg9_B0IxvUG20F_'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.jhduLeyzwOWhey60M2oPtSrycpwYOzbJdUvVQen8j_Xoo9rUn2f5T-wpTTo3cPCNVXP1DN9KBlxEFBnW-HKmQr-bhf4s8vEOKpdpNWT0U9lal4Jh9CgUK-ihs12AJpNHTIa1g9LLOQ13HyANzDGPCRSwvAqTJpuDlL45t2l4X1_sNUUxkX4XMgrGZp53xXCtisSOfuwwb37kHjfNY_fe1Kc1OcPupAQ2ZrZ7Ve9IXzbnIvHN2T33Q810mFb1x2KsWMVgqSS8RsSEjFiNrtG6QOmhe8rdTApoU9VbMv9spG-RIALlpLidy1YEHD6h48EcfJb81KxmEyTVOz9aI1tyfmLD9WkNtMY5Pq-U3O-j'; A then sees status=input_required; after A answers: status=completed result='backup label=A-cwuiqzw2 answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.pc69_OGuAsPjhEfoUgkKawndseRQNumwKe0VFA7Z4_Z7pKgp9Lu2u6GadDJdGTjx2o5MSvW_njSsnPUlekU4pJXDcBPxUfbK55Rcp_WK9WIk63oMTfJMR9m90M3DnYAHZ4qmE7PqwF8hnN-X4N-RDhu8zVgjDTIns6qxxPm-TSSIkqWteZJG0dDK93ZZYcx-a7Jq6p_KyriAjXXE5hKqYB9ToKpMEVVa7cCPUfPB-6gjUv7eqh4plX5DyOsIYeapz-HzrgbiiXyT3v33h_5BdXsmmgcefSBD27TA-t3ejcxcI0Bo4AbsUo_G21l_o6hOhErTN1-oKWDVia4KevrLJh6DQlG7cwgB7LEilz_z'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 26ad6cce-37bf-4b3c-a382-e89c9d2e40b9'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-cpzc8', 'seal-proxy-7758855775-gslqc', 'seal-proxy-7758855775-lhrwt', 'seal-proxy-7758855775-m75lb', 'seal-proxy-7758855775-r8kx8', 'seal-proxy-7758855775-ts4mq']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (54 IDs, 132 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T222053Z-P2-v2.1
+--- run 3/5 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.SKMhWWWDNMfX-2FHuxEHMp9r_HrKnCjkrVJDJQ4SX3CHa3WXi1qmBWST1yaGM7-Ajd2P-arQyj0SZFaWpAR6_Yw2S7mKezAMOcqHhe8rEfTqdb9JsZBOSzGip0mkzXt0QuPuxGKFAU86bts1ccsN-X33zrVMhrsFlTABJLXJMcbem2RLYh1AsO7lXkpIgM-ysO7_0WaY5HjY2MYr1mQgJhrZ1TGCKDte7yKetAeAbIepxB1ZWoz89oS1Qs9Y62rB9GK7Sh71aFCAX2EA6uXppe-SyIP-KMdcSNwrAHbBrcFZYZuaxXKJ70T3ZllP-lwG391A-5zykk1kwB26uJ29B1MyQ07JCBig48dbHEpV'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.H1BkPbUAZa4B_DAw1rUbl-t43q4DokKDrkFbvHSPpFjcL6vglPk2OwXdg95M14xszJOJsKKPhXYc6Ns6uxEpR1Gi5QQNCliv1m0UIvVpk4iHrd0ahYy8PnheGHVEMTwCI5IGr3F1GUQtKY_RlvhIqE_Cn9eyUtgjrI42u_qJ9BVlqlb5DsoW6PaF_GGMPAy26nwwh6SnpFWsR4AD7Je7sgfgyV1SdKmFdWiL3dIpWq_vny1L0-2XZWbQt06P9KNuIFN_kw8Kz6xXOjunIfm825awCtCtQiLQ0YDPaFqjZE4aBWUmRDYEv6uacuRXbizDIZxrHsVdYDiWhaacvUVyZ4Yiiedo2Ogfpo65M2pH'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 1da55670-4361-4eda-a63d-9bed29884bec'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (60 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T222143Z-P2-NP-v2.1
+--- run 4/5 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-gfpo1d0v
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-gfpo1d0v
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-rmaivnrm
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261010T222158Z-P0-OFF-v2.1
+--- run 4/5 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261010T222217Z-P0-OFF-LIT-v2.1
+--- run 4/5 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-93r8nx2x
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-93r8nx2x
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-u7onzv9i
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-qz9e5ozu answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T222259Z-P0-v2.1
+--- run 4/5 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSggwytlNTZiMDE2Mi1jZTQ5LTQyMmQtOTIyMS0zMTdlOWJmY2IwZDQ.DewVIGqtl0LYnvAqAxvg-lbI7zAfQZaqMdjiMHIjQJI'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSggx28yNDdmNjg5NC0yNjg1LTQ4M2UtOWY1Ny03ODc5MGRmNTMzM2U.x_EmTxKkp2sfBb3pA_LJch4vyg3xUiH8sM0UvN6cX0E'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSggy4EzODhkMGUxMy1mNWU1LTQwNWMtYTcyMy00N2FmNTQ5NTllYjE.z7LlZPxsIg-FgbtEGb89l2kUSd4vjZ8gcgZxNLysY9A'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgg4445ZGU5MDc5Yi02ODgyLTRmYWEtYmY3OS1iOWViN2I0NzRmNGQ.pmV5jlDANGaiv7MLjKasEcSmGhUxBMZtO4lvh4utvKE'; A then sees status=input_required; after A answers: status=completed result='backup label=A-460aa1ki answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSgg8DM5ODU2MDg3Yy01MWEwLTRkMTYtYmI5NS1mMzhkNjExMTM5NTc.8LNuHQGhC31WhIG7auY3M7MYnZfhZwUJQhvsN99tn2A'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 9856087c-51a0-4d16-bb95-f38d61113957'
+evidence: /home/ubuntu/ai1/evidence/20261010T222313Z-P1-v2.1
+--- run 4/5 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 6f047fef-3968-4a5b-882b-0b71093247c7'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-p8rdegor
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-blzabf4j answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T222334Z-P-AGW-v2.1
+--- run 4/5 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.sv2GdVEs8ODEJESNEd_R-mYRQhbO4pYuDsAs3oPcHGBFVJAKfb2I6sRiQL8-INn9HKA06q5fS11Tf1BNyIZHXFcePwroz7vr84DGSWI89b6waQXJIIevyhSkDEtIQqIvALcu0ammq5RgXnM7Vip_Zpfg889K88zpCpG57Xb4sRMEMp5MdMsY-sZCXEFvPF4WiYp-N1ut8Mzdod4fO38B0W1mMp10TWbjBakkV-jYgCNQoC4sPQ121ACt49tTnsURJwAHUMaUeVmOJjG7zuiNG17lNsDPzBKRQLwqqGFC_Sg89VhAwBtd0lPqZiym-XDbnckZyeQHu_8SNGzsR6iTfLnsZJsOxrNCREN8eT_u'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.LfDm8mFDrt6aVpvQgPrs7IsDcft83O_QqOH7vj3Q5WA-eU3Bt5lTakvLS9Lo76bzR9EZOdZAq1WCpJb7xiMdQMwHn1qk9n6xVMTMbby_r75fM2SAanWXQdN6f-4D5nHrjOVXh2KeZot0KYmi2grhG26BeHpAC_RT3PCES5Ct8BdKI6QBELJ99kbcvWpw17uiVUM-1uakrYQjNJ8pMnDbgKyguDzIjDf12YJezJNZSgshde1Y_I2AkpDu7cF_hS8NZmg33NuhAktBU3Dut0g4HxF34xNQjK7UpjlwxyphAqxaL2XA8InS4_YupFtOVTfYb2b4BI2ROD7JPSP0L6NQe6a1SKWLXczE7jxBbSBd'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.5rEkIR-gfV6IzoIZKMsLJNw3fdSsPEQK2sZldpbl6KN2KuThiuGH2YGMRGrealKANytJd9vG-nhE_QP1irJrxSpUssuboW_q08v0N23TvdpTSRmOvqBNHIXb6LRMdvSx1VIl-D_GI4wBpGvBI6iID7BBiJAmnCsfAmjUqbMJjJtZuebdlvzXQDnRe9OJT-_lS1P765USSPmyKmJ_FsJW35jQSJiRZn-5ItwTVRWPJGUs9Xq7k6HgIVK0JFL02zoYRWcodCQVtz517Z_-KmhW6xQgiHzHhD0ONX19_KAv1UtPCRLcqXzCX6Y7NjCLOm1yg5I375-EcEmcxA2FfkCQnxcKQJ_mu594Z-4StpsY'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.KUtUIwGgT5668mfQzwkREjzLdbkvFOGXFtwBaOMzAodmXHHLIKubQjlX3I52wF2OIepyqkU0SwJsgnjyZKGI8YVRC-LmHnZvZmyaHML6ig8fAN8e9arlm-MquPM_E_BQj5OXSIlCSDPpLbyTIq4kEB3JnUdSu9yxU5JNwfme8nWQB3QCTdW3OfwaZT9VcSY1t7c3GqxkAa05DpGPR5SxcFyoWayemDLhzI9omydAQSGwWc9Zc6UADKDdEm4IELkMSjtWiowiQtc-eEqiOVdfJ3iOeEYcCCbCHIwi2Ng4JBxx4-j8Og1jDKwaZL7yiKlF8nGlUcCGwZSJWvvX4nCEw-YiYO1RWsPwbN5aEKOW'; A then sees status=input_required; after A answers: status=completed result='backup label=A-ix3qo69c answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.vRPk0xdPCi8T8v1OBjoED99RL8H55gr3y0T6h78THM3xsQueTIacpVimqbl9IXYHdMHDnXbANG4DAqxSTsmIVOQV9RQToQzlcK6J2jgdMwD4KZCERxaUYl2P5rdV7CtNDJ92XSFPiRCaq8ol0cJxT66gUQkkBntcshvzFCAlUYVCd8OAg35rbPI6j_yrdISxZgfYzx46kYw2Yy8wrgsBk0rqdxQF2wKBc7U3_i0apw4E4SxNIOCVVQnP1oUK8RdpVtbCxVc1xGtpf0v_bIVpo-yHBagMQUzTJClBo8JDtT54IdrOh4mqznvVwcV7WLJtrO0gC0Pkmt3Mw3cV76MfWb-FfQfTz3TJgA1RsCPl'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: b158acb9-6407-4295-afdc-1a78ff4d82c0'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-4wdkd', 'seal-proxy-7758855775-gslqc', 'seal-proxy-7758855775-kqqvf', 'seal-proxy-7758855775-l54qq', 'seal-proxy-7758855775-lhrwt', 'seal-proxy-7758855775-ts4mq']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (74 IDs, 133 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T222349Z-P2-v2.1
+--- run 4/5 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1._jjPRdfapux7OR0Td_YQExa4ZYfMokQPrk6yaKX4q256uGt6HT8h7pUManqTLgDwwHVSdaSyRTLvNJxgugDJVyvbEJOafdmccq--eZdhMdk9g9IYMTAj-7hL79u0Dce_n1cNuonantqg1dSvR4oC_7DU59QIn6w8ZR25pOtyKwxeQmUFGm3kaPSmD4PomCsEfxLYhfCssQo9KC16m3FQxrRHu5TBWU2zJxz3dvrlycUVRcrVs9-O06SzJie8__qMqtZY2EayReSwejZZgXRp9tsxIkUNJNleqZR6XgiyoLb0inUFKce9qiA6LoL0WWHPSQnwMdDBUoZT3BeYuh_IUl10VUAxNOBcsBc8jTRr'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.6fgNv1O-bj4tQNSPOShE86sgZxQ3474EWUVlHoGxHUhJaPrTV6FHdoqopFFjD0DVmoud_Tx_NvgSWG-k8_NyIvPAWY168Av7NUOiQS9WGfWJXFq4bftUyyWkF6vYvpuIw2sCBza32ivekDSWKI61miDbgbLhsjtPiE73d_J0sK-RBb1h4enxpVajlcOvNA_vlxIYWfFj1dA1MUPxQ0sIvnfe1uIbvZk8or9zdKfoKWzuPEIyunjoboADUWd1-xdG8ea08_Qcq83JDTR56i2I-uiZsos1kpHazjMeFxenFlvnIgtu0224ESTnOawEnfgc7B5h5Nbe4MJ1JHxPlnSRjqGaofXa_CueX0ZP5DZk'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 669612cc-4d3a-4840-ba6e-5dca412bb115'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (80 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T222437Z-P2-NP-v2.1
+--- run 5/5 P0-OFF
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0-OFF] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-i1xcgke2
+[P0-OFF] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-i1xcgke2
+[P0-OFF] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0-OFF] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-hxyqoyhe
+[P0-OFF] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0-OFF] T3b          N/A       expected=none (baseline) observed=not-applicable the official example has no input_required tool
+[P0-OFF] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0-OFF] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0-OFF] TL           OBSERVED  expected=none (baseline) observed=access source: access log of official-p0 (Mcp-Name of A's last tasks/get); status=completed (task metadata returned)
+evidence: /home/ubuntu/ai1/evidence/20261010T222451Z-P0-OFF-v2.1
+--- run 5/5 P0-OFF-LIT
+[P0-OFF-LIT] T0           FAIL      expected=all owner operations succeed observed=fail checks: completed=False, reuse=False, cancel_ack=False, cancelled=False; failed: ['completed', 'reuse', 'cancel_ack', 'cancelled']
+evidence: /home/ubuntu/ai1/evidence/20261010T222509Z-P0-OFF-LIT-v2.1
+--- run 5/5 P0
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P0] PC-anon      OBSERVED  expected=none (baseline) observed=access no token; status=completed result contains owner label A-meyvpmwd
+[P0] PC-agent-c   OBSERVED  expected=none (baseline) observed=access alice via agent-c; status=completed result contains owner label A-meyvpmwd
+[P0] AUD          OBSERVED  expected=none (baseline) observed=accepted alice via agent-noaud (no aud claim); HTTP 200; task created
+[P0] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-bo4axkmj
+[P0] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P0] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-nl2ntuv5 answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P0] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T222551Z-P0-v2.1
+--- run 5/5 P1
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P1] PC-anon      MATCH     expected=refused observed=refused no token; error code=-32600 message='authentication required: missing Authorization header'
+[P1] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: rs1.AAABoSgjXGhiMmM3MGEyOS1iMDRhLTRmYmQtYTg2ZC0zMGUyYTQ0OTVjZTI.4N_UbfMVNdiGKCjQYpjCimWLUIF7OqjV15vTyWnkT5I'
+[P1] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 200; error={'code': -32600, 'message': 'authentication required: Missing required claim: aud'}
+[P1] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: rs1.AAABoSgjYMFmMjBiMzdlMi0yNzU2LTQ2MDItOWQ5NC0xYThkZmE0ZDczZmM.XUN632LJcK1cfpQdPlJYd_B8dzRiJB6A6GWUj1k50_U'
+[P1] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgjZM43MjhhZDRmYy1iODk4LTQ2YmQtODBkMC02ZWU3YzBmOTYzOTY.T58JXoRktknXdQ0bPdYu4c4k-S0J4agZU1KTEant1S0'; A then sees status=working
+[P1] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: rs1.AAABoSgjfLM1MDZmMjAzNC02YmY3LTQxOWQtOTMxNi1lNmQ2MWYzMjBhNWM.6OLmg6EyRrrOloLiDiI6QKmBn5mv8eJ91Dx3J0W3ucE'; A then sees status=input_required; after A answers: status=completed result='backup label=A-fz3phwvy answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P1] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] TL           MATCH     expected=refused observed=refused source: access log of task-server-p1 (Mcp-Name of A's last tasks/get); error code=-32602 message='unknown task: rs1.AAABoSgjiEAzZTIyOTBjOS1kM2M5LTQ2NGYtYjFhNi0yYTM5ODM1ODZkY2Q.gW4i-rfdcCNdGJhC5epxZXFhKJaVmhGBTNxK-5DW0zU'
+[P1] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: 3e2290c9-d3c9-464f-b1a6-2a3983586dcd'
+evidence: /home/ubuntu/ai1/evidence/20261010T222604Z-P1-v2.1
+--- run 5/5 P-AGW
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P-AGW] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication failure: no bearer token found'
+[P-AGW] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='Unknown task: 3f888810-7e37-4399-9965-5f0910ce5e64'
+[P-AGW] AUD          OBSERVED  expected=none (baseline) observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication failure: the token is invalid or malformed: Error(MissingRequiredClaim("aud"))
+[P-AGW] T1           OBSERVED  expected=none (baseline) observed=access status=completed result contains owner label A-jyy5nhz9
+[P-AGW] T3a          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=cancelled
+[P-AGW] T3b          OBSERVED  expected=none (baseline) observed=access B got ack {"resultType": "complete"}; A then sees status=completed result='backup label=A-um7u8d8m answer={"action":"accept","content":{"by":"B","confirm":true}}'
+[P-AGW] T4           OBSERVED  expected=none (baseline) observed=distinguishable differs in: ['code', 'message_raw', 'message_normalized', 'result_returned']; codes={'own-of-A': None, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': '', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] TL           OBSERVED  expected=none (baseline) observed=access source: access log of task-server-p0 (Mcp-Name of A's last tasks/get); behind agentgateway, whose default access log has no task ID; status=completed result contains owner label A-TL-
+evidence: /home/ubuntu/ai1/evidence/20261010T222623Z-P-AGW-v2.1
+--- run 5/5 P2
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] T0-B         PASS      expected=B's own operations succeed observed=pass status=completed
+[P2] PC-anon      MATCH     expected=refused observed=refused no token; HTTP 401 'authentication required: missing Authorization header'
+[P2] PC-agent-c   MATCH     expected=refused observed=refused alice via agent-c; error code=-32602 message='unknown task: v1.VHw77n_Qju2qw31UWexLXF415sbuLKoDPUWn9YNuBN3GwwgKNKfuw-UtutGEIyMicCbdYYciApjAuNANMQd2TOdNRdFfm944Ph0ZqQO-85326PeScTGE1sP918t1yd3Josc2ZUiDTppmV9Vc3vNPs82DAcOhDucGqjBlNdLbW2ARCb4zkWuVx4DDzZW2Fk_JO99__tb319efskwbbPKm1pwUET58uBSd3yEDtsdmqh5MslxwD6ZU7Istrl2e9TKg9GpEnQTD1EmEJiU9IFou-rQPMbuvElZgE-TmBnR_ET6zj6FAjt4ECipjN_WP0G0Ct37u-O9n1CDpNLL8QGbUZILfqtk3uu8jX4ulsOI7'
+[P2] AUD          MATCH     expected=refused observed=refused alice via agent-noaud (no aud claim); HTTP 401; authentication required: Missing required claim: aud
+[P2] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.YRJKD57iIBhOwvP3N1QFRs_Ocfnhoe8nFH1s1_XhUzLOydgCNin0J70T90AWg1d-GCwija_07NiRaspBXcRRwGXq92hDMbizP7_oZp_AS2j-O3sjsYuBsHJAJO9aKAgEhisWyXFst0VcPTMioqC9up-GmepLlGfn8VEI1dDe_JE0zSV_MGM4B5Ov8FuR9t4Ps563sYGAGTmu4nWm26ZajEmg0acFX51rK0jNyWiaV__V0PSpWGMn9Vidi0Lg4KB_ywnp-OGFvlkSy2WOiyHZBRvbPvm0OgdJNu4W6vOJpIxFMwuRKRZyceltTreimv9obYu7d0kfSQzxa7DTRxU9eecgOML1TLgFfblxeX0X'
+[P2] T3a          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.4ZFgZFtrKDLCRIax3SrSm2kuhn6G4u9fKoJF5kLYmCdZus1dSPB6wxL1bUmAB-LavHEwyfuN7Fvw97GqcOjjdh0iIhWOf6Zv19gGl-A4DhDKHsGiEdagL54tAVm3-HYe7kBrFNyGJAJzXfB4O-RjXIjGYwqFZKw1xZkW7Y3BKMSVkqboHXQOxXllrw7RyBalkDoo55F1gIl9p87VmVGclA1MwYX-X3Zch-pEvyQ5uGFwFSiPO7kABR5B_LSnOkwik0tEAEtSNpVtFnonQO0dPL_9jy5hwgpHPH9IcMFcMDUn0UpJ7lBxYO0LWF77W0YXmQVezbGu1FqI8c5_XXBmxwtyFBDmcqJj8jDz8whv'; A then sees status=working
+[P2] T3b          MATCH     expected=refused observed=refused B got error code=-32602 'unknown task: v1.eQVBnoj18l7A5BgIqXWlT2ckd6MBUNmfp_lgV44QCh7jyitsek5EwtY7XMVPmUQhI2gMlwspXUB8nL0tFoN0sIUD9OxBPZJgkpvVGCzXdZgJWQtuN1DBX-L2lhByZNeXUFSaEYVfJZoeDSPNBBOd3S2mVtwu0ZcU_B69I-gFwJyB0xM87u0ADiwRGatCrQ14obTNZ-b7xAQJGcpfgOtrcuMaKjHy-a-_uvFpAO0pMoNb6C_vcZ2keAZSi0CZh2hUKHfVlBeiGoRXjNdKtjjc2q3hJdmjGUy3444Cid8BPTYrN8QtB46DggjQxPVv08OjZx9U0_asVl-Lp_mtgNdszkNeU5-MbrOq9PaJ6Biu'; A then sees status=input_required; after A answers: status=completed result='backup label=A-fqk5i4nf answer={"action":"accept","content":{"by":"A","confirm":true}}'
+[P2] T4           MATCH     expected=indistinguishable observed=indistinguishable differs in: ['message_raw']; codes={'own-of-A': -32602, 'random': -32602, 'tampered': -32602, 'malformed': -32602}; http={'own-of-A': 200, 'random': 200, 'tampered': 200, 'malformed': 200}; normalized messages={'own-of-A': 'unknown task: <ID>', 'random': 'unknown task: <ID>', 'tampered': 'unknown task: <ID>', 'malformed': 'unknown task: <ID>'}
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.DSqEZJwOAQnOYwXK6TlT0nOPa64GDTYvi8N0QRGXYLRz2-Axr-qdMQzdGMaimUvEPjFW8pemc8GG91T0o2eM05zw0xbmDWnlGwNrHaSyAlWfJAiAtCBVYy-Y1ZAooJKqHQ5fTM8NpYu785zBKKOWS9NLRbyhizrRGRWg52iItiYOPM-zxzVUVyPJ01O9q9bvQjdKoPUpT-eEc-t1vRlTbyIinrXyjiR62faO0Fyo7AnALwvwG_IQzraxjh4vkSIn0oV8b3c4VtoqW5DYy6PP0SNb0pAIhWTggU8vuj9YtOAyAnOGD_Y1LdrcB7PuStTENG4RljPyg56PRJsjnxcIO-tTn3HuO_Uq7g_5FcGJ'
+[P2] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: f6f30041-cc11-4af7-b948-f4fb83f9183c'
+[P2] TB           MATCH     expected=reached observed=reached direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; status=completed result contains owner label A-TL-
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] TR           MATCH     expected=opens-everywhere observed=opens-everywhere replicas seen=6 ['seal-proxy-7758855775-4wdkd', 'seal-proxy-7758855775-hh994', 'seal-proxy-7758855775-kqqvf', 'seal-proxy-7758855775-l54qq', 'seal-proxy-7758855775-mpswx', 'seal-proxy-7758855775-xtdd6']; transport errors retried=0; owner refusals=0; final=completed
+[P2] R-1          MATCH     expected=0 upstream IDs observed=0 hits (94 IDs, 133 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T222637Z-P2-v2.1
+--- run 5/5 P2-NP
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] T1           MATCH     expected=refused observed=refused error code=-32602 message='unknown task: v1.NRfKAHvSLGRUaKlzLJ2G0UIg4UGBjLcVQLOTNgHagJ529fYpRNaafivLOc-DPoB2fWc2nEFBFSixWQmaW4gOeOshth7xB8DrdQKNwpkd-eCxBvEfsfoz6vjBUaEd9iMtCAsWgUF-KBXVwrUzM55dz9stGERUxPiQFl7O57zZNAMXmcFs1KC1XJjhD6-6EYUvnDXEEfeVW3E5Xmq0jlW01q2Tze1ofSIGLWMO2wIHAY5CeSVFgTjQcQq_Wy0SNPyheIX-XjdRSWEBHz61IjZauAgu9N6suqDEpXg6XDX0QjX3UFvzFL1xXNF7xtVnm5bbjGBN0eRyaOgIHI_kgVBPz1iQ60VB33ll7nOZaHhb'
+[P2-NP] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2-NP] TL           MATCH     expected=refused observed=refused source: access log of seal-proxy (Mcp-Name of A's last tasks/get, all replicas); error code=-32602 message='unknown task: v1.sTfA7J91lAW8LgdDQOMKJZSqLoHVuRSa2pkjy3cnta5GO0GJN5jiqd7bhqsr9j6AG0Mt5VIx81LIrnvHZwAMMs2BcxAfiLz2YdKaMG3DB9OjVXBUocBK4DzqGSbVcUT5Z-rZz7m5dC3alMRi9C0p5vtTRxaDbXSRDR1xsM2THMBGCHaiEdKF9J60doa5c7RzIfyAxv-P4K-t6jVBgykEz9k6tK70PEdDM3b-BamWzeI-KrRqZEsdZ-JirGxd38tr_hzJBVYJL-Oeg9uXICVdCbbxIGDAY_pNtkiwf6AceIfwvqtY1J1_msj6X8fsQbqoGRuziLReZtIhUFjlR_cRha5ZlbMC7azXYjnncgp0'
+[P2-NP] TL-upstream  MATCH     expected=refused observed=refused B presents the upstream ID from the server log; error code=-32602 message='unknown task: eee14c1c-a009-4f81-bc79-9086e88aff8f'
+[P2-NP] TB           MATCH     expected=blocked observed=blocked direct to http://task-server-p2.mcp-shared.svc.cluster.local:8080/mcp; no connection: URLError: <urlopen error [Errno 111] Connection refused>
+[P2-NP] R-1          MATCH     expected=0 upstream IDs observed=0 hits (100 IDs, 30 responses)
+evidence: /home/ubuntu/ai1/evidence/20261010T222726Z-P2-NP-v2.1
+
+==> drain demo (P0, P1, P-AGW, P2) x 5 runs
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-2zx2c348) would break a PodDisruptionBudget for team-a/payments-8584f8c75-gw79f,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-2zx2c348 by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-vz5rf7dp) would break a PodDisruptionBudget for team-a/payments-8584f8c75-kl926,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-vz5rf7dp by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-g6fq90rq) would break a PodDisruptionBudget for team-a/payments-8584f8c75-gct68,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-g6fq90rq by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-hbgttymd) would break a PodDisruptionBudget for team-a/payments-8584f8c75-j5h5k,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-hbgttymd by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P0] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P0] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-v7xukxwu) would break a PodDisruptionBudget for team-a/payments-8584f8c75-g4ptc,
+[P0] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-v7xukxwu by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-1jeebuc6) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6csjr, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-pas8goc4) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6csjr, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-k6gr0p8r) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6csjr, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-mo52wlhj) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6csjr, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P1] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P1] DRAIN-watch  OBSERVED  expected=none (baseline) observed=refused raw task ID; B sees status=None; prompt='Draining k3d-drain-0-0 (A-DRAIN-zobkk2v1) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6csjr, team-a
+[P1] DRAIN-force  OBSERVED  expected=none (baseline) observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-5rgig9cn) would break a PodDisruptionBudget for team-a/payments-8584f8c75-6cs
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-5rgig9cn by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-fxfqgvws) would break a PodDisruptionBudget for team-a/payments-8584f8c75-b4l
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-fxfqgvws by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-sm3pp4uc) would break a PodDisruptionBudget for team-a/payments-8584f8c75-8r9
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-sm3pp4uc by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-c6rftqn1) would break a PodDisruptionBudget for team-a/payments-8584f8c75-4hc
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-c6rftqn1 by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P-AGW] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P-AGW] DRAIN-watch  OBSERVED  expected=none (baseline) observed=read raw task ID; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-rwdrger5) would break a PodDisruptionBudget for team-a/payments-8584f8c75-d5r
+[P-AGW] DRAIN-force  OBSERVED  expected=none (baseline) observed=forced-by-B A then sees status=completed result='drain FORCED node=k3d-drain-0-0 label=A-DRAIN-rwdrger5 by=B deleted=2 (PodDisruptionBudget broken)'
+  cluster: 1 cordoned; payments:       2 Pending 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-7wg7kts6) would break a PodDisruptionBudget for team-a/payments-8584f8c75-4
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-uvwli83p) would break a PodDisruptionBudget for team-a/payments-8584f8c75-4
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-xc7jicw6) would break a PodDisruptionBudget for team-a/payments-8584f8c75-4
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-2fzhb8hp) would break a PodDisruptionBudget for team-a/payments-8584f8c75-4
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+[P2] T0           PASS      expected=all owner operations succeed observed=pass checks: completed=True, reuse=True, cancel_ack=True, cancelled=True
+[P2] DRAIN-watch  MATCH     expected=read observed=read read-only handle bound to B; B sees status=input_required; prompt='Draining k3d-drain-0-0 (A-DRAIN-k57cm4ia) would break a PodDisruptionBudget for team-a/payments-8584f8c75-4
+[P2] DRAIN-force  MATCH     expected=refused observed=refused A then sees status=input_required result=''
+  cluster: 0 cordoned; payments:       2 Running 
+
+Measurements since 2026-10-10T22:13:15: 405 rows, placements: P0-OFF, P0-OFF-LIT, P0, P-AGW, P1, P2, P2-NP
+
+| placement | runs | T0 | T0-B | PC-anon | PC-agent-c | AUD | T1 | T3a | T3b | T4 | TL | TB | TR | DRAIN-watch | DRAIN-force |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| P0-OFF | 5 | pass 10/10 | pass 5/5 | access 5/5 | access 5/5 | accepted 5/5 | access 5/5 | access 5/5 | not-applicable 5/5 | distinguishable 5/5 | access 5/5 |  |  |  |  |
+| P0-OFF-LIT | 5 | fail 5/5 |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| P0 | 10 | pass 15/15 | pass 5/5 | access 5/5 | access 5/5 | accepted 5/5 | access 5/5 | access 5/5 | access 5/5 | distinguishable 5/5 | access 5/5 |  |  | read 5/5 | forced-by-B 5/5 |
+| P-AGW | 10 | pass 15/15 | pass 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | access 5/5 | access 5/5 | access 5/5 | distinguishable 5/5 | access 5/5 |  |  | read 5/5 | forced-by-B 5/5 |
+| P1 | 10 | pass 15/15 | pass 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | indistinguishable 5/5 | refused 5/5 |  |  | refused 5/5 | refused 5/5 |
+| P2 | 10 | pass 20/20 | pass 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | refused 5/5 | indistinguishable 5/5 | refused 5/5 | reached 5/5 | opens-everywhere 5/5 | read 5/5 | refused 5/5 |
+| P2-NP | 5 | pass 10/10 |  |  |  |  | refused 5/5 |  |  |  | refused 5/5 | blocked 5/5 |  |  |  |
+
+Owner-binding placements (expect 'refused' for T1/T3a/T3b/TL): P1, P2, P2-NP
+Baseline placements      (expect 'access'  for T1/T3a/T3b/TL): P0-OFF, P0, P-AGW
+
+ALL CHECKS PASSED
+02-lab-all: exit 0, 1561 s
+scripts/multipass-e2e.sh: line 44: step: command not found

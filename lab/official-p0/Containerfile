@@ -1,0 +1,9 @@
+# Runtime image for rmcp official task demo over HTTP (P0-official). The binary is built beforehand inside RUST_IMAGE (scripts/versions.env) by scripts/lab.sh build
+# (see lab/README.md) and copied to dist/; nothing is compiled on the host.
+ARG BASE=docker.io/library/debian:trixie-slim
+FROM ${BASE}
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY dist/official-task-demo-http /usr/local/bin/official-task-demo-http
+USER 65532
+EXPOSE 8080
+ENTRYPOINT ["/usr/local/bin/official-task-demo-http"]

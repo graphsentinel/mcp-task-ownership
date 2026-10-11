@@ -1,0 +1,30 @@
+initialize HTTP 200
+
+tools/call HTTP 200
+{
+ "jsonrpc": "2.0",
+ "id": 2,
+ "result": {
+  "content": [
+   {
+    "type": "text",
+    "text": "denied by repro processor"
+   }
+  ],
+  "isError": true
+ }
+}
+
+resources/read HTTP 200
+{
+ "jsonrpc": "2.0",
+ "id": 3,
+ "error": {
+  "code": -32600,
+  "message": "denied by repro processor",
+  "data": {
+   "code": -32602,
+   "message": "custom error from processor"
+  }
+ }
+}

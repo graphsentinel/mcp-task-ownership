@@ -1,0 +1,18 @@
+# Seal keys: random on first install, kept on upgrade (also any key added later, e.g. 'previous' by run-r8.sh).
+# Deleted with the release, so 'scripts/lab.sh reinstall' starts with new keys.
+{{- range $k := list (dict "ns" "mcp-shared" "name" "task-seal-key" "bytes" 48)
+                     (dict "ns" "gateway" "name" "task-seal-key-p2" "bytes" 32)
+                     (dict "ns" "gateway" "name" "task-seal-key-agw" "bytes" 32) }}
+{{- $old := lookup "v1" "Secret" $k.ns $k.name }}
+---
+apiVersion: v1
+kind: Secret
+metadata: {name: {{ $k.name }}, namespace: {{ $k.ns }}}
+{{- if and $old $old.data }}
+data:
+{{ toYaml $old.data | indent 2 }}
+{{- else }}
+stringData:
+  active: {{ randBytes (int $k.bytes) | quote }}
+{{- end }}
+{{- end }}

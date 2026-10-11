@@ -1,0 +1,61 @@
+# P-agw: agentgateway v1.6.0 as released, 3 replicas, in front of the unchanged P0 server.
+# Standalone mode on purpose: the released binary (ghcr.io/agentgateway/agentgateway) as a plain Deployment,
+# configured by the ConfigMap below. agentgateway's own Helm chart installs the Gateway API control plane
+# instead, which is a different configuration path; the measurements are for this standalone setup.
+# JWT validated against Keycloak realm ai1; method-level authorization (CEL) on every MCP request.
+# Policy: both teams' agents may use the shared server (tools and tasks). In v1.6.0 the CEL context
+# of tasks/* carries mcp.methodName, mcp.task.name (upstream ID), mcp.task.target and jwt.*; nothing
+# names the task's owner (preflight §3, session.rs authorize_task_request).
+apiVersion: v1
+kind: ConfigMap
+metadata: {name: agw-config, namespace: gateway}
+data:
+  config.yaml: |
+    binds:
+    - port: 8080
+      listeners:
+      - routes:
+        - matches:
+          - path: {exact: /mcp}
+          backends:
+          - mcp:
+              targets:
+              - name: shared
+                mcp:
+                  host: http://task-server-p0.mcp-shared.svc.cluster.local:8080/mcp
+          policies:
+            jwtAuth:
+              mode: strict
+              issuer: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1
+              audiences: [task-server]   # config v2
+              jwks:
+                url: http://keycloak.keycloak.svc.cluster.local:8080/realms/ai1/protocol/openid-connect/certs
+            mcpAuthorization:
+              rules:
+              # config v2: agent-s (alice, 60 s tokens) only for the expiry test T2a-exp
+              - 'jwt.azp in ["agent-a", "agent-b", "agent-s"]'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: agentgateway, namespace: gateway}
+spec:
+  replicas: 3
+  selector: {matchLabels: {app: agentgateway}}
+  template:
+    metadata: {labels: {app: agentgateway, ai1/placement: p-agw}}
+    spec:
+      containers:
+        - name: agentgateway
+          image: {{ .Values.images.agentgateway }}
+          imagePullPolicy: {{ .Values.imagePullPolicy }}
+          args: ["-f", "/config/config.yaml"]
+          ports: [{containerPort: 8080}]
+          volumeMounts: [{name: config, mountPath: /config}]
+      volumes: [{name: config, configMap: {name: agw-config}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: agentgateway, namespace: gateway}
+spec:
+  selector: {app: agentgateway}
+  ports: [{port: 8080, targetPort: 8080}]
